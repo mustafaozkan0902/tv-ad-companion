@@ -85,6 +85,11 @@
                 <span class="nav-label">Patent</span>
                 <span class="lock-indicator">🔒</span>
             </button>
+            <button class="nav-btn faq-nav-btn" data-tab="tabFaq" data-protected="true">
+                <span class="nav-icon">💡</span>
+                <span class="nav-label">Soru-Cevap</span>
+                <span class="lock-indicator">🔒</span>
+            </button>
         </nav>
 
         <!-- Main Scrollable Content -->
@@ -1115,6 +1120,212 @@
                 </div>
             </div>
 
+            <!-- TAB 8: INVESTOR Q&A / CRITICAL QUESTIONS & STRATEGIC SOLUTIONS (#tabFaq) -->
+            <div class="tab-pane" id="tabFaq">
+                <!-- FAQ Hero Header -->
+                <div class="faq-hero">
+                    <div class="faq-badge">💡 YATIRIMCI MASASI: SORULAR & ÇÖZÜMLER</div>
+                    <h2 class="faq-title">Yatırımcı <span>Soru & Cevapları</span></h2>
+                    <p class="faq-subtitle">Melek Yatırımcının Soracağı En Zor Sorular, Teknik Çözüm Yolu, Bütçe, Riskler ve "Neden Şimdi Yapmadık?" Açıklaması</p>
+                    <div class="faq-meta-bar">
+                        <span>🎯 Amaç: <strong>Kusursuz Savunma & Şeffaf Yol Haritası</strong></span>
+                        <span>💰 Aranan Tohum Bütçe: <strong>4.85M ₺ (~$140K)</strong></span>
+                        <span>⏳ Hedef Başabaş: <strong>7. Ay (85K Aktif Kullanıcı)</strong></span>
+                    </div>
+                </div>
+
+                <!-- 1. En Kritik Soru: Neden Şimdi Canlı Yayınları Otomatik Çekmediniz? -->
+                <div class="faq-card highlight-critical">
+                    <div class="faq-card-tag rose">🚨 EN KRİTİK SORU • NEDEN ŞİMDİ YAPMADIK?</div>
+                    <h3 class="faq-card-title">"Bu demoda canlı TV akışını neden doğrudan uydudan/sitelerden otomatik çekmediniz? Neden şimdi yapmadınız?"</h3>
+                    
+                    <div class="faq-answer-box">
+                        <div class="faq-key-takeaway">
+                            <strong>⚡ En Net Cevap:</strong>
+                            <p><strong>"Sıfır Maliyet (Bootstrapping) İlkesi."</strong> Bir erken aşama startup'ın yapacağı en büyük hata, pazar doğrulaması yapmadan ağır donanım ve sunucu maliyetlerine girmesidir.</p>
+                        </div>
+
+                        <div class="faq-details">
+                            <p><strong>Neden Şimdi Yapmadık? (Detaylı Açıklama):</strong></p>
+                            <ul>
+                                <li><strong>1. Aylık 25.000 ₺+ Altyapı Maliyetinden Kaçındık:</strong> 20 ulusal kanalın canlı DVB-S2 uydu sinyalini 7/24 kesintisiz çözmek; 4 adet PCIe Tuner kartı, rack tipi sunucu, statik veri merkezi IP'si ve 40 Mbps kesintisiz bant genişliği gerektirir. Pazar test edilmeden bu parayı harcamak israf olurdu.</li>
+                                <li><strong>2. Önce Ürün & Davranış Doğrulandı:</strong> Biz paramızı donanıma gömmek yerine <strong>0 ₺ maliyetle</strong>; kullanıcı arayüzünü, ödül/puan döngüsünü, anket etkileşimini ve melek yatırımcı sunumunu eksiksiz inşa ettik.</li>
+                                <li><strong>3. Tarayıcı Güvenliği (CORS Kısıtı):</strong> Kullanıcının cep telefonundaki tarayıcı (Chrome/Safari), güvenlik protokolleri gereği TRT veya Kanal D'nin sunucularına arka plandan bağlanıp canlı veri kazıyamaz. Bunun için merkezde donanımsal bir sunucu şarttır.</li>
+                                <li><strong>Sonuç:</strong> Fikrin çalıştığını ve arayüzün tuttuğunu kanıtladık. Şimdi bu donanım altyapısını kurmak için yatırım arıyoruz.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Teknik Çözüm Nedir? -->
+                <div class="faq-card">
+                    <div class="faq-card-tag cyan">🛠️ TEKNİK ÇÖZÜM • NASIL ÇÖZECEĞİZ?</div>
+                    <h3 class="faq-card-title">"Peki teknik çözümünüz tam olarak nedir? Canlı TV ile mobil cihazı nasıl eşleştireceksiniz?"</h3>
+                    
+                    <div class="faq-answer-box">
+                        <div class="faq-key-takeaway">
+                            <strong>⚡ Çözüm: 3 Katmanlı Hibrit Senkronizasyon Mimarisi (Patent Başvurumuz)</strong>
+                        </div>
+
+                        <div class="faq-pillar-grid">
+                            <div class="faq-pillar">
+                                <span class="p-num">1</span>
+                                <div>
+                                    <strong>Merkez DVB-S2 Tuner & Teletekst Motoru</strong>
+                                    <p>Merkez sunucumuza takılan uydu tuner kartları, 20 kanalın DVB yayınından Teletekst Sayfa 300 (akış) ve Sayfa 888 (canlı altyazı) paketlerini mikro saniyede ayrıştırıp Redis döner belleğe yazar.</p>
+                                </div>
+                            </div>
+                            <div class="faq-pillar">
+                                <span class="p-num">2</span>
+                                <div>
+                                    <strong>Akustik ACR (Ses Parmak İzi - Shazam Prensibi)</strong>
+                                    <p>Kullanıcı uygulamayı açtığında telefonun mikrofonu odadaki TV sesinin 16kHz tepe frekanslarını (Constellation Map) çıkarır. 0.2 saniyede sunucudaki ses tamponuyla eşleşip kanalı tespit eder.</p>
+                                </div>
+                            </div>
+                            <div class="faq-pillar">
+                                <span class="p-num">3</span>
+                                <div>
+                                    <strong>Altyazı NLP & Reklam Kuşağı Algılama</strong>
+                                    <p>Yayın sesi ve Teletekst S.888 altyazısı anlık taranır. Marka jingle'ı veya ses düşüşü (black frame) algılandığı anda 0.1 saniyede kullanıcı telefonuna o markanın indirim kuponu fırlatılır.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Gerekli Yatırım ve Bütçe Dağılımı -->
+                <div class="faq-card">
+                    <div class="faq-card-tag purple">💰 YATIRIM İHTİYACI • BÜTÇE NEREYE GİDECEK?</div>
+                    <h3 class="faq-card-title">"Bu çözümü hayata geçirmek için ne kadarlık bir yatırım gerekiyor ve para nereye harcanacak?"</h3>
+                    
+                    <div class="faq-answer-box">
+                        <div class="faq-key-takeaway">
+                            <strong>⚡ Tohum Yatırım Hedefi: 4.850.000 ₺ (~$140.000) • 12 Aylık Runway</strong>
+                        </div>
+
+                        <div class="faq-budget-breakdown">
+                            <div class="b-item">
+                                <span class="b-cat">🛠️ Donanım & Bulut Altyapısı</span>
+                                <span class="b-val">850.000 ₺ (%18)</span>
+                                <p>4 adet DVB-S2 Tuner sunucusu, Redis Ring Buffer cluster, 1 Gbps yedekli uplink.</p>
+                            </div>
+                            <div class="b-item">
+                                <span class="b-cat">💻 Yazılım & Ses Mühendisliği</span>
+                                <span class="b-val">2.050.000 ₺ (%42)</span>
+                                <p>1 Kıdemli Ses/ACR Mühendisi, 1 Fullstack Backend geliştirici, 1 iOS/Swift geliştirici (12 ay).</p>
+                            </div>
+                            <div class="b-item">
+                                <span class="b-cat">⚖️ TÜRKPATENT & WIPO PCT Tescili</span>
+                                <span class="b-val">250.000 ₺ (%5)</span>
+                                <p>Türkiye Yöntem/Sistem Patenti + 150 ülkede PCT başvurusu (TÜBİTAK 1601 hibe destekli).</p>
+                            </div>
+                            <div class="b-item">
+                                <span class="b-cat">🚀 Kullanıcı Edinimi & B2B Pilot Markalar</span>
+                                <span class="b-val">1.700.000 ₺ (%35)</span>
+                                <p>İlk 100.000 aktif kullanıcı kazanımı; Trendyol, Getir, Akbank ile pilot kupon havuzları.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Karşılaşılacak Riskler ve Çözüm Stratejileri -->
+                <div class="faq-card">
+                    <div class="faq-card-tag amber">⚡ RİSKLER & ÇÖZÜMLER • NELER TERS GİDEBİLİR?</div>
+                    <h3 class="faq-card-title">"Bu projede karşınıza çıkacak en büyük riskler ve teknik sorunlar nelerdir?"</h3>
+                    
+                    <div class="faq-risk-list">
+                        <div class="r-card">
+                            <div class="r-head">
+                                <span class="r-badge-risk">RİSK 1</span>
+                                <strong>Kullanıcı Mikrofon İzni Vermezse?</strong>
+                            </div>
+                            <div class="r-body">
+                                <strong>Çözüm: Manuel Kanal ve Program Seçimi (Zorunsuz ACR)</strong>
+                                <p>Mikrofon izni bir zorunluluk değil, konfordur. İzin vermek istemeyen kullanıcı ekrandaki 20 kanal logosuna veya "Günün Akışı" listesine tek dokunuşla basarak tüm anketlere ve kuponlara manuel olarak katılabilir.</p>
+                            </div>
+                        </div>
+
+                        <div class="r-card">
+                            <div class="r-head">
+                                <span class="r-badge-risk">RİSK 2</span>
+                                <strong>Yayın Gecikmesi (Uydu vs Kablo vs IPTV 15-40 sn Farkı)?</strong>
+                            </div>
+                            <div class="r-body">
+                                <strong>Çözüm: 60 Saniyelik Redis Döner Bellek (Ring Buffer)</strong>
+                                <p>Sunucumuz canlı TV sesini anlık silmez; geriye dönük 60 saniyelik kayan bir pencerede tutar. Kullanıcının sesi ister uydudan (0 sn), ister IPTV'den (30 sn gecikmeli) gelsin, sunucu geriye tarayarak gecikmeyi tamamen nötrler.</p>
+                            </div>
+                        </div>
+
+                        <div class="r-card">
+                            <div class="r-head">
+                                <span class="r-badge-risk">RİSK 3</span>
+                                <strong>TV Kanalları veya RTÜK Bize Engel Olabilir mi?</strong>
+                            </div>
+                            <div class="r-body">
+                                <strong>Çözüm: Re-stream Yok; Kanalların En Büyük Dostuyuz</strong>
+                                <p>Biz televizyon görüntüsünü internetten korsan yayınlamıyoruz (telif riski sıfırdır). Sadece havada açık yayınlanan teletekst ve ses sinyalini dinliyoruz. Televizyonun reklam arasında dikkat kaybını önleyip ekrana kilitlediğimiz için kanalların reytingini ve reklam değerini artırıyoruz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Savunma Kalkanı: Bizi Neden Kopyalayamazlar? -->
+                <div class="faq-card">
+                    <div class="faq-card-tag green">🛡️ SAVUNMA VE REKABET • NEDEN BİZ?</div>
+                    <h3 class="faq-card-title">"Büyük bir televizyon kanalı veya dev bir reklam ajansı bu fikri neden kopyalamasın?"</h3>
+                    
+                    <div class="faq-moat-grid">
+                        <div class="moat-box">
+                            <span class="m-icon">🏛️</span>
+                            <div>
+                                <strong>1. Tarafsız Ortak Pazar Yeri</strong>
+                                <p>Kanal D bir uygulama çıkarsa içinde Star TV veya TRT olamaz. İzleyici her kanal için ayrı uygulama indirmez. Contexta TV tüm kanalların tek bağımsız buluşma noktasıdır.</p>
+                            </div>
+                        </div>
+                        <div class="moat-box">
+                            <span class="m-icon">⚖️</span>
+                            <div>
+                                <strong>2. SMK m.82 Patent Koruması</strong>
+                                <p>Akustik ACR + DVB Teletekst NLP çapraz eşlemesi donanımsal yöntem patenti olarak koruma altındadır; izinsiz kopyalayanlar fikri mülkiyet ihlaliyle karşılaşır.</p>
+                            </div>
+                        </div>
+                        <div class="moat-box">
+                            <span class="m-icon">🌐</span>
+                            <div>
+                                <strong>3. Ağ Etkisi (Network Effect)</strong>
+                                <p>İlk 100.000 izleyici ve 50+ marka ekosisteme girdikten sonra, kullanıcı ve kupon hacmini başka bir yeni oyuncunun yakalaması imkansız hale gelir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Monetizasyon & Başabaş Noktası -->
+                <div class="faq-card">
+                    <div class="faq-card-tag cyan">📈 MONETİZASYON • PARA NASIL KAZANILACAK?</div>
+                    <h3 class="faq-card-title">"Para kazanmaya ne zaman ve nasıl başlayacağız? (Gelir Modeli & Breakeven)"</h3>
+                    
+                    <div class="faq-revenue-grid">
+                        <div class="rev-box">
+                            <strong>1. CPA Kupon Komisyonu</strong>
+                            <p>TV reklamından dönüştürülen her sepet harcamasından e-ticaret ve markalardan %8 - %15 başarı komisyonu.</p>
+                        </div>
+                        <div class="rev-box">
+                            <strong>2. Reyting & Reaksiyon Verisi</strong>
+                            <p>Yapımcılara ve reklamverenlere saniyelik izleyici duygu analizi ve anket katılım raporları (B2B SaaS Veri Satışı).</p>
+                        </div>
+                        <div class="rev-box">
+                            <strong>3. Markalı Canlı Kuşak</strong>
+                            <p>Reklam kuşağı aralarında markaya özel sponsorlu bilgi yarışmaları ve ödül havuzları.</p>
+                        </div>
+                    </div>
+
+                    <div class="breakeven-banner">
+                        🏁 <strong>Başabaş Noktası (Breakeven):</strong> 7. ayda aylık 85.000 aktif kullanıcı ve 25.000 kupon kullanımıyla operasyonel kârlılık sağlanır.
+                    </div>
+                </div>
+
+            </div>
+
         </main>
 
     </div>
@@ -1125,7 +1336,7 @@
             <div class="modal-header">
                 <div class="modal-icon">🔐</div>
                 <h3 id="loginModalTitle">Yetkili Kullanıcı Girişi</h3>
-                <p id="loginModalDesc">Contexta TV kapalı devre test ortamı. Özel bölümlere (Cüzdan, Sıralama, Sohbet, Sunum, İstatistik, Patent) erişmek için giriş yapınız.</p>
+                <p id="loginModalDesc">Contexta TV kapalı devre test ortamı. Özel bölümlere (Cüzdan, Sıralama, Sohbet, Sunum, İstatistik, Patent, Soru-Cevap) erişmek için giriş yapınız.</p>
             </div>
 
             <form id="loginForm" class="login-form">

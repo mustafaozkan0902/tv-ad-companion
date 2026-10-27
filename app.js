@@ -2309,6 +2309,9 @@ function switchToTab(targetTab) {
     } else if (targetTab === "tabPatent") {
         const body = document.querySelector(".app-body");
         if (body) body.scrollTop = 0;
+    } else if (targetTab === "tabFaq") {
+        const body = document.querySelector(".app-body");
+        if (body) body.scrollTop = 0;
     }
 }
 
