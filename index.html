@@ -71,6 +71,10 @@
                 <span class="nav-icon">🚀</span>
                 <span class="nav-label">Sunum</span>
             </button>
+            <button class="nav-btn stats-nav-btn" data-tab="tabStats">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label">İstatistik</span>
+            </button>
         </nav>
 
         <!-- Main Scrollable Content -->
@@ -761,6 +765,149 @@
                         <div class="contact-chip">📍 İstanbul, Türkiye</div>
                         <div class="contact-chip">💡 Sektör: AdTech / T-Commerce / ACR</div>
                         <div class="contact-chip">🌐 Çalışan Prototip: Canlı Yayında</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 6: GLOBAL TV STATISTICS (50 ÜLKE DÜNYA TV & REKLAM RAPORU) -->
+            <div class="tab-pane" id="tabStats">
+                <!-- Stats Hero Header -->
+                <div class="stats-hero">
+                    <div class="stats-badge">🌍 KÜRESEL TV VE REKLAM İSTATİSTİKLERİ</div>
+                    <h2 class="stats-title">Dünya TV Pazarı & <span>50 Ülke Verisi</span></h2>
+                    <p class="stats-subtitle">42.000+ Aktif TV Kanalı, Bölgesel Dağılımlar, Yasal Reklam Sınırları ve Günlük İzleme Süreleri</p>
+                    <div class="stats-meta-bar">
+                        <span>📊 Kapsam: <strong>50 Ülke (Küresel TV Pazarının %94'ü)</strong></span>
+                        <span>📡 Veri: <strong>ITU, GWI, Ofcom, RTÜK, FCC & AVMSD</strong></span>
+                    </div>
+                </div>
+
+                <!-- Global Macro Metrics Grid (4 KPI Cards) -->
+                <div class="stats-kpi-grid">
+                    <div class="stats-kpi-card">
+                        <span class="stats-kpi-num">42.000+</span>
+                        <span class="stats-kpi-label">Toplam Aktif TV Kanalı</span>
+                        <span class="stats-kpi-sub">5.200+ Ulusal / 28.000+ Bölgesel</span>
+                    </div>
+                    <div class="stats-kpi-card highlight-cyan">
+                        <span class="stats-kpi-num">3 sa 13 dk</span>
+                        <span class="stats-kpi-label">Dünya Ort. Günlük İzleme</span>
+                        <span class="stats-kpi-sub">Türkiye: 4 sa 24 dk (Zirvede!)</span>
+                    </div>
+                    <div class="stats-kpi-card">
+                        <span class="stats-kpi-num">12.4 dk</span>
+                        <span class="stats-kpi-label">Saatlik Ort. Reklam Yükü</span>
+                        <span class="stats-kpi-sub">AB & TR: 12 dk / ABD: 16-18 dk</span>
+                    </div>
+                    <div class="stats-kpi-card highlight-gold">
+                        <span class="stats-kpi-num">$165+ Mr</span>
+                        <span class="stats-kpi-label">Küresel TV Reklam Harcaması</span>
+                        <span class="stats-kpi-sub">Lineer TV Payı: %57</span>
+                    </div>
+                </div>
+
+                <!-- Channel Distribution Breakdown (Ulusal vs Bölgesel/Yerel) -->
+                <div class="stats-card">
+                    <div class="stats-card-tag cyan">📡 KANAL TÜRLERİ DAĞILIMI</div>
+                    <h3 class="stats-card-title">Dünyadaki 42.000+ Kanalın Kategori Dağılımı</h3>
+                    <div class="dist-bars-wrap">
+                        <div class="dist-row">
+                            <div class="dist-label-row">
+                                <span>🏙️ Bölgesel & Yerel Kanallar (%67)</span>
+                                <strong>~28.000 Kanal</strong>
+                            </div>
+                            <div class="dist-bar"><div class="dist-fill regional" style="width: 67%;"></div></div>
+                        </div>
+                        <div class="dist-row">
+                            <div class="dist-label-row">
+                                <span>🌐 Ulusal & Ana Network Kanalları (%12)</span>
+                                <strong>~5.200 Kanal</strong>
+                            </div>
+                            <div class="dist-bar"><div class="dist-fill national" style="width: 12%;"></div></div>
+                        </div>
+                        <div class="dist-row">
+                            <div class="dist-label-row">
+                                <span>🎯 Tematik, Spor & Belgesel Kanalları (%21)</span>
+                                <strong>~8.800 Kanal</strong>
+                            </div>
+                            <div class="dist-bar"><div class="dist-fill thematic" style="width: 21%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Analytical Takeaways -->
+                <div class="stats-card stats-insight-card">
+                    <div class="stats-card-tag purple">💡 YATIRIMCI İÇGÖRÜSÜ & POTANSİYEL</div>
+                    <h3 class="stats-card-title">Neden 50 Ülkede İkinci Ekran & ACR Kaçınılmaz?</h3>
+                    <p class="stats-p-desc">Dünya genelinde 1 saatlik yayının ortalama <strong>12 ile 18 dakikası reklam kuşağıyla</strong> geçiyor ve izleyicilerin <strong>%87'si reklam kuşağında akıllı telefonuna bakıyor</strong>. Contexta TV'nin ses tanıma (ACR) ve kupon senkronizasyonu, bu 50 ülkedeki 42.000+ kanalın her birinde bu devasa reklam bütçesini doğrudan satışa dönüştürme potansiyeline sahiptir.</p>
+                </div>
+
+                <!-- Search & Filters Bar -->
+                <div class="stats-card stats-filter-card">
+                    <div class="stats-search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="statsSearchInput" placeholder="50 Ülke içinde ara (Örn: Türkiye, ABD, Almanya, Japonya...)" autocomplete="off">
+                        <button type="button" id="btnClearStatsSearch" style="display: none;">✕</button>
+                    </div>
+
+                    <div class="stats-filter-pills" id="continentPills">
+                        <button type="button" class="s-pill active" data-filter="all">Tümü (50)</button>
+                        <button type="button" class="s-pill" data-filter="Avrupa">🇪🇺 Avrupa (22)</button>
+                        <button type="button" class="s-pill" data-filter="Amerika">🌎 Amerika (10)</button>
+                        <button type="button" class="s-pill" data-filter="Asya">🌏 Asya (11)</button>
+                        <button type="button" class="s-pill" data-filter="Ortadogu-Afrika">🌍 Ortadoğu & Afrika (7)</button>
+                    </div>
+
+                    <div class="stats-sort-row">
+                        <span class="sort-label">Sırala:</span>
+                        <select id="statsSortSelect" class="stats-sort-select">
+                            <option value="viewTimeDesc">⏱️ Günlük İzleme Süresi (En Çoktan Aza)</option>
+                            <option value="nationalDesc">🌐 Ulusal Kanal Sayısı (En Çok)</option>
+                            <option value="regionalDesc">🏙️ Yerel/Bölgesel Kanal Sayısı (En Çok)</option>
+                            <option value="adLimitDesc">📢 Reklam Süresi / Saatte (En Çok)</option>
+                            <option value="marketDesc">💰 Reklam Pazarı Büyüklüğü</option>
+                            <option value="nameAsc">🔤 Ülke Adı (A - Z)</option>
+                        </select>
+                        <span class="stats-count-tag" id="statsResultCount">50 Ülke Listeleniyor</span>
+                    </div>
+                </div>
+
+                <!-- 50 Countries Comprehensive Data Table -->
+                <div class="stats-table-wrap">
+                    <table class="stats-table" id="statsTable">
+                        <thead>
+                            <tr>
+                                <th class="col-sticky"># Ülke</th>
+                                <th>Ulusal Kanal</th>
+                                <th>Bölgesel / Yerel</th>
+                                <th>Günlük İzleme</th>
+                                <th>Saatlik Reklam Limiti</th>
+                                <th>Ort. Kuşak</th>
+                                <th>TV Reklam Pazarı</th>
+                            </tr>
+                        </thead>
+                        <tbody id="statsTableBody">
+                            <!-- Populated dynamically via app.js -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Legal Framework Legend -->
+                <div class="stats-card stats-legend-card">
+                    <div class="stats-card-tag green">⚖️ YASAL REKLAM LİMİTLERİ ÖZETİ</div>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <strong>🇪🇺 Avrupa Birliği (AVMSD):</strong> Saat başına azami 12 dakika (%20 kuralı). 06:00-18:00 ve 18:00-24:00 bloklarında esnek kota uygulanır.
+                        </div>
+                        <div class="legend-item">
+                            <strong>🇹🇷 Türkiye (RTÜK 6112):</strong> 1 saatlik yayın diliminde reklam süresi 12 dakikayı geçemez. Kuşaklar genelde 4-6 dakika sürer.
+                        </div>
+                        <div class="legend-item">
+                            <strong>🇺🇸 ABD (FCC):</strong> Genel yetişkin yayınlarında yasal üst limit yoktur; pazar serbestisi gereği saatte 14-18 dakika reklam yayınlanır.
+                        </div>
+                        <div class="legend-item">
+                            <strong>🇬🇧 Birleşik Krallık (Ofcom COSTA):</strong> Kamu yayıncılarında (ITV, C4) günde saat başı ortalama 7-8 dakika, ticari kanallarda 9-12 dakika.
+                        </div>
                     </div>
                 </div>
             </div>

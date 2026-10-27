@@ -1250,6 +1250,10 @@ document.querySelectorAll(".app-nav-bar .nav-btn, .top-nav-bar .nav-btn, .bottom
         } else if (targetTab === "tabPitch") {
             const body = document.querySelector(".app-body");
             if (body) body.scrollTop = 0;
+        } else if (targetTab === "tabStats") {
+            const body = document.querySelector(".app-body");
+            if (body) body.scrollTop = 0;
+            renderStatsTable();
         }
     });
 });
@@ -2011,6 +2015,191 @@ function showToast(msg) {
     }, 2500);
 }
 
+// ====================================================
+// 10. GLOBAL TV & ADVERTISING STATISTICS (50 ÜLKE VERİTABANI)
+// ====================================================
+const globalTvStats = [
+    { rank: 1, name: "Türkiye", flag: "🇹🇷", continent: "Avrupa", national: 38, regional: 220, viewMinutes: 264, viewDisplay: "4 sa 24 dk", adLimitDisplay: "12 dk (%20 RTÜK)", breakDuration: "5.5 dk", market: "35 Mr ₺ ($1.1B)", highlight: true },
+    { rank: 2, name: "ABD", flag: "🇺🇸", continent: "Amerika", national: 135, regional: 1750, viewMinutes: 234, viewDisplay: "3 sa 54 dk", adLimitDisplay: "16-18 dk (FCC Serbest)", breakDuration: "3.8 dk", market: "$65.0 Mr", highlight: false },
+    { rank: 3, name: "Brezilya", flag: "🇧🇷", continent: "Amerika", national: 42, regional: 380, viewMinutes: 244, viewDisplay: "4 sa 04 dk", adLimitDisplay: "15 dk (Yasal %25)", breakDuration: "4.2 dk", market: "$3.8 Mr", highlight: false },
+    { rank: 4, name: "Birleşik Krallık", flag: "🇬🇧", continent: "Avrupa", national: 58, regional: 110, viewMinutes: 234, viewDisplay: "3 sa 54 dk", adLimitDisplay: "12 dk (Ofcom max)", breakDuration: "3.5 dk", market: "$6.2 Mr", highlight: false },
+    { rank: 5, name: "İtalya", flag: "🇮🇹", continent: "Avrupa", national: 44, regional: 240, viewMinutes: 232, viewDisplay: "3 sa 52 dk", adLimitDisplay: "12 dk (AVMSD %20)", breakDuration: "4.8 dk", market: "$3.6 Mr", highlight: false },
+    { rank: 6, name: "Romanya", flag: "🇷🇴", continent: "Avrupa", national: 26, regional: 110, viewMinutes: 250, viewDisplay: "4 sa 10 dk", adLimitDisplay: "12 dk (AVMSD %20)", breakDuration: "5.0 dk", market: "$0.5 Mr", highlight: false },
+    { rank: 7, name: "Polonya", flag: "🇵🇱", continent: "Avrupa", national: 35, regional: 120, viewMinutes: 230, viewDisplay: "3 sa 50 dk", adLimitDisplay: "12 dk (AVMSD %20)", breakDuration: "4.8 dk", market: "$1.3 Mr", highlight: false },
+    { rank: 8, name: "Rusya", flag: "🇷🇺", continent: "Avrupa", national: 55, regional: 420, viewMinutes: 228, viewDisplay: "3 sa 48 dk", adLimitDisplay: "12 dk (FAS Kanunu)", breakDuration: "4.5 dk", market: "$2.4 Mr", highlight: false },
+    { rank: 9, name: "Macaristan", flag: "🇭🇺", continent: "Avrupa", national: 22, regional: 60, viewMinutes: 225, viewDisplay: "3 sa 45 dk", adLimitDisplay: "12 dk (AVMSD %20)", breakDuration: "4.6 dk", market: "$0.4 Mr", highlight: false },
+    { rank: 10, name: "Şili", flag: "🇨🇱", continent: "Amerika", national: 16, regional: 70, viewMinutes: 223, viewDisplay: "3 sa 43 dk", adLimitDisplay: "12 dk (CNTV)", breakDuration: "4.2 dk", market: "$0.5 Mr", highlight: false },
+    { rank: 11, name: "Mısır", flag: "🇪🇬", continent: "Ortadogu-Afrika", national: 34, regional: 85, viewMinutes: 220, viewDisplay: "3 sa 40 dk", adLimitDisplay: "14 dk (SCMR)", breakDuration: "5.0 dk", market: "$0.6 Mr", highlight: false },
+    { rank: 12, name: "Japonya", flag: "🇯🇵", continent: "Asya", national: 30, regional: 125, viewMinutes: 220, viewDisplay: "3 sa 40 dk", adLimitDisplay: "10.8 dk (%18)", breakDuration: "2.5 dk", market: "$12.5 Mr", highlight: false },
+    { rank: 13, name: "Portekiz", flag: "🇵🇹", continent: "Avrupa", national: 14, regional: 65, viewMinutes: 215, viewDisplay: "3 sa 35 dk", adLimitDisplay: "12 dk (AVMSD %20)", breakDuration: "4.5 dk", market: "$0.4 Mr", highlight: false },
+    { rank: 14, name: "Arjantin", flag: "🇦🇷", continent: "Amerika", national: 22, regional: 160, viewMinutes: 215, viewDisplay: "3 sa 35 dk", adLimitDisplay: "12 dk (ENACOM)", breakDuration: "4.2 dk", market: "$0.8 Mr", highlight: false },
+    { rank: 15, name: "Almanya", flag: "🇩🇪", continent: "Avrupa", national: 46, regional: 190, viewMinutes: 210, viewDisplay: "3 sa 30 dk", adLimitDisplay: "12 dk (AVMSD %20)", breakDuration: "4.0 dk", market: "$4.9 Mr", highlight: false },
+    { rank: 16, name: "Endonezya", flag: "🇮🇩", continent: "Asya", national: 38, regional: 210, viewMinutes: 210, viewDisplay: "3 sa 30 dk", adLimitDisplay: "12 dk (KPI)", breakDuration: "4.0 dk", market: "$1.8 Mr", highlight: false },
+    { rank: 17, name: "Filipinler", flag: "🇵🇭", continent: "Asya", national: 24, regional: 90, viewMinutes: 210, viewDisplay: "3 sa 30 dk", adLimitDisplay: "18 dk (KBP)", breakDuration: "4.5 dk", market: "$1.1 Mr", highlight: false },
+    { rank: 18, name: "İspanya", flag: "🇪🇸", continent: "Avrupa", national: 32, regional: 210, viewMinutes: 208, viewDisplay: "3 sa 28 dk", adLimitDisplay: "12 dk (AVMSD %20)", breakDuration: "5.0 dk", market: "$2.1 Mr", highlight: false },
+    { rank: 19, name: "Fransa", flag: "🇫🇷", continent: "Avrupa", national: 36, regional: 140, viewMinutes: 206, viewDisplay: "3 sa 26 dk", adLimitDisplay: "12 dk (AVMSD %20)", breakDuration: "4.2 dk", market: "$3.9 Mr", highlight: false },
+    { rank: 20, name: "Hindistan", flag: "🇮🇳", continent: "Asya", national: 240, regional: 650, viewMinutes: 202, viewDisplay: "3 sa 22 dk", adLimitDisplay: "12 dk (TRAI)", breakDuration: "3.0 dk", market: "$4.5 Mr", highlight: false },
+    { rank: 21, name: "Yunanistan", flag: "🇬🇷", continent: "Avrupa", national: 18, regional: 90, viewMinutes: 235, viewDisplay: "3 sa 55 dk", adLimitDisplay: "12 dk (AVMSD %20)", breakDuration: "5.2 dk", market: "$0.5 Mr", highlight: false },
+    { rank: 22, name: "Kolombiya", flag: "🇨🇴", continent: "Amerika", national: 18, regional: 95, viewMinutes: 200, viewDisplay: "3 sa 20 dk", adLimitDisplay: "12 dk (CRC)", breakDuration: "4.0 dk", market: "$0.6 Mr", highlight: false },
+    { rank: 23, name: "Ukrayna", flag: "🇺🇦", continent: "Avrupa", national: 28, regional: 140, viewMinutes: 200, viewDisplay: "3 sa 20 dk", adLimitDisplay: "12 dk (NRA)", breakDuration: "4.5 dk", market: "$0.3 Mr", highlight: false },
+    { rank: 24, name: "Meksika", flag: "🇲🇽", continent: "Amerika", national: 26, regional: 280, viewMinutes: 195, viewDisplay: "3 sa 15 dk", adLimitDisplay: "13 dk (IFT)", breakDuration: "4.0 dk", market: "$1.9 Mr", highlight: false },
+    { rank: 25, name: "Güney Afrika", flag: "🇿🇦", continent: "Ortadogu-Afrika", national: 25, regional: 55, viewMinutes: 195, viewDisplay: "3 sa 15 dk", adLimitDisplay: "12 dk (ICASA)", breakDuration: "3.5 dk", market: "$0.9 Mr", highlight: false },
+    { rank: 26, name: "Çekya", flag: "🇨🇿", continent: "Avrupa", national: 20, regional: 55, viewMinutes: 195, viewDisplay: "3 sa 15 dk", adLimitDisplay: "12 dk (AVMSD)", breakDuration: "4.2 dk", market: "$0.7 Mr", highlight: false },
+    { rank: 27, name: "Peru", flag: "🇵🇪", continent: "Amerika", national: 16, regional: 85, viewMinutes: 195, viewDisplay: "3 sa 15 dk", adLimitDisplay: "12 dk (MTC)", breakDuration: "3.8 dk", market: "$0.4 Mr", highlight: false },
+    { rank: 28, name: "Azerbaycan", flag: "🇦🇿", continent: "Asya", national: 14, regional: 30, viewMinutes: 195, viewDisplay: "3 sa 15 dk", adLimitDisplay: "12 dk (NTRC)", breakDuration: "4.0 dk", market: "$0.2 Mr", highlight: false },
+    { rank: 29, name: "Kanada", flag: "🇨🇦", continent: "Amerika", national: 48, regional: 145, viewMinutes: 192, viewDisplay: "3 sa 12 dk", adLimitDisplay: "12 dk (CRTC)", breakDuration: "3.5 dk", market: "$2.6 Mr", highlight: false },
+    { rank: 30, name: "Suudi Arabistan", flag: "🇸🇦", continent: "Ortadogu-Afrika", national: 28, regional: 45, viewMinutes: 190, viewDisplay: "3 sa 10 dk", adLimitDisplay: "10 dk (GCAM)", breakDuration: "3.2 dk", market: "$1.2 Mr", highlight: false },
+    { rank: 31, name: "Fas", flag: "🇲🇦", continent: "Ortadogu-Afrika", national: 14, regional: 35, viewMinutes: 190, viewDisplay: "3 sa 10 dk", adLimitDisplay: "12 dk (HACA)", breakDuration: "4.0 dk", market: "$0.3 Mr", highlight: false },
+    { rank: 32, name: "Nijerya", flag: "🇳🇬", continent: "Ortadogu-Afrika", national: 30, regional: 110, viewMinutes: 185, viewDisplay: "3 sa 05 dk", adLimitDisplay: "12 dk (NBC)", breakDuration: "3.8 dk", market: "$0.5 Mr", highlight: false },
+    { rank: 33, name: "Güney Kore", flag: "🇰🇷", continent: "Asya", national: 28, regional: 75, viewMinutes: 178, viewDisplay: "2 sa 58 dk", adLimitDisplay: "11 dk (KCSC)", breakDuration: "2.2 dk", market: "$2.8 Mr", highlight: false },
+    { rank: 34, name: "Hollanda", flag: "🇳🇱", continent: "Avrupa", national: 24, regional: 60, viewMinutes: 175, viewDisplay: "2 sa 55 dk", adLimitDisplay: "12 dk (AVMSD)", breakDuration: "3.8 dk", market: "$1.1 Mr", highlight: false },
+    { rank: 35, name: "İrlanda", flag: "🇮🇪", continent: "Avrupa", national: 12, regional: 25, viewMinutes: 175, viewDisplay: "2 sa 55 dk", adLimitDisplay: "12 dk (BAI)", breakDuration: "3.6 dk", market: "$0.4 Mr", highlight: false },
+    { rank: 36, name: "Avustralya", flag: "🇦🇺", continent: "Asya", national: 32, regional: 85, viewMinutes: 170, viewDisplay: "2 sa 50 dk", adLimitDisplay: "14 dk (ACMA)", breakDuration: "3.6 dk", market: "$2.2 Mr", highlight: false },
+    { rank: 37, name: "Pakistan", flag: "🇵🇰", continent: "Asya", national: 32, regional: 90, viewMinutes: 170, viewDisplay: "2 sa 50 dk", adLimitDisplay: "12 dk (PEMRA)", breakDuration: "3.5 dk", market: "$0.4 Mr", highlight: false },
+    { rank: 38, name: "Belçika", flag: "🇧🇪", continent: "Avrupa", national: 20, regional: 45, viewMinutes: 170, viewDisplay: "2 sa 50 dk", adLimitDisplay: "12 dk (AVMSD)", breakDuration: "3.8 dk", market: "$0.8 Mr", highlight: false },
+    { rank: 39, name: "İsrail", flag: "🇮🇱", continent: "Ortadogu-Afrika", national: 15, regional: 25, viewMinutes: 170, viewDisplay: "2 sa 50 dk", adLimitDisplay: "12 dk (SAT)", breakDuration: "3.5 dk", market: "$0.5 Mr", highlight: false },
+    { rank: 40, name: "Çin", flag: "🇨🇳", continent: "Asya", national: 180, regional: 2100, viewMinutes: 165, viewDisplay: "2 sa 45 dk", adLimitDisplay: "12 dk (NRTA)", breakDuration: "3.5 dk", market: "$18.2 Mr", highlight: false },
+    { rank: 41, name: "BAE", flag: "🇦🇪", continent: "Ortadogu-Afrika", national: 22, regional: 30, viewMinutes: 165, viewDisplay: "2 sa 45 dk", adLimitDisplay: "10 dk (NMC)", breakDuration: "3.0 dk", market: "$0.7 Mr", highlight: false },
+    { rank: 42, name: "Avusturya", flag: "🇦🇹", continent: "Avrupa", national: 16, regional: 50, viewMinutes: 165, viewDisplay: "2 sa 45 dk", adLimitDisplay: "12 dk (AVMSD)", breakDuration: "3.8 dk", market: "$0.6 Mr", highlight: false },
+    { rank: 43, name: "Malezya", flag: "🇲🇾", continent: "Asya", national: 18, regional: 35, viewMinutes: 165, viewDisplay: "2 sa 45 dk", adLimitDisplay: "10 dk (MCMC)", breakDuration: "3.0 dk", market: "$0.6 Mr", highlight: false },
+    { rank: 44, name: "Tayland", flag: "🇹🇭", continent: "Asya", national: 25, regional: 80, viewMinutes: 160, viewDisplay: "2 sa 40 dk", adLimitDisplay: "12.5 dk (NBTC)", breakDuration: "3.5 dk", market: "$1.2 Mr", highlight: false },
+    { rank: 45, name: "Vietnam", flag: "🇻🇳", continent: "Asya", national: 22, regional: 70, viewMinutes: 155, viewDisplay: "2 sa 35 dk", adLimitDisplay: "10 dk (MIC)", breakDuration: "3.0 dk", market: "$0.8 Mr", highlight: false },
+    { rank: 46, name: "Finlandiya", flag: "🇫🇮", continent: "Avrupa", national: 14, regional: 28, viewMinutes: 150, viewDisplay: "2 sa 30 dk", adLimitDisplay: "12 dk (AVMSD)", breakDuration: "3.5 dk", market: "$0.4 Mr", highlight: false },
+    { rank: 47, name: "İsveç", flag: "🇸🇪", continent: "Avrupa", national: 18, regional: 40, viewMinutes: 145, viewDisplay: "2 sa 25 dk", adLimitDisplay: "12 dk (AVMSD)", breakDuration: "3.5 dk", market: "$0.7 Mr", highlight: false },
+    { rank: 48, name: "Danimarka", flag: "🇩🇰", continent: "Avrupa", national: 15, regional: 35, viewMinutes: 142, viewDisplay: "2 sa 22 dk", adLimitDisplay: "12 dk (AVMSD)", breakDuration: "3.4 dk", market: "$0.5 Mr", highlight: false },
+    { rank: 49, name: "İsviçre", flag: "🇨🇭", continent: "Avrupa", national: 18, regional: 42, viewMinutes: 140, viewDisplay: "2 sa 20 dk", adLimitDisplay: "12 dk (OFCOM)", breakDuration: "3.0 dk", market: "$0.8 Mr", highlight: false },
+    { rank: 50, name: "Norveç", flag: "🇳🇴", continent: "Avrupa", national: 14, regional: 30, viewMinutes: 138, viewDisplay: "2 sa 18 dk", adLimitDisplay: "12 dk (NMA)", breakDuration: "3.2 dk", market: "$0.6 Mr", highlight: false }
+];
+
+let currentStatsFilter = "all";
+let currentStatsSearch = "";
+let currentStatsSort = "viewTimeDesc";
+
+function renderStatsTable() {
+    const tbody = document.getElementById("statsTableBody");
+    const countTag = document.getElementById("statsResultCount");
+    if (!tbody) return;
+
+    let list = [...globalTvStats];
+
+    // Filter by continent
+    if (currentStatsFilter !== "all") {
+        list = list.filter(item => item.continent === currentStatsFilter);
+    }
+
+    // Filter by search query
+    if (currentStatsSearch.trim() !== "") {
+        const query = currentStatsSearch.toLowerCase().trim();
+        list = list.filter(item => item.name.toLowerCase().includes(query));
+    }
+
+    // Sort
+    list.sort((a, b) => {
+        if (currentStatsSort === "viewTimeDesc") return b.viewMinutes - a.viewMinutes;
+        if (currentStatsSort === "nationalDesc") return b.national - a.national;
+        if (currentStatsSort === "regionalDesc") return b.regional - a.regional;
+        if (currentStatsSort === "adLimitDesc") {
+            const getLimitNum = (str) => parseFloat(str) || 12;
+            return getLimitNum(b.adLimitDisplay) - getLimitNum(a.adLimitDisplay);
+        }
+        if (currentStatsSort === "nameAsc") return a.name.localeCompare(b.name, "tr");
+        if (currentStatsSort === "marketDesc") {
+            const getMarketVal = (str) => {
+                if (str.includes("Mr ₺")) return 1.1;
+                const m = str.match(/\$([\d\.]+)/);
+                return m ? parseFloat(m[1]) : 0;
+            };
+            return getMarketVal(b.market) - getMarketVal(a.market);
+        }
+        return 0;
+    });
+
+    if (countTag) {
+        countTag.textContent = `${list.length} / 50 Ülke Gösteriliyor`;
+    }
+
+    if (list.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding: 24px; color: #94a3b8;">Aradığınız kriterlere uygun ülke bulunamadı.</td></tr>`;
+        return;
+    }
+
+    tbody.innerHTML = list.map((item, index) => {
+        const percent = Math.min(100, Math.round((item.viewMinutes / 270) * 100));
+        const isHigh = item.viewMinutes >= 220;
+        const isFlexible = item.adLimitDisplay.includes("Serbest");
+        const rowClass = item.highlight ? "row-turkey" : "";
+
+        return `
+            <tr class="${rowClass}">
+                <td class="col-sticky">
+                    <span style="font-size: 1.1rem; margin-right: 4px;">${item.flag}</span>
+                    <strong>${item.name}</strong>
+                    ${item.highlight ? ' <span style="font-size: 0.6rem; color: #ef4444; font-weight:800;">(LİDER)</span>' : ''}
+                </td>
+                <td><strong>${item.national.toLocaleString('tr-TR')}</strong> kanal</td>
+                <td><strong>${item.regional.toLocaleString('tr-TR')}</strong> yerel/bölge</td>
+                <td>
+                    <div class="view-time-cell">
+                        <strong>${item.viewDisplay}</strong>
+                        <div class="view-time-bar">
+                            <div class="view-time-fill ${isHigh ? 'high' : ''}" style="width: ${percent}%;"></div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <span class="ad-limit-tag ${isFlexible ? 'flexible' : ''}">${item.adLimitDisplay}</span>
+                </td>
+                <td>${item.breakDuration}</td>
+                <td><strong style="color: #38bdf8;">${item.market}</strong></td>
+            </tr>
+        `;
+    }).join('');
+}
+
+function initStatsEngine() {
+    const searchInput = document.getElementById("statsSearchInput");
+    const clearBtn = document.getElementById("btnClearStatsSearch");
+    const sortSelect = document.getElementById("statsSortSelect");
+    const pills = document.querySelectorAll("#continentPills .s-pill");
+
+    if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+            currentStatsSearch = e.target.value;
+            if (clearBtn) {
+                clearBtn.style.display = currentStatsSearch ? "block" : "none";
+            }
+            renderStatsTable();
+        });
+    }
+
+    if (clearBtn && searchInput) {
+        clearBtn.addEventListener("click", () => {
+            searchInput.value = "";
+            currentStatsSearch = "";
+            clearBtn.style.display = "none";
+            renderStatsTable();
+        });
+    }
+
+    if (sortSelect) {
+        sortSelect.addEventListener("change", (e) => {
+            currentStatsSort = e.target.value;
+            renderStatsTable();
+        });
+    }
+
+    pills.forEach(pill => {
+        pill.addEventListener("click", () => {
+            pills.forEach(p => p.classList.remove("active"));
+            pill.classList.add("active");
+            currentStatsFilter = pill.getAttribute("data-filter") || "all";
+            renderStatsTable();
+        });
+    });
+
+    renderStatsTable();
+}
+
 // BOOT ENGINE
 initChannelSelectors();
 selectChannel(currentChannel, currentState);
@@ -2020,3 +2209,4 @@ renderLeaderboard();
 initRealtimeChat();
 initPresence();
 initLoginOnboarding();
+initStatsEngine();
