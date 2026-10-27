@@ -1163,6 +1163,70 @@ document.querySelectorAll(".pitch-pill-btn").forEach(link => {
     });
 });
 
+// PDF Download Engine for Investor Pitch Deck
+const btnDownloadPitchPdf = document.getElementById("btnDownloadPitchPdf");
+if (btnDownloadPitchPdf) {
+    btnDownloadPitchPdf.addEventListener("click", () => {
+        showToast("📄 PDF hazırlanıyor, lütfen bekleyin...");
+        
+        const originalText = btnDownloadPitchPdf.innerHTML;
+        btnDownloadPitchPdf.disabled = true;
+        btnDownloadPitchPdf.innerHTML = `
+            <span class="btn-pdf-icon">⏳</span>
+            <div class="btn-pdf-text">
+                <strong>PDF Oluşturuluyor...</strong>
+                <span>Birkaç saniye sürebilir</span>
+            </div>
+        `;
+
+        const pitchElement = document.getElementById("tabPitch");
+
+        if (typeof html2pdf !== "undefined" && pitchElement) {
+            // Hide the download button & nav pills during capture so they aren't in the PDF
+            const actionRow = document.querySelector(".pitch-action-row");
+            const navPills = document.querySelector(".pitch-nav-pills");
+            if (actionRow) actionRow.style.display = "none";
+            if (navPills) navPills.style.display = "none";
+
+            const opt = {
+                margin: [10, 8, 10, 8],
+                filename: 'Contexta_TV_Melek_Yatirimci_Fizibilite_Sunumu.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { 
+                    scale: 2, 
+                    useCORS: true, 
+                    backgroundColor: '#0a0c13',
+                    scrollY: 0
+                },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['css', 'legacy'] }
+            };
+
+            html2pdf().set(opt).from(pitchElement).save()
+                .then(() => {
+                    showToast("✓ PDF başarıyla indirildi!");
+                })
+                .catch(() => {
+                    // Fallback to native print
+                    window.print();
+                })
+                .finally(() => {
+                    if (actionRow) actionRow.style.display = "flex";
+                    if (navPills) navPills.style.display = "flex";
+                    btnDownloadPitchPdf.disabled = false;
+                    btnDownloadPitchPdf.innerHTML = originalText;
+                });
+        } else {
+            // Native print fallback
+            setTimeout(() => {
+                window.print();
+                btnDownloadPitchPdf.disabled = false;
+                btnDownloadPitchPdf.innerHTML = originalText;
+            }, 300);
+        }
+    });
+}
+
 // 9. Optional Speech Recognition Engine (Mic for voice channel match)
 let recognition = null;
 let isListening = false;

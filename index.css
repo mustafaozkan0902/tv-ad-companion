@@ -2704,3 +2704,119 @@ body {
     font-size: 0.65rem;
     color: #94a3b8;
 }
+
+/* PDF Download Button */
+.pitch-action-row {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-download-pdf {
+    width: 100%;
+    max-width: 320px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.25);
+    transition: all 0.2s ease;
+}
+
+.btn-download-pdf:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+}
+
+.btn-download-pdf:active {
+    transform: scale(0.98);
+}
+
+.btn-pdf-icon {
+    font-size: 1.4rem;
+}
+
+.btn-pdf-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.btn-pdf-text strong {
+    font-size: 0.85rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.btn-pdf-text span {
+    font-size: 0.62rem;
+    color: #d1fae5;
+    opacity: 0.9;
+}
+
+/* ====================================================
+   NATIVE PRINT & PDF EXPORT OPTIMIZATIONS
+   ==================================================== */
+@media print {
+    body, html {
+        background: #0a0c13 !important;
+        color: #f1f5f9 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .mobile-wrapper {
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+
+    .app-header,
+    .bottom-nav,
+    .pitch-nav-pills,
+    .pitch-action-row,
+    .toast,
+    #loginModal {
+        display: none !important;
+    }
+
+    .app-body {
+        overflow: visible !important;
+        height: auto !important;
+        padding: 0 !important;
+    }
+
+    .tab-pane {
+        display: none !important;
+    }
+
+    .tab-pane#tabPitch {
+        display: flex !important;
+        gap: 20px !important;
+    }
+
+    .pitch-card, .kpi-card, .mockup-card, .breakeven-card, .pitch-ask-card {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        box-shadow: none !important;
+    }
+
+    .budget-table {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+}

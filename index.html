@@ -18,6 +18,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- HTML2PDF CDN for Investor Deck Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -270,6 +273,17 @@
                     <div class="pitch-meta-bar">
                         <span>💡 Aşama: <strong>Çalışan MVP / Tohum Öncesi</strong></span>
                         <span>🎯 Hedef Tur: <strong>$38,000 (~1.28M ₺)</strong></span>
+                    </div>
+
+                    <!-- PDF Export Action Button -->
+                    <div class="pitch-action-row">
+                        <button type="button" class="btn-download-pdf" id="btnDownloadPitchPdf">
+                            <span class="btn-pdf-icon">📥</span>
+                            <div class="btn-pdf-text">
+                                <strong>Sunumu PDF Olarak İndir</strong>
+                                <span>Melek Yatırımcı & Fizibilite Raporu (A4)</span>
+                            </div>
+                        </button>
                     </div>
                 </div>
 
