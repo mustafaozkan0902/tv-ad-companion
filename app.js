@@ -1301,7 +1301,7 @@ if (btnDownloadPitchPdf) {
                 html2canvas: { 
                     scale: 2, 
                     useCORS: true, 
-                    backgroundColor: '#0a0c13',
+                    backgroundColor: '#ffffff',
                     scrollY: 0
                 },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
