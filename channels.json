@@ -1,0 +1,359 @@
+{
+  "kanald": {
+    "id": "kanald",
+    "name": "Kanal D",
+    "genre": "Dram / Aşk / Suç",
+    "time": "⏰ 20:00 - 23:45",
+    "last_updated": "2026-10-27 23:54:17",
+    "schedule": [
+      {
+        "time": "16:45",
+        "title": "Gündüz Kuşağı Programı",
+        "desc": "Günün öne çıkan aktüel olayları."
+      },
+      {
+        "time": "18:45",
+        "title": "Kanal D Ana Haber (Canlı)",
+        "desc": "Türkiye ve dünya gündemi."
+      },
+      {
+        "time": "20:00",
+        "title": "Haysiyet (CANLI YENİ BÖLÜM)",
+        "desc": "Adalet, aile bağları ve onur mücadelesi.",
+        "current": true
+      },
+      {
+        "time": "23:45",
+        "title": "Haysiyet (Tekrar Kuşağı)",
+        "desc": "Günün kaçırılan anları."
+      }
+    ],
+    "program": {
+      "title": "Haysiyet - CANLI YENİ BÖLÜM",
+      "desc": "Adalet, aile bağları ve onur mücadelesi.",
+      "teletext300": "KANAL D AKIŞ S.300: 20:00 HAYSIYET (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
+      "teletext888": "ALTYAZI S.888: '...Haysiyet canlı yayın altyazı akışı devrede...'",
+      "poll": {
+        "id": "poll_kanald_1",
+        "question": "Haysiyet bu akşamki bölümde en çok hangi sahne konuşulacak?",
+        "options": [
+          "Büyük yüzleşme",
+          "Beklenmedik itiraf",
+          "Planların bozulması"
+        ],
+        "results": {
+          "Büyük yüzleşme": 52,
+          "Beklenmedik itiraf": 31,
+          "Planların bozulması": 17
+        },
+        "points": 20
+      }
+    }
+  },
+  "trt1": {
+    "id": "trt1",
+    "name": "TRT 1",
+    "genre": "Tarih / Dram / Aile",
+    "time": "⏰ 20:00 - 23:45",
+    "last_updated": "2026-10-27 23:54:17",
+    "schedule": [
+      {
+        "time": "16:45",
+        "title": "Gündüz Kuşağı Programı",
+        "desc": "Günün öne çıkan aktüel olayları."
+      },
+      {
+        "time": "18:45",
+        "title": "TRT 1 Ana Haber (Canlı)",
+        "desc": "Türkiye ve dünya gündemi."
+      },
+      {
+        "time": "20:00",
+        "title": "Mehmed: Fetihler Sultanı (CANLI YENİ BÖLÜM)",
+        "desc": "Fatih Sultan Mehmed Han'ın İstanbul ve cihan fethi.",
+        "current": true
+      },
+      {
+        "time": "23:45",
+        "title": "Mehmed: Fetihler Sultanı (Tekrar Kuşağı)",
+        "desc": "Günün kaçırılan anları."
+      }
+    ],
+    "program": {
+      "title": "Mehmed: Fetihler Sultanı - CANLI YENİ BÖLÜM",
+      "desc": "Fatih Sultan Mehmed Han'ın İstanbul ve cihan fethi.",
+      "teletext300": "TRT 1 AKIŞ S.300: 20:00 MEHMED: FETIHLER SULTANI (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
+      "teletext888": "ALTYAZI S.888: '...Mehmed: Fetihler Sultanı canlı yayın altyazı akışı devrede...'",
+      "poll": {
+        "id": "poll_trt1_1",
+        "question": "Mehmed: Fetihler Sultanı bu akşamki bölümde en çok hangi sahne konuşulacak?",
+        "options": [
+          "Büyük yüzleşme",
+          "Beklenmedik itiraf",
+          "Planların bozulması"
+        ],
+        "results": {
+          "Büyük yüzleşme": 52,
+          "Beklenmedik itiraf": 31,
+          "Planların bozulması": 17
+        },
+        "points": 20
+      }
+    }
+  },
+  "showtv": {
+    "id": "showtv",
+    "name": "Show TV",
+    "genre": "Aile / Komedi / Dram",
+    "time": "⏰ 20:00 - 23:45",
+    "last_updated": "2026-10-27 23:54:17",
+    "schedule": [
+      {
+        "time": "16:45",
+        "title": "Gündüz Kuşağı Programı",
+        "desc": "Günün öne çıkan aktüel olayları."
+      },
+      {
+        "time": "18:45",
+        "title": "Show TV Ana Haber (Canlı)",
+        "desc": "Türkiye ve dünya gündemi."
+      },
+      {
+        "time": "20:00",
+        "title": "Bahar (CANLI YENİ BÖLÜM)",
+        "desc": "Bahar'ın uyanışı ve doktorluk hayallerine geri dönüşü.",
+        "current": true
+      },
+      {
+        "time": "23:45",
+        "title": "Bahar (Tekrar Kuşağı)",
+        "desc": "Günün kaçırılan anları."
+      }
+    ],
+    "program": {
+      "title": "Bahar - CANLI YENİ BÖLÜM",
+      "desc": "Bahar'ın uyanışı ve doktorluk hayallerine geri dönüşü.",
+      "teletext300": "SHOW TV AKIŞ S.300: 20:00 BAHAR (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
+      "teletext888": "ALTYAZI S.888: '...Bahar canlı yayın altyazı akışı devrede...'",
+      "poll": {
+        "id": "poll_showtv_1",
+        "question": "Bahar bu akşamki bölümde en çok hangi sahne konuşulacak?",
+        "options": [
+          "Büyük yüzleşme",
+          "Beklenmedik itiraf",
+          "Planların bozulması"
+        ],
+        "results": {
+          "Büyük yüzleşme": 52,
+          "Beklenmedik itiraf": 31,
+          "Planların bozulması": 17
+        },
+        "points": 20
+      }
+    }
+  },
+  "startv": {
+    "id": "startv",
+    "name": "Star TV",
+    "genre": "Dram / Aşk",
+    "time": "⏰ 20:00 - 23:45",
+    "last_updated": "2026-10-27 23:54:17",
+    "schedule": [
+      {
+        "time": "16:45",
+        "title": "Gündüz Kuşağı Programı",
+        "desc": "Günün öne çıkan aktüel olayları."
+      },
+      {
+        "time": "18:45",
+        "title": "Star TV Ana Haber (Canlı)",
+        "desc": "Türkiye ve dünya gündemi."
+      },
+      {
+        "time": "20:00",
+        "title": "Tuzlu Kahve / Star Sineması (CANLI YENİ BÖLÜM)",
+        "desc": "Salı akşamı ekranlara gelen özel film kuşağı.",
+        "current": true
+      },
+      {
+        "time": "23:45",
+        "title": "Tuzlu Kahve / Star Sineması (Tekrar Kuşağı)",
+        "desc": "Günün kaçırılan anları."
+      }
+    ],
+    "program": {
+      "title": "Tuzlu Kahve / Star Sineması - CANLI YENİ BÖLÜM",
+      "desc": "Salı akşamı ekranlara gelen özel film kuşağı.",
+      "teletext300": "STAR TV AKIŞ S.300: 20:00 TUZLU KAHVE / STAR SINEMASI (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
+      "teletext888": "ALTYAZI S.888: '...Tuzlu Kahve / Star Sineması canlı yayın altyazı akışı devrede...'",
+      "poll": {
+        "id": "poll_startv_1",
+        "question": "Tuzlu Kahve / Star Sineması bu akşamki bölümde en çok hangi sahne konuşulacak?",
+        "options": [
+          "Büyük yüzleşme",
+          "Beklenmedik itiraf",
+          "Planların bozulması"
+        ],
+        "results": {
+          "Büyük yüzleşme": 52,
+          "Beklenmedik itiraf": 31,
+          "Planların bozulması": 17
+        },
+        "points": 20
+      }
+    }
+  },
+  "atv": {
+    "id": "atv",
+    "name": "ATV",
+    "genre": "Dram / Töre / Aksiyon",
+    "time": "⏰ 20:00 - 23:45",
+    "last_updated": "2026-10-27 23:54:17",
+    "schedule": [
+      {
+        "time": "16:45",
+        "title": "Gündüz Kuşağı Programı",
+        "desc": "Günün öne çıkan aktüel olayları."
+      },
+      {
+        "time": "18:45",
+        "title": "ATV Ana Haber (Canlı)",
+        "desc": "Türkiye ve dünya gündemi."
+      },
+      {
+        "time": "20:00",
+        "title": "Bir Gece Masalı (CANLI YENİ BÖLÜM)",
+        "desc": "Komiser Mahir ve Yörük kızı Canfeza'nın masalsı aşkı.",
+        "current": true
+      },
+      {
+        "time": "23:45",
+        "title": "Bir Gece Masalı (Tekrar Kuşağı)",
+        "desc": "Günün kaçırılan anları."
+      }
+    ],
+    "program": {
+      "title": "Bir Gece Masalı - CANLI YENİ BÖLÜM",
+      "desc": "Komiser Mahir ve Yörük kızı Canfeza'nın masalsı aşkı.",
+      "teletext300": "ATV AKIŞ S.300: 20:00 BIR GECE MASALI (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
+      "teletext888": "ALTYAZI S.888: '...Bir Gece Masalı canlı yayın altyazı akışı devrede...'",
+      "poll": {
+        "id": "poll_atv_1",
+        "question": "Bir Gece Masalı bu akşamki bölümde en çok hangi sahne konuşulacak?",
+        "options": [
+          "Büyük yüzleşme",
+          "Beklenmedik itiraf",
+          "Planların bozulması"
+        ],
+        "results": {
+          "Büyük yüzleşme": 52,
+          "Beklenmedik itiraf": 31,
+          "Planların bozulması": 17
+        },
+        "points": 20
+      }
+    }
+  },
+  "now": {
+    "id": "now",
+    "name": "NOW (Fox)",
+    "genre": "Dram / Sosyal",
+    "time": "⏰ 20:00 - 23:45",
+    "last_updated": "2026-10-27 23:54:17",
+    "schedule": [
+      {
+        "time": "16:45",
+        "title": "Gündüz Kuşağı Programı",
+        "desc": "Günün öne çıkan aktüel olayları."
+      },
+      {
+        "time": "18:45",
+        "title": "NOW (Fox) Ana Haber (Canlı)",
+        "desc": "Türkiye ve dünya gündemi."
+      },
+      {
+        "time": "20:00",
+        "title": "Gizli Bahçe (CANLI YENİ BÖLÜM)",
+        "desc": "Nazlı ve Demir'in sırlarla dolu velayet mücadelesi.",
+        "current": true
+      },
+      {
+        "time": "23:45",
+        "title": "Gizli Bahçe (Tekrar Kuşağı)",
+        "desc": "Günün kaçırılan anları."
+      }
+    ],
+    "program": {
+      "title": "Gizli Bahçe - CANLI YENİ BÖLÜM",
+      "desc": "Nazlı ve Demir'in sırlarla dolu velayet mücadelesi.",
+      "teletext300": "NOW (FOX) AKIŞ S.300: 20:00 GIZLI BAHÇE (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
+      "teletext888": "ALTYAZI S.888: '...Gizli Bahçe canlı yayın altyazı akışı devrede...'",
+      "poll": {
+        "id": "poll_now_1",
+        "question": "Gizli Bahçe bu akşamki bölümde en çok hangi sahne konuşulacak?",
+        "options": [
+          "Büyük yüzleşme",
+          "Beklenmedik itiraf",
+          "Planların bozulması"
+        ],
+        "results": {
+          "Büyük yüzleşme": 52,
+          "Beklenmedik itiraf": 31,
+          "Planların bozulması": 17
+        },
+        "points": 20
+      }
+    }
+  },
+  "tv8": {
+    "id": "tv8",
+    "name": "TV8",
+    "genre": "Yarışma / Eğlence",
+    "time": "⏰ 20:00 - 23:45",
+    "last_updated": "2026-10-27 23:54:17",
+    "schedule": [
+      {
+        "time": "16:45",
+        "title": "Gündüz Kuşağı Programı",
+        "desc": "Günün öne çıkan aktüel olayları."
+      },
+      {
+        "time": "18:45",
+        "title": "TV8 Ana Haber (Canlı)",
+        "desc": "Türkiye ve dünya gündemi."
+      },
+      {
+        "time": "20:00",
+        "title": "MasterChef Türkiye (CANLI YENİ BÖLÜM)",
+        "desc": "Haftanın ilk dokunulmazlık ve eleme adayı yarışı.",
+        "current": true
+      },
+      {
+        "time": "23:45",
+        "title": "MasterChef Türkiye (Tekrar Kuşağı)",
+        "desc": "Günün kaçırılan anları."
+      }
+    ],
+    "program": {
+      "title": "MasterChef Türkiye - CANLI YENİ BÖLÜM",
+      "desc": "Haftanın ilk dokunulmazlık ve eleme adayı yarışı.",
+      "teletext300": "TV8 AKIŞ S.300: 20:00 MASTERCHEF TÜRKIYE (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
+      "teletext888": "ALTYAZI S.888: '...MasterChef Türkiye canlı yayın altyazı akışı devrede...'",
+      "poll": {
+        "id": "poll_tv8_1",
+        "question": "MasterChef Türkiye bu akşamki bölümde en çok hangi sahne konuşulacak?",
+        "options": [
+          "Büyük yüzleşme",
+          "Beklenmedik itiraf",
+          "Planların bozulması"
+        ],
+        "results": {
+          "Büyük yüzleşme": 52,
+          "Beklenmedik itiraf": 31,
+          "Planların bozulması": 17
+        },
+        "points": 20
+      }
+    }
+  }
+}

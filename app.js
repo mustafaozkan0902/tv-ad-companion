@@ -2373,3 +2373,27 @@ initRealtimeChat();
 initPresence();
 initLoginOnboarding();
 initStatsEngine();
+
+// Dynamic Real-Time Channel Broadcast Sync (Automated GitHub Actions JSON)
+async function syncLiveChannels() {
+    try {
+        const res = await fetch("channels.json?t=" + Date.now());
+        if (res.ok) {
+            const liveData = await res.json();
+            if (liveData && typeof liveData === "object") {
+                Object.keys(liveData).forEach(k => {
+                    if (channelDatabase[k]) {
+                        channelDatabase[k] = Object.assign(channelDatabase[k], liveData[k]);
+                    } else {
+                        channelDatabase[k] = liveData[k];
+                    }
+                });
+                renderCurrentChannel();
+            }
+        }
+    } catch (e) {
+        // Fallback to cached channelDatabase
+    }
+}
+syncLiveChannels();
+setInterval(syncLiveChannels, 60000);
