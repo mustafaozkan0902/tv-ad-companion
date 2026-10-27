@@ -196,24 +196,24 @@ const channelDatabase = {
     kanald: {
         id: "kanald",
         name: "Kanal D",
-        genre: "Dram / Aşk",
+        genre: "Dram / Suç",
         time: "⏰ 20:00 - 23:45",
         schedule: [
             { time: "16:45", title: "Gelinim Mutfakta (Yarışma)", desc: "Altın bilezikler için kıyasıya yarış." },
             { time: "18:30", title: "Kanal D Ana Haber (Canlı)", desc: "Günün gelişmeleri canlı yayında." },
-            { time: "20:00", title: "Uzak Şehir - Alya ve Cihan Albora", desc: "Alya vefat eden eşinin vasiyeti için Mardin Albora topraklarına gelir.", current: true },
-            { time: "23:45", title: "İnci Taneleri (Tekrar)", desc: "Azem ve Dilber'in hikayesi." }
+            { time: "20:00", title: "Haysiyet (Yeni Bölüm)", desc: "Adaletin ve onurun sınırlarını zorlayan hesaplaşma ekranda.", current: true },
+            { time: "23:45", title: "Haysiyet (Tekrar / Gece Kuşağı)", desc: "Günün prime-time yapımının gece tekrarı." }
         ],
         program: {
-            title: "Uzak Şehir - Alya ve Cihan Albora",
-            desc: "Alya, vefat eden eşinin vasiyetini yerine getirmek için oğluyla Kanada'dan Mardin'e gelir; Albora ailesinin reisi Cihan ile karşı karşıya kalır.",
-            teletext300: "KANAL D AKIS S.300: 20:00 UZAK SEHIR (CANLI) / 23:45 INCI TANELERI (T) / 02:00 POYRAZ KARAYEL",
-            teletext888: "ALTYAZI S.888: '...Cihan Albora: Bu topraklardan oğlunu alıp gidemezsin Alya! Burası Albora konağı... Alya: Oğlumu kimseye bırakmam!...'",
+            title: "Haysiyet - Yeni Bölüm",
+            desc: "Adalet, aile bağları ve onur mücadelesi; gerçeğin ortaya çıkmasıyla dengeler altüst oluyor.",
+            teletext300: "KANAL D AKIS S.300: 20:00 HAYSIYET (CANLI YENI BOLUM) / 23:45 HAYSIYET (T) / 02:00 GELINIM MUTFAKTA",
+            teletext888: "ALTYAZI S.888: '...Gerçekler ortaya çıkmadan bu defteri kapatamazsın!... Sana hesap soracağım!...'",
             poll: {
-                id: "poll_kanald_uzaksehir_1",
-                question: "Alya oğlunu korumak için konakta kalmayı kabul edecek mi?",
-                options: ["Mecburen kabul eder", "Kaçış planı yapar", "Hukuki yola başvurur"],
-                results: { "Mecburen kabul eder": 62, "Kaçış planı yapar": 28, "Hukuki yola başvurur": 10 },
+                id: "poll_kanald_haysiyet_1",
+                question: "Haysiyet bu akşamki hesaplaşmada sırlar çözülecek mi?",
+                options: ["Büyük itiraf gelir", "İntikam ertelenir", "Yeni bir düğüm atılır"],
+                results: { "Büyük itiraf gelir": 48, "İntikam ertelenir": 36, "Yeni bir düğüm atılır": 16 },
                 points: 20
             },
             campaign: {
