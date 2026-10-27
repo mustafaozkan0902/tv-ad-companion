@@ -2078,3 +2078,629 @@ body {
     padding: 4px 10px;
     border-radius: 20px;
 }
+
+/* Meta Bar & Chapter Pills */
+.pitch-meta-bar {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 0.68rem;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pitch-meta-bar strong {
+    color: #facc15;
+}
+
+.pitch-nav-pills {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 4px 0 8px 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.pitch-nav-pills::-webkit-scrollbar {
+    display: none;
+}
+
+.pitch-pill-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.pitch-pill-btn:hover, .pitch-pill-btn.active {
+    background: rgba(139, 92, 246, 0.2);
+    border-color: var(--purple);
+    color: #fff;
+}
+
+.pitch-p-desc {
+    font-size: 0.74rem;
+    color: #94a3b8;
+    line-height: 1.45;
+}
+
+.kpi-card.highlight-green {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(19, 23, 34, 0.8) 100%);
+    border-color: rgba(34, 197, 94, 0.4);
+}
+
+.kpi-card.highlight-green .kpi-num {
+    color: #22c55e;
+}
+
+/* ====================================================
+   MOCKUP JOURNEY & REALISTIC PHONE FRAMES
+   ==================================================== */
+
+.mockup-journey-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 6px;
+}
+
+@media (min-width: 380px) {
+    .mockup-journey-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.mockup-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mockup-step-tag {
+    font-size: 0.64rem;
+    font-weight: 800;
+    color: var(--purple);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Phone Screen Frame */
+.phone-screen-frame {
+    background: #090b10;
+    border: 2px solid #2d3748;
+    border-radius: 20px;
+    padding: 10px 8px 12px 8px;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+}
+
+.phone-notch {
+    width: 38px;
+    height: 4px;
+    background: #2d3748;
+    border-radius: 4px;
+    margin: 0 auto 8px auto;
+}
+
+.phone-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+/* Mock 1 Elements */
+.mock-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.mock-badge {
+    background: rgba(34, 197, 94, 0.15);
+    color: var(--green);
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-size: 0.58rem;
+}
+
+.mock-mic-center {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    margin: 6px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mock-pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--purple);
+    animation: ripple 2s infinite ease-out;
+}
+
+.mock-mic-icon {
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, var(--purple), #6366f1);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+.mock-status-text {
+    text-align: center;
+    font-size: 0.6rem;
+    color: #94a3b8;
+}
+
+.mock-match-pill {
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #4ade80;
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 4px 6px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Mock 2 Elements */
+.mock-channel-bar {
+    font-size: 0.62rem;
+    font-weight: 800;
+    color: #facc15;
+    background: rgba(234, 179, 8, 0.1);
+    padding: 3px 6px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.mock-poll-box {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mock-tag-poll {
+    font-size: 0.55rem;
+    color: #c084fc;
+    font-weight: 800;
+}
+
+.mock-q {
+    font-size: 0.62rem;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.mock-opt-btn {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 4px 6px;
+    border-radius: 6px;
+    font-size: 0.58rem;
+    color: #e2e8f0;
+}
+
+.mock-opt-btn.active {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #fca5a5;
+    font-weight: 700;
+}
+
+.mock-points-toast {
+    background: rgba(234, 179, 8, 0.15);
+    border: 1px solid rgba(234, 179, 8, 0.3);
+    color: #facc15;
+    font-size: 0.56rem;
+    font-weight: 700;
+    padding: 3px 6px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* Mock 3 Elements */
+.mock-ad-banner {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    font-size: 0.58rem;
+    font-weight: 800;
+    padding: 3px 6px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.mock-coupon-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px dashed rgba(34, 197, 94, 0.4);
+    border-radius: 8px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mock-brand {
+    font-size: 0.55rem;
+    color: #94a3b8;
+}
+
+.mock-coupon-card h4 {
+    font-size: 0.65rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.mock-code-box {
+    background: rgba(0, 0, 0, 0.4);
+    color: #4ade80;
+    font-size: 0.62rem;
+    font-weight: 800;
+    padding: 3px;
+    border-radius: 4px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.mock-action-btn {
+    background: var(--purple);
+    color: #fff;
+    font-size: 0.58rem;
+    font-weight: 700;
+    padding: 4px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.mock-timer {
+    font-size: 0.55rem;
+    color: #94a3b8;
+    text-align: center;
+}
+
+/* Mock 4 Elements */
+.mock-leaderboard-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.58rem;
+    font-weight: 800;
+    color: #94a3b8;
+}
+
+.mock-rank-pill {
+    color: #facc15;
+}
+
+.mock-row {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 3px 6px;
+    border-radius: 6px;
+    font-size: 0.58rem;
+    color: #e2e8f0;
+}
+
+.mock-row.gold {
+    background: rgba(234, 179, 8, 0.15);
+    border: 1px solid rgba(234, 179, 8, 0.3);
+    color: #facc15;
+}
+
+.mock-chat-bubble {
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 6px;
+    padding: 4px 6px;
+    font-size: 0.56rem;
+    color: #fff;
+    margin-top: auto;
+}
+
+.mockup-desc {
+    font-size: 0.7rem;
+    color: #cbd5e1;
+    line-height: 1.4;
+}
+
+.mockup-desc strong {
+    color: #fff;
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* Market Figures Grid */
+.market-figures-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+@media (min-width: 360px) {
+    .market-figures-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.m-fig-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 10px 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.m-val {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #00f5ff;
+    line-height: 1.1;
+}
+
+.m-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 4px;
+}
+
+.m-sub {
+    font-size: 0.58rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.biz-calc {
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 2px solid #00f5ff;
+    padding: 6px 8px;
+    font-size: 0.68rem;
+    color: #e2e8f0;
+    margin-top: 4px;
+    border-radius: 0 6px 6px 0;
+}
+
+.biz-calc strong {
+    color: #facc15;
+}
+
+/* Feasibility Budget Table */
+.budget-table-wrap {
+    overflow-x: auto;
+    margin: 8px 0;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.budget-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.68rem;
+    text-align: left;
+}
+
+.budget-table th {
+    background: rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+    padding: 8px 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.budget-table td {
+    padding: 8px 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    color: #cbd5e1;
+}
+
+.budget-table tr.total-row {
+    background: rgba(139, 92, 246, 0.15);
+    color: #fff;
+}
+
+.budget-table tr.total-row td {
+    border-top: 2px solid var(--purple);
+    font-size: 0.74rem;
+    color: #fff;
+}
+
+.feasibility-verdict {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    margin-top: 6px;
+}
+
+.v-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: var(--green);
+    margin-bottom: 4px;
+}
+
+.feasibility-verdict p {
+    font-size: 0.72rem;
+    color: #cbd5e1;
+    line-height: 1.4;
+}
+
+/* Unit Economics & Break-Even */
+.unit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.unit-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-sm);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.unit-box.highlight {
+    background: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.35);
+}
+
+.u-title {
+    font-size: 0.65rem;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.u-val {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #facc15;
+    margin: 2px 0;
+}
+
+.unit-box.highlight .u-val {
+    color: #4ade80;
+}
+
+.u-sub {
+    font-size: 0.6rem;
+    color: #64748b;
+    line-height: 1.25;
+}
+
+.breakeven-card {
+    background: linear-gradient(135deg, rgba(30, 27, 75, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.breakeven-card h4 {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #facc15;
+}
+
+.breakeven-card p {
+    font-size: 0.72rem;
+    color: #cbd5e1;
+    line-height: 1.4;
+}
+
+.be-projection-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.be-step {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    padding: 8px 6px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.be-step.highlight {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: rgba(34, 197, 94, 0.4);
+}
+
+.be-step strong {
+    font-size: 0.68rem;
+    color: #fff;
+}
+
+.be-step span {
+    font-size: 0.65rem;
+    color: #facc15;
+    font-weight: 700;
+    margin: 2px 0;
+}
+
+.be-step small {
+    font-size: 0.55rem;
+    color: #94a3b8;
+}
+
+/* Exit Card */
+.exit-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    padding: 12px;
+}
+
+.exit-card h4 {
+    font-size: 0.82rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.exit-chips {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.exit-chip {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    padding: 6px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.exit-chip strong {
+    font-size: 0.72rem;
+    color: #38bdf8;
+}
+
+.exit-chip span {
+    font-size: 0.65rem;
+    color: #94a3b8;
+}

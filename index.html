@@ -260,17 +260,31 @@
                 </form>
             </div>
 
-            <!-- TAB 5: INVESTOR PITCH / MELEK YATIRIMCI SUNUMU -->
+            <!-- TAB 5: INVESTOR PITCH / MELEK YATIRIMCI SUNUMU & FİZİBİLİTE -->
             <div class="tab-pane" id="tabPitch">
                 <!-- Pitch Deck Header -->
                 <div class="pitch-hero">
-                    <div class="pitch-badge">🚀 SEED DECK • YATIRIMCI ÖZETİ</div>
+                    <div class="pitch-badge">🚀 MELEK YATIRIMCI SUNUMU & FİZİBİLİTE RAPORU</div>
                     <h2 class="pitch-title">Contexta <span>TV</span></h2>
                     <p class="pitch-subtitle">Televizyon ve Akıllı Telefonu Milisaniyede Senkronize Eden Yeni Nesil İkinci Ekran & Akustik ACR Platformu</p>
+                    <div class="pitch-meta-bar">
+                        <span>💡 Aşama: <strong>Çalışan MVP / Tohum Öncesi</strong></span>
+                        <span>🎯 Hedef Tur: <strong>$38,000 (~1.28M ₺)</strong></span>
+                    </div>
+                </div>
+
+                <!-- Chapter Navigation Pills -->
+                <div class="pitch-nav-pills">
+                    <a href="#pSecOpportunity" class="pitch-pill-btn active">🎯 Fırsat & Problem</a>
+                    <a href="#pSecJourney" class="pitch-pill-btn">📱 Ekranlar & Akış</a>
+                    <a href="#pSecTech" class="pitch-pill-btn">🔬 Nasıl Yapıyoruz?</a>
+                    <a href="#pSecMarket" class="pitch-pill-btn">💰 Dönen Paralar</a>
+                    <a href="#pSecBudget" class="pitch-pill-btn">📊 Maliyet & Fizibilite</a>
+                    <a href="#pSecEconomics" class="pitch-pill-btn">📈 Başabaş & Exit</a>
                 </div>
 
                 <!-- Executive KPI Grid -->
-                <div class="kpi-grid">
+                <div class="kpi-grid" id="pSecOpportunity">
                     <div class="kpi-card">
                         <span class="kpi-num">%87</span>
                         <span class="kpi-label">TV Açıkken Telefondaki Kitle</span>
@@ -282,199 +296,417 @@
                         <span class="kpi-sub">Patentlenebilir Shazam ACR</span>
                     </div>
                     <div class="kpi-card">
-                        <span class="kpi-num">%99.2</span>
-                        <span class="kpi-label">Tanıma Doğruluk Oranı</span>
-                        <span class="kpi-sub">Ortam Gürültüsüne Dirençli</span>
-                    </div>
-                    <div class="kpi-card">
                         <span class="kpi-num">35 Mr ₺</span>
                         <span class="kpi-label">Türkiye TV Reklam Pazarı</span>
                         <span class="kpi-sub">Global: $160+ Milyar</span>
                     </div>
+                    <div class="kpi-card highlight-green">
+                        <span class="kpi-num">18.5x</span>
+                        <span class="kpi-label">LTV / CAC Oranı</span>
+                        <span class="kpi-sub">12.5K Kullanıcıda Başabaş</span>
+                    </div>
                 </div>
 
-                <!-- Pitch Section 1: PROBLEM -->
+                <!-- 1. BÖLÜM: NEYE ÇÖZÜM BULUYORUZ? -->
                 <div class="pitch-card">
-                    <div class="card-tag red">❌ PİYASADAKİ BÜYÜK PROBLEM</div>
-                    <h3 class="pitch-card-title">Geleneksel TV Yayıncılığı ve Reklamcılığının Çıkmazı</h3>
+                    <div class="card-tag red">❌ NEYE ÇÖZÜM BULUYORUZ?</div>
+                    <h3 class="pitch-card-title">Milyarlık TV Reklam Pazarı Neden Buharlaşıyor?</h3>
+                    <p class="pitch-p-desc">Geleneksel TV yayıncılığı ve reklam sektörü 3 büyük çıkmazla karşı karşıya:</p>
+                    
                     <div class="problem-list">
                         <div class="problem-item">
                             <span class="p-icon">📉</span>
                             <div>
-                                <strong>Kayıp Dikkat (Attention Drop):</strong>
-                                <p>TV'de reklam kuşağı başladığı an izleyicilerin %87'si akıllı telefonlarına bakıyor. Reklamverenlerin milyarlık bütçeleri boşa akıyor.</p>
+                                <strong>1. Dikkat Uçurumu (Attention Drop):</strong>
+                                <p>TV'de reklam kuşağı başladığı an izleyicilerin %87'si akıllı telefonuna (Instagram/TikTok) kaçıyor. TV ekranına dökülen milyarlarca liralık reklam bütçesi izlenmeden çöpe gidiyor.</p>
                             </div>
                         </div>
                         <div class="problem-item">
                             <span class="p-icon">❓</span>
                             <div>
-                                <strong>Sıfır Ölçümleme & Veri Körlüğü:</strong>
-                                <p>Markalar TV reklamı yayınlıyor fakat hangi izleyicinin TV'den web sitesine girdiğini doğrudan bağlayamıyor (Attribution Gap).</p>
+                                <strong>2. Sıfır Ölçümleme & Veri Körlüğü (Attribution Gap):</strong>
+                                <p>TV'ye reklam veren e-ticaret markaları (Getir, Trendyol, Yemeksepeti), gelen siparişin TV reklamından mı yoksa tesadüfen mi geldiğini saniyesi saniyesine kesin olarak ölçemiyor.</p>
                             </div>
                         </div>
                         <div class="problem-item">
                             <span class="p-icon">📺</span>
                             <div>
-                                <strong>Tek Taraflı Pasif Medya:</strong>
-                                <p>TV izleyicisi ekrandaki dizi veya yarışmayla anında etkileşime giremiyor; doğrudan satın alma (T-Commerce) imkanı yok.</p>
+                                <strong>3. Pasif Yayıncılık & Anında Satış Yokluğu (T-Commerce Yok):</strong>
+                                <p>İzleyici ekranda gördüğü bir dizinin kıyafetini veya yemek reklamını anında telefondan sepete atamıyor. TV ile telefon arasında köprü yok.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pitch Section 2: SOLUTION -->
-                <div class="pitch-card">
-                    <div class="card-tag green">✨ BİZİM ÇÖZÜMÜMÜZ: CONTEXTA TV</div>
-                    <h3 class="pitch-card-title">TV ile Akıllı Telefon Arasında Canlı Etkileşim Köprüsü</h3>
-                    <div class="solution-grid">
-                        <div class="sol-item">
-                            <span class="sol-icon">🎯</span>
-                            <h4>Akustik Eşleşme (ACR)</h4>
-                            <p>Uygulama TV sesini arka planda 3 saniye dinleyerek kanalı ve programı %99 doğrulukla bulur.</p>
+                <!-- 2. BÖLÜM: İNSANLAR NE YAPACAK? (KULLANICI YOLCULUĞU & EKRAN GÖRÜNTÜLERİ) -->
+                <div class="pitch-card" id="pSecJourney">
+                    <div class="card-tag green">📱 İNSANLAR NE YAPACAK?</div>
+                    <h3 class="pitch-card-title">4 Adımda Koltuktan Akıllı Alışverişe Kullanıcı Yolculuğu</h3>
+                    <p class="pitch-p-desc">İzleyicinin hiçbir karmaşık işlem yapmasına gerek yok. Sıfır uygulama indirme bariyeriyle tamamen web üzerinde çalışır:</p>
+
+                    <!-- Realistic Interactive UI Mockups -->
+                    <div class="mockup-journey-grid">
+                        
+                        <!-- Step 1 Mockup -->
+                        <div class="mockup-card">
+                            <div class="mockup-step-tag">ADIM 1 • DİNLE / SEÇ</div>
+                            <div class="phone-screen-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-inner">
+                                    <div class="mock-header">
+                                        <span>Contexta<strong>TV</strong></span>
+                                        <span class="mock-badge">🟢 Canlı</span>
+                                    </div>
+                                    <div class="mock-mic-center">
+                                        <div class="mock-pulse-ring"></div>
+                                        <span class="mock-mic-icon">🎙️</span>
+                                    </div>
+                                    <div class="mock-status-text">TV Sesi Dinleniyor (3 sn)...</div>
+                                    <div class="mock-match-pill">✓ Eşleşti: TV8 MasterChef (%98.4)</div>
+                                </div>
+                            </div>
+                            <div class="mockup-desc">
+                                <strong>Koltukta Tek Tık:</strong> Kullanıcı telefonunu açar; mikrofon TV'deki dizi müziğini veya konuşmayı 3 saniye dinleyip kanalı anında tespit eder.
+                            </div>
                         </div>
-                        <div class="sol-item">
-                            <span class="sol-icon">⚡</span>
-                            <h4>Canlı İçerik Senkronizasyonu</h4>
-                            <p>Ekranda dizi varken canlı anketler; reklam kuşağı varken markaya özel indirim kuponları ekrana gelir.</p>
+
+                        <!-- Step 2 Mockup -->
+                        <div class="mockup-card">
+                            <div class="mockup-step-tag">ADIM 2 • CANLI ANKET & OYUN</div>
+                            <div class="phone-screen-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-inner">
+                                    <div class="mock-channel-bar">TV8 • MASTERCHEF TÜRKİYE</div>
+                                    <div class="mock-poll-box">
+                                        <span class="mock-tag-poll">🗳️ CANLI TV ANKETİ (+20 P)</span>
+                                        <p class="mock-q">Dokunulmazlığı bu akşam hangi takım kazanır?</p>
+                                        <div class="mock-opt-btn active">🔴 Kırmızı Takım (%56)</div>
+                                        <div class="mock-opt-btn">🔵 Mavi Takım (%44)</div>
+                                    </div>
+                                    <div class="mock-points-toast">🎉 +20 Puan Hesabınıza Eklendi!</div>
+                                </div>
+                            </div>
+                            <div class="mockup-desc">
+                                <strong>Canlı Etkileşim:</strong> TV'de soru sorulduğunda telefonda anket belirir. İzleyici oy verir, anında puan toplar; dikkati TV'de kilitlenir.
+                            </div>
                         </div>
-                        <div class="sol-item">
-                            <span class="sol-icon">🏆</span>
-                            <h4>Sosyal Oyunlaştırma</h4>
-                            <p>Puan biriktirme, seviye atlama, arkadaş liderlik tablosu ve canlı topluluk sohbeti ile dikkat TV'de kalır.</p>
+
+                        <!-- Step 3 Mockup -->
+                        <div class="mockup-card">
+                            <div class="mockup-step-tag">ADIM 3 • ANINDA REKLAM KUPONU</div>
+                            <div class="phone-screen-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-inner">
+                                    <div class="mock-ad-banner">📢 REKLAM KUŞAĞI TESPİT EDİLDİ</div>
+                                    <div class="mock-coupon-card">
+                                        <span class="mock-brand">Yemeksepeti • Pizza Fırsatı</span>
+                                        <h4>Büyük Boy Pizzada %40 İndirim</h4>
+                                        <div class="mock-code-box">KOD: PIZZA40</div>
+                                        <div class="mock-action-btn">🎁 Cüzdana Ekle (+15 P)</div>
+                                    </div>
+                                    <div class="mock-timer">⏰ Reklam Bitişine Kalan: 02:45</div>
+                                </div>
+                            </div>
+                            <div class="mockup-desc">
+                                <strong>Doğrudan Ticaret (T-Commerce):</strong> TV'de reklam çıktığında telefona 100 TL indirim kuponu düşer. İzleyici tek tıkla sepete koşar.
+                            </div>
                         </div>
-                        <div class="sol-item">
-                            <span class="sol-icon">🛒</span>
-                            <h4>Anında Ticaret (T-Commerce)</h4>
-                            <p>TV'de gördüğü ürünü tek dokunuşla indirim kuponuyla cüzdana ekleyip sepete dönüştürme.</p>
+
+                        <!-- Step 4 Mockup -->
+                        <div class="mockup-card">
+                            <div class="mockup-step-tag">ADIM 4 • ARKADAŞ YARIŞI & SOHBET</div>
+                            <div class="phone-screen-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-inner">
+                                    <div class="mock-leaderboard-top">
+                                        <span>🏆 CANLI PUAN SIRALAMASI</span>
+                                        <span class="mock-rank-pill">#1 Sırada</span>
+                                    </div>
+                                    <div class="mock-row gold">🥇 🦁 Siz (Mustafa) • <strong>140 P</strong></div>
+                                    <div class="mock-row">🥈 🦊 Ahmet • <strong>90 P</strong></div>
+                                    <div class="mock-row">🥉 🚀 Ece • <strong>75 P</strong></div>
+                                    <div class="mock-chat-bubble">🦁 Mustafa: "Kırmızı takım alacak demiştim!"</div>
+                                </div>
+                            </div>
+                            <div class="mockup-desc">
+                                <strong>Sosyal Rekabet & Bağımlılık:</strong> İzleyici arkadaşlarıyla yarışır, kimin en çok puan biriktirdiğini canlı görür, TV ortak deneyime dönüşür.
+                            </div>
                         </div>
+
                     </div>
                 </div>
 
-                <!-- Pitch Section 3: THE DEEP TECH (HOW ACR WORKS) -->
-                <div class="pitch-card tech-highlight">
-                    <div class="card-tag purple">🔬 TEKNOLOJİ ALTYAPISI (DEEP TECH)</div>
-                    <h3 class="pitch-card-title">Shazam Tipi Akustik Parmak İzi Nasıl Çalışıyor?</h3>
-                    <p class="tech-intro">Contexta TV; kullanıcıya uygulama yükletme bariyeri olmaksızın (Modern Web PWA) stüdyo kalitesinde ACR işletir.</p>
+                <!-- 3. BÖLÜM: NEYİ NASIL YAPIYORUZ? (TEKNİK MİMARİ & SHAZAM ACR) -->
+                <div class="pitch-card tech-highlight" id="pSecTech">
+                    <div class="card-tag purple">🔬 NEYİ NASIL YAPIYORUZ? (DEEP TECH)</div>
+                    <h3 class="pitch-card-title">Milisaniyeler İçinde Kanalı ve Reklamı Nasıl Buluyoruz?</h3>
+                    <p class="tech-intro">Contexta TV; Shazam akustik parmak izi algoritması ile Teletekst NLP akışını birleştiren patentlenebilir hibrit bir mimari kullanır:</p>
 
-                    <!-- Visual Architecture Flowchart -->
+                    <!-- Step by step technical architecture -->
                     <div class="architecture-flow">
                         <div class="flow-step">
                             <div class="step-num">1</div>
                             <div class="step-box">
-                                <strong>Canlı TV Akışları</strong>
-                                <span>20 Kanal 7/24 HLS Audio Ingestion (FFmpeg 16kHz)</span>
+                                <strong>20 Ulusal Kanalın 7/24 Dinlenmesi (Cloud Ingestion)</strong>
+                                <span>TRT 1, TV8, Show TV vb. kanalların HLS canlı yayın akışları FFmpeg ile sadece 16 kHz Mono ses olarak sürekli belleğe alınır.</span>
                             </div>
                         </div>
                         <div class="flow-arrow">⬇️</div>
                         <div class="flow-step">
                             <div class="step-num">2</div>
                             <div class="step-box">
-                                <strong>Spektrogram Parmak İzi</strong>
-                                <span>Frekans Tepe Noktaları & Hash Eşleme Havuzu (30sn Sliding Buffer)</span>
+                                <strong>Akustik Spektrogram & Hash Havuzu (Peak Constellation)</strong>
+                                <span>Ses dalgalarının tepe frekans noktaları matematiksel hash'lere dönüştürülür. Son 45 saniyelik ses parmak izi ultra-hızlı Redis RAM havuzunda döner.</span>
                             </div>
                         </div>
                         <div class="flow-arrow">⬇️</div>
                         <div class="flow-step">
                             <div class="step-num">3</div>
                             <div class="step-box">
-                                <strong>Mobil Mikrofon (Web Audio)</strong>
-                                <span>3 Saniyelik Hafif Ses Örneği (~50-70 KB Payload)</span>
+                                <strong>Telefon Mikrofonundan 3 Saniyelik Örnek (Web Audio API)</strong>
+                                <span>Kullanıcı telefonu hiçbir uygulama yüklemeden (PWA) açar. 3 saniyelik minik ses parçası (~60 KB) buluta fırlatılır.</span>
                             </div>
                         </div>
                         <div class="flow-arrow">⬇️</div>
                         <div class="flow-step success">
                             <div class="step-num">4</div>
                             <div class="step-box">
-                                <strong>0.2 Saniyede Algoritmik Eşleşme</strong>
-                                <span>%99 Doğrulukla Kanal + Program + Reklam Tetikleyicisi</span>
+                                <strong>0.2 Saniyede Algoritmik Eşleştirme (%99 Doğruluk)</strong>
+                                <span>Gelen ses parmak izi 20 kanalın canlı tamponuyla taranır; ortamda gürültü veya konuşma olsa bile arkadaki dizi müziğinden kanal tespit edilir.</span>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">⬇️</div>
+                        <div class="flow-step">
+                            <div class="step-num">5</div>
+                            <div class="step-box">
+                                <strong>Teletekst S.300/888 NLP Ayrıştırma (İçerik Kararı)</strong>
+                                <span>Kanal bulunduktan sonra Teletekst Sayfa 300 ve Sayfa 888'deki canlı altyazı taranarak anında o sahneye özel Anket veya Reklam Kuponu telefonda patlar.</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="tech-tags">
-                        <span>✓ Web Audio API</span>
-                        <span>✓ FFT Peak Constellation</span>
-                        <span>✓ Teletext S.300/888 NLP</span>
-                        <span>✓ Real-time SSE Pub/Sub</span>
-                        <span>✓ Zero App Download</span>
+                        <span>✓ Açık Kaynak Shazam Mimarisi</span>
+                        <span>✓ 16kHz Spektrogram Landmark</span>
+                        <span>✓ Teletekst S.888 NLP Deşifre</span>
+                        <span>✓ Web Audio API (Uygulama İndirtmez)</span>
+                        <span>✓ Server-Sent Events (SSE) Gerçek Zamanlı</span>
                     </div>
                 </div>
 
-                <!-- Pitch Section 4: BUSINESS MODEL -->
-                <div class="pitch-card">
-                    <div class="card-tag cyan">💰 İŞ MODELİ & GELİR KANALLARI</div>
-                    <h3 class="pitch-card-title">3 Katmanlı Yüksek Marjlı Gelir Modeli</h3>
+                <!-- 4. BÖLÜM: NE GİBİ PARALAR DÖNÜYOR? (PAZAR BÜYÜKLÜĞÜ & GELİR MODELLERİ) -->
+                <div class="pitch-card" id="pSecMarket">
+                    <div class="card-tag cyan">💰 NE GİBİ PARALAR DÖNÜYOR?</div>
+                    <h3 class="pitch-card-title">Pazar Büyüklüğü ve 3 Kanallı Nakit Akışı</h3>
+                    
+                    <!-- Market Size Figures -->
+                    <div class="market-figures-grid">
+                        <div class="m-fig-box">
+                            <span class="m-val">35+ Milyar ₺</span>
+                            <span class="m-title">Türkiye Yıllık TV Reklam Harcaması</span>
+                            <span class="m-sub">Kaynak: Reklamcılar Derneği Raporu</span>
+                        </div>
+                        <div class="m-fig-box">
+                            <span class="m-val">$8.4 Milyar</span>
+                            <span class="m-title">Global ACR & İkinci Ekran Pazarı</span>
+                            <span class="m-sub">2026 Projeksiyonu (CAGR %22.4)</span>
+                        </div>
+                        <div class="m-fig-box">
+                            <span class="m-val">120 Milyon</span>
+                            <span class="m-title">Türkiye Günlük TV İzleme Seansı</span>
+                            <span class="m-sub">Ortalama 4.2 saat/gün TV izleme</span>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size: 0.85rem; color: #fff; margin-top: 8px;">Contexta TV Nasıl Para Kazanıyor?</h4>
                     <div class="business-grid">
                         <div class="biz-card">
                             <div class="biz-header">
                                 <span class="biz-icon">🛒</span>
-                                <h4>1. E-Ticaret Komisyonu (CPA)</h4>
+                                <div>
+                                    <h4>1. E-Ticaret Satış Komisyonu (CPA / Affiliate)</h4>
+                                    <span class="biz-badge">Performans Geliri</span>
+                                </div>
                             </div>
-                            <p>TV izleyicisinin cüzdana ekleyip alışverişe dönüştürdüğü kuponlardan <strong>%5 - %15 Satış Komisyonu</strong>.</p>
-                            <span class="biz-badge">Performans Bazlı Gelir</span>
+                            <p>TV izleyicisi ekrandaki Getir, Trendyol, Boyner kuponunu kullanıp alışveriş yaptıkça sepet tutarından <strong>%5 - %15 Satış Komisyonu</strong> alınır.</p>
+                            <div class="biz-calc">👉 100.000 aktif kullanıcıda aylık 25.000 kupon dönüşümü x 30 TL ortalama komisyon = <strong>Aylık 750.000 TL Nakit Gelir</strong>.</div>
                         </div>
 
                         <div class="biz-card">
                             <div class="biz-header">
                                 <span class="biz-icon">📢</span>
-                                <h4>2. Sponsorlu TV Anketleri & Gamification</h4>
+                                <div>
+                                    <h4>2. Sponsorlu TV Anketleri & Gamification</h4>
+                                    <span class="biz-badge">B2B Reklam Satışı</span>
+                                </div>
                             </div>
-                            <p>Markaların TV reklam kuşağıyla eşzamanlı yayınlattığı interaktif anketler ve markalı ödül havuzları (B2B Kampanya Geliri).</p>
-                            <span class="biz-badge">B2B Reklam Satışı</span>
+                            <p>TV'de yayınlanan dizi veya yarışmanın (örn. MasterChef) içerisine sponsorlu anket ve ödül havuzu yerleştirilir (Bölüm Başı B2B Sponsorluk Paketi).</p>
+                            <div class="biz-calc">👉 Hafta sonu büyük yayınlarda bölüm başı 50.000 TL - 100.000 TL sponsorluk bedeli.</div>
                         </div>
 
                         <div class="biz-card">
                             <div class="biz-header">
                                 <span class="biz-icon">📊</span>
-                                <h4>3. Gerçek Zamanlı Reyting & ACR Analitiği</h4>
+                                <div>
+                                    <h4>3. Gerçek Zamanlı Reyting & İzleyici Churn Analitiği</h4>
+                                    <span class="biz-badge">B2B SaaS Veri Modeli</span>
+                                </div>
                             </div>
-                            <p>Hangi reklamda kaç bin kişinin kanalı değiştirdiğini gösteren saniyelik <strong>TV Tutundurma ve İzleyici Analitik Verisi</strong> satışı.</p>
-                            <span class="biz-badge">B2B SaaS Veri Modeli</span>
+                            <p>Hangi reklam kuşağında kaç bin kişinin kanalı değiştirdiğini (churn) ve hangi dizinin izleyiciyi tuttuğunu gösteren saniyelik analitik veri satışı.</p>
+                            <div class="biz-calc">👉 TV kanallarına ve medya planlama ajanslarına aylık 50.000 TL - 150.000 TL abonelikle analitik paneli.</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pitch Section 5: ROADMAP -->
-                <div class="pitch-card">
-                    <div class="card-tag purple">🗺️ BÜYÜME VE YOL HARİTASI (ROADMAP)</div>
-                    <h3 class="pitch-card-title">Aşamalardan Unicorn Vizyonuna</h3>
-                    <div class="roadmap-timeline">
-                        <div class="timeline-step completed">
-                            <div class="step-dot">✓</div>
-                            <div class="step-content">
-                                <div class="step-phase">FAZ 1 (TAMAMLANDI) • CANLI MVP</div>
-                                <strong>Web Companion & PWA Prototipi</strong>
-                                <p>Top 20 kanal seçimi, Teletekst S.300/888 motoru, kupon cüzdanı, canlı arkadaş sohbeti ve puan liderlik tablosu.</p>
+                <!-- 5. BÖLÜM: ÜRÜN SATIŞA SUNULANA KADAR HARCANACAK PARA (FİZİBİLİTE & BÜTÇE) -->
+                <div class="pitch-card" id="pSecBudget">
+                    <div class="card-tag purple">📊 LANSMANA KADAR HARCANACAK BÜTÇE</div>
+                    <h3 class="pitch-card-title">6 Aylık Çıkış Öncesi Maliyet & Fizibilite Tablosu</h3>
+                    <p class="pitch-p-desc">Ürünün 20 kanallı canlı Shazam ACR sunucusunu kurup ilk 50.000 kullanıcıya ve ilk 3 ticari marka pilotuna ulaşana kadarki net harcama planı:</p>
+
+                    <!-- Feasibility Budget Table -->
+                    <div class="budget-table-wrap">
+                        <table class="budget-table">
+                            <thead>
+                                <tr>
+                                    <th>Gider Kalemi</th>
+                                    <th>Açıklama</th>
+                                    <th>Aylık</th>
+                                    <th>6 Ay (USD)</th>
+                                    <th>6 Ay (TL)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>1. Bulut & ACR Altyapısı</strong></td>
+                                    <td>20 Kanal HLS 7/24 ses işleme, Redis RAM sunucusu, CDN</td>
+                                    <td>$1,200</td>
+                                    <td>$7,200</td>
+                                    <td>245.000 ₺</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2. Çekirdek Mühendislik</strong></td>
+                                    <td>1 Senior Audio/Backend Mühendisi + 1 Web/PWA Geliştirici</td>
+                                    <td>$3,500</td>
+                                    <td>$21,000</td>
+                                    <td>715.000 ₺</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3. Pilot Kullanıcı Edinimi</strong></td>
+                                    <td>İlk 10.000 aktif izleyici testi, mikro-influencer & sosyal reklam</td>
+                                    <td>-</td>
+                                    <td>$4,000</td>
+                                    <td>135.000 ₺</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4. Hukuki, Şirket & Patent</strong></td>
+                                    <td>ACR parmak izi algoritması patent başvurusu, şirketleşme, sözleşmeler</td>
+                                    <td>-</td>
+                                    <td>$2,500</td>
+                                    <td>85.000 ₺</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>5. Operasyon & Yedek Fon</strong></td>
+                                    <td>Geliştirici araçları, veri hatları, beklenmeyen masraflar (%10)</td>
+                                    <td>$500</td>
+                                    <td>$3,000</td>
+                                    <td>100.000 ₺</td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td colspan="3"><strong>TOPLAM TOHUM YATIRIM İHTİYACI (RUNWAY: 6 AY)</strong></td>
+                                    <td><strong>$37,700</strong></td>
+                                    <td><strong>~1.280.000 ₺</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="feasibility-verdict">
+                        <span class="v-badge">✓ FİZİBİLİTE SONUCU: ÇOK YÜKSEK GERİ DÖNÜŞ (ROI)</span>
+                        <p>İhtiyaç duyulan bütçe <strong>tek bir melek yatırımcının veya 2 ortaklı bir melek kulübünün</strong> rahatlıkla karşılayabileceği rasyonel bir tohum ölçeğindedir. Ağır donanım veya stüdyo maliyeti yoktur.</p>
+                    </div>
+                </div>
+
+                <!-- 6. BÖLÜM: BİRİM EKONOMİ, BAŞABAŞ NOKTASI & EXIT -->
+                <div class="pitch-card" id="pSecEconomics">
+                    <div class="card-tag green">📈 BİRİM EKONOMİ & BAŞABAŞ NOKTASI</div>
+                    <h3 class="pitch-card-title">Unit Economics & Finansal Projeksiyon</h3>
+
+                    <div class="unit-grid">
+                        <div class="unit-box">
+                            <span class="u-title">CAC (Kullanıcı Edinme)</span>
+                            <span class="u-val">4.00 ₺</span>
+                            <span class="u-sub">Organik viral yarışma etkisiyle ultra düşük</span>
+                        </div>
+                        <div class="unit-box">
+                            <span class="u-title">ARPU (Aylık Kullanıcı Geliri)</span>
+                            <span class="u-val">18.50 ₺</span>
+                            <span class="u-sub">Ortalama 1.5 kupon + 4 anket / ay</span>
+                        </div>
+                        <div class="unit-box">
+                            <span class="u-title">LTV (Yaşam Boyu Değeri)</span>
+                            <span class="u-val">74.00 ₺</span>
+                            <span class="u-sub">4 aylık tutunma varsayımıyla</span>
+                        </div>
+                        <div class="unit-box highlight">
+                            <span class="u-title">LTV / CAC Oranı</span>
+                            <span class="u-val">18.5x</span>
+                            <span class="u-sub">Sektör normu 3x iken olağanüstü kârlı</span>
+                        </div>
+                    </div>
+
+                    <!-- Break-even analysis bar -->
+                    <div class="breakeven-card">
+                        <h4>🎯 Başabaş Noktası (Break-Even): 12.500 Aktif Kullanıcı</h4>
+                        <p>Platform sadece <strong>12.500 düzenli TV izleyicisine ulaştığında</strong> aylık tüm sunucu ve operasyonel giderlerini kendi ürettiği komisyon ve reklam gelirleriyle karşılar hale gelir.</p>
+                        <div class="be-projection-row">
+                            <div class="be-step">
+                                <strong>12.500 Kullanıcı</strong>
+                                <span>230.000 ₺/ay Ciro</span>
+                                <small>Başabaş Noktası (0 Risk)</small>
+                            </div>
+                            <div class="be-step highlight">
+                                <strong>50.000 Kullanıcı</strong>
+                                <span>925.000 ₺/ay Ciro</span>
+                                <small>%65+ Net Kâr Marjı</small>
+                            </div>
+                            <div class="be-step">
+                                <strong>250.000 Kullanıcı</strong>
+                                <span>4.6 Milyon ₺/ay Ciro</span>
+                                <small>Seri A Hazırlığı</small>
                             </div>
                         </div>
-                        <div class="timeline-step current">
-                            <div class="step-dot">2</div>
-                            <div class="step-content">
-                                <div class="step-phase">FAZ 2 (TOHUM YATIRIM) • PILOT</div>
-                                <strong>Bulut Shazam ACR & İlk Marka Kampanyaları</strong>
-                                <p>20 kanalın 7/24 ses parmak izi sunucusunun yayına alınması, 50.000 aktif izleyici testi ve ilk 3 büyük e-ticaret markasıyla pilot gelir.</p>
+                    </div>
+
+                    <!-- Exit Strategy -->
+                    <div class="exit-card">
+                        <h4>🏁 Yatırımcı İçin Çıkış Stratejisi (Exit Yolları)</h4>
+                        <div class="exit-chips">
+                            <div class="exit-chip">
+                                <strong>Medya Devleri Satın Alımı</strong>
+                                <span>Acun Medya, Doğan Grubu, Turkuvaz (Reytingleri korumak için)</span>
                             </div>
-                        </div>
-                        <div class="timeline-step">
-                            <div class="step-dot">3</div>
-                            <div class="step-content">
-                                <div class="step-phase">FAZ 3 (ÖLÇEKLENME) • GLOBAL</div>
-                                <strong>Smart TV (LG/Samsung) & Kanal Entegrasyonu</strong>
-                                <p>TV yayıncılarıyla doğrudan HbbTV ortaklığı, otomatik kanal algılama ve MENA / Avrupa pazarına açılım.</p>
+                            <div class="exit-chip">
+                                <strong>Küresel ACR / Smart TV Şirketleri</strong>
+                                <span>Samba TV, Gracenote (Nielsen), LG webOS, Samsung Tizen</span>
+                            </div>
+                            <div class="exit-chip">
+                                <strong>E-Ticaret Devleri</strong>
+                                <span>Trendyol, Hepsiburada, Getir (TV'deki e-ticaret dönüşümünü tekeline almak için)</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pitch Footer: THE ASK -->
+                <!-- Pitch Footer: THE ASK & CONTACT -->
                 <div class="pitch-ask-card">
-                    <div class="ask-badge">🤝 YATIRIM TURU</div>
-                    <h3>Tohum Yatırım Arayışı (Seed Round)</h3>
-                    <p>Bulut ACR altyapısının ölçeklenmesi, 20 kanalın 7/24 gerçek zamanlı ses işleme pipeline'ı ve ilk reklamveren satış operasyonu için melek yatırım arayışındayız.</p>
+                    <div class="ask-badge">🤝 YATIRIM TEKLİFİ</div>
+                    <h3>$38,000 Tohum Yatırım (%10 - %15 Hisse Opsiyonu)</h3>
+                    <p>Bulut Shazam ACR ses işleme motorunun canlıya alınması, 20 kanalın 7/24 işlenmesi ve ilk 3 büyük e-ticaret markasıyla pilot gelir üretimi için tohum yatırımcılarımızı arıyoruz.</p>
                     <div class="ask-contact-row">
                         <div class="contact-chip">📍 İstanbul, Türkiye</div>
-                        <div class="contact-chip">💡 Sektör: AdTech / T-Commerce</div>
-                        <div class="contact-chip">🌐 Prototype: Canlı Yayında</div>
+                        <div class="contact-chip">💡 Sektör: AdTech / T-Commerce / ACR</div>
+                        <div class="contact-chip">🌐 Çalışan Prototip: Canlı Yayında</div>
                     </div>
                 </div>
             </div>

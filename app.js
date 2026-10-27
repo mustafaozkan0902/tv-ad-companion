@@ -1148,6 +1148,21 @@ document.querySelectorAll(".bottom-nav .nav-btn").forEach(btn => {
     });
 });
 
+// Pitch Deck Chapter Smooth Navigation
+document.querySelectorAll(".pitch-pill-btn").forEach(link => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelectorAll(".pitch-pill-btn").forEach(p => p.classList.remove("active"));
+        link.classList.add("active");
+        
+        const targetId = link.getAttribute("href").replace("#", "");
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    });
+});
+
 // 9. Optional Speech Recognition Engine (Mic for voice channel match)
 let recognition = null;
 let isListening = false;
