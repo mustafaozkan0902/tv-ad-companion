@@ -2312,6 +2312,7 @@ function switchToTab(targetTab) {
     } else if (targetTab === "tabFaq") {
         const body = document.querySelector(".app-body");
         if (body) body.scrollTop = 0;
+        renderFaqList();
     }
 }
 
@@ -3357,6 +3358,209 @@ function initStatsEngine() {
     renderStatsTable();
 }
 
+// ====================================================
+// INVESTOR Q&A ENGINE (SORU - CEVAP MODÜLÜ)
+// ====================================================
+
+const DEFAULT_FAQS = [
+    {
+        id: "faq_critical_bootstrapping",
+        isDefault: true,
+        question: "Bu demoda canlı TV akışını ve teletekst verilerini neden doğrudan sitelerden/uydudan otomatik çekmediniz? Neden şimdi yapmadınız?",
+        answerHtml: `
+            <p><strong>En Net ve Şeffaf Sebep: Sıfır Maliyet (Bootstrapping) İlkesi.</strong></p>
+            <p>Erken aşama bir girişimde pazar ve kullanıcı doğrulaması yapılmadan önce ağır donanım ve sunucu maliyetlerine girmek sermaye israfıdır:</p>
+            <ul>
+                <li><strong>Aylık 25.000 ₺+ Donanım ve Sunucu Masrafından Kaçındık:</strong> 20 ulusal kanalın 7/24 kesintisiz DVB-S2 uydu sinyalini çözmek; 4 adet profesyonel PCIe Tuner kartı, rack tipi dedicated sunucu, statik veri merkezi IP'si ve 40 Mbps kesintisiz uplink gerektirir. Kullanıcı davranışını test etmeden bu sermayeyi harcamamak bilinçli bir kurucu kararıdır.</li>
+                <li><strong>Önce Ürün ve Deneyim Doğrulandı:</strong> Paramızı donanıma gömmek yerine 0 ₺ maliyetle; kullanıcı arayüzünü, 20 kanalın EPG/Teletekst akış modelini, ödül/kupon döngüsünü, anket etkileşimini ve patent başvuru dosyasını eksiksiz inşa ettik.</li>
+                <li><strong>Tarayıcı Güvenliği (CORS Protokolü):</strong> Mobil cihazlardaki web tarayıcıları (Chrome, Safari vb.), güvenlik kısıtları nedeniyle TV kanallarının resmi web sitelerine arka plandan bağlanıp canlı veri kazıyamaz (Cross-Origin Resource Sharing engeli). Bunun için merkezde donanımsal bir sunucu şarttır.</li>
+            </ul>
+            <p><strong>Sonuç:</strong> Ürünün çalıştığını ve etkileşim modelinin tuttuğunu kanıtladık. Aradığımız tohum yatırım, tam olarak bu merkezi DVB-S2 uydu altyapısını kurmak içindir.</p>
+        `
+    },
+    {
+        id: "faq_technical_solution",
+        isDefault: true,
+        question: "Teknik çözümünüz tam olarak nedir? Canlı TV yayını ile mobil cihazı nasıl eşleştireceksiniz?",
+        answerHtml: `
+            <p><strong>Çözüm: 3 Katmanlı Hibrit Senkronizasyon Mimarisi (Patent Başvurumuz):</strong></p>
+            <ul>
+                <li><strong>1. Merkez DVB-S2 Tuner & Teletekst Motoru:</strong> Merkez sunucumuza takılı uydu kartları, 20 ulusal kanalın yayınından Teletekst Sayfa 300 (yayın akışı) ve Sayfa 888 (canlı altyazı) paketlerini mikrosaniyeler içinde ayrıştırıp Redis döner belleğe yazar.</li>
+                <li><strong>2. Akustik ACR (Ses Parmak İzi - Shazam Prensibi):</strong> Kullanıcı uygulamayı açtığında telefonun mikrofonu odadaki TV sesinin 16kHz tepe frekanslarını (Constellation Map) çıkarır. 0.2 saniyede merkez sunucudaki ses tamponuyla eşleşerek izlenen kanalı anında tespit eder.</li>
+                <li><strong>3. Altyazı NLP & Reklam Kuşağı Algılama:</strong> TV yayını ve Teletekst S.888 altyazısı anlık taranır. Reklam jingle'ı veya ses düşüşü (black frame) algılandığı anda 0.1 saniyede kullanıcının ekranına o markanın indirim kuponu ve etkileşimli anketi düşürülür.</li>
+            </ul>
+        `
+    },
+    {
+        id: "faq_investment_budget",
+        isDefault: true,
+        question: "Bu çözümü hayata geçirmek için ne kadarlık bir yatırım gerekiyor ve bütçe nereye harcanacak?",
+        answerHtml: `
+            <p><strong>Tohum Yatırım İhtiyacı: 4.850.000 ₺ (~$140.000) • 12 Aylık Runway</strong></p>
+            <ul>
+                <li><strong>Donanım & Bulut Altyapısı (%18 - 850.000 ₺):</strong> 4 adet PCIe DVB-S2 Tuner sunucusu, Redis Ring Buffer bellek kümesi, 1 Gbps yedekli uplink ve veri merkezi barındırma.</li>
+                <li><strong>Yazılım & Ses Mühendisliği (%42 - 2.050.000 ₺):</strong> 1 Kıdemli Ses/ACR Mühendisi, 1 Fullstack Backend geliştirici, 1 iOS/Swift geliştirici (12 ay maaş + donanım).</li>
+                <li><strong>Patent & Hukuk (%5 - 250.000 ₺):</strong> SMK m.82 Türkiye Patenti tescil takibi ve 150 ülkede WIPO PCT uluslararası patent başvurusu (TÜBİTAK 1601 hibe destekli).</li>
+                <li><strong>Kullanıcı Edinimi & B2B Markalar (%35 - 1.700.000 ₺):</strong> İlk 100.000 aktif kullanıcı kazanımı, e-ticaret ve perakende markalarıyla (Trendyol, Getir, Akbank vb.) pilot kupon fonlaması.</li>
+            </ul>
+        `
+    },
+    {
+        id: "faq_risks_and_challenges",
+        isDefault: true,
+        question: "Karşılaşılacak en kritik riskler, teknik sorunlar ve bunlara karşı çözümleriniz nelerdir?",
+        answerHtml: `
+            <ul>
+                <li><strong>Risk 1: Kullanıcı Mikrofon İzni Vermezse?</strong><br>
+                <strong>Çözüm: Manuel Kanal ve Program Seçimi (Zorunsuz ACR).</strong> Mikrofon bir zorunluluk değil, konfordur. İzin vermek istemeyen kullanıcı ekrandaki 20 kanal logosuna veya 'Günün Akışı' listesine tek dokunuşla basarak tüm anketlere ve kuponlara manuel olarak katılabilir.</li>
+                <li><strong>Risk 2: Yayın Gecikmesi (Uydu vs Kablo vs IPTV 15-40 sn Farkı)?</strong><br>
+                <strong>Çözüm: 60 Saniyelik Redis Döner Bellek (Ring Buffer).</strong> Sunucumuz canlı TV sesini anlık silmez; geriye dönük 60 saniyelik kayan bir pencerede tutar. Kullanıcının sesi ister uydudan (0 sn), ister IPTV'den (30 sn gecikmeli) gelsin, sunucu geriye tarayarak gecikmeyi tamamen nötrler.</li>
+                <li><strong>Risk 3: TV Kanalları veya RTÜK Bize Engel Olabilir mi?</strong><br>
+                <strong>Çözüm: Re-stream Yok; Kanalların En Büyük Dostuyuz.</strong> Televizyon görüntüsü kesinlikle internete aktarılmaz (telif riski sıfırdır). Sadece havada açık yayınlanan teletekst ve ses sinyali dinlenir. Reklam arasında izleyicinin televizyon başından ayrılmasını önleyip ekrana kilitlediğimiz için kanalların reytingini ve reklam değerini artırırız.</li>
+            </ul>
+        `
+    },
+    {
+        id: "faq_moat_and_competition",
+        isDefault: true,
+        question: "Büyük bir televizyon kanalı veya dev bir reklam ajansı bu fikri neden kopyalayamaz?",
+        answerHtml: `
+            <ul>
+                <li><strong>1. Tarafsız Ortak Pazar Yeri:</strong> Kanal D bir uygulama çıkarsa içinde Star TV veya TRT olamaz. İzleyici her kanal için ayrı uygulama indirmez. Contexta TV tüm kanalların tek bağımsız buluşma noktasıdır.</li>
+                <li><strong>2. SMK m.82 Patent Koruması:</strong> Akustik ACR + DVB Teletekst NLP çapraz eşlemesi donanımsal sistem/yöntem patenti kapsamındadır. İzinsiz kopyalayanlar fikri mülkiyet ihlaliyle karşılaşır.</li>
+                <li><strong>3. Ağ Etkisi (Network Effect):</strong> İlk 100.000 izleyici ve 50+ marka ekosisteme girdikten sonra, kullanıcı ve kupon hacmini başka bir yeni oyuncunun yakalaması imkansız hale gelir.</li>
+            </ul>
+        `
+    },
+    {
+        id: "faq_monetization_breakeven",
+        isDefault: true,
+        question: "Para kazanmaya ne zaman ve nasıl başlayacaksınız? (Gelir Modeli & Başabaş)",
+        answerHtml: `
+            <ul>
+                <li><strong>CPA Kupon Komisyonu:</strong> TV reklamından dönüştürülen her sepet harcamasından e-ticaret ve markalardan %8 - %15 başarı komisyonu.</li>
+                <li><strong>Reyting & Reaksiyon Verisi:</strong> Yapımcılara ve reklamverenlere saniyelik izleyici duygu analizi ve anket katılım raporları (B2B SaaS Veri Satışı).</li>
+                <li><strong>Markalı Canlı Kuşak:</strong> Reklam kuşağı aralarında markaya özel sponsorlu bilgi yarışmaları ve ödül havuzları.</li>
+                <li><strong>Başabaş Noktası (Breakeven):</strong> 7. ayda aylık 85.000 aktif kullanıcı ve 25.000 kupon kullanımıyla operasyonel kârlılık sağlanır.</li>
+            </ul>
+        `
+    }
+];
+
+function escapeFaqHtml(str) {
+    if (!str) return "";
+    return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+function getCustomFaqs() {
+    try {
+        const stored = localStorage.getItem("contexta_custom_faqs");
+        return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveCustomFaqs(list) {
+    try {
+        localStorage.setItem("contexta_custom_faqs", JSON.stringify(list));
+    } catch (e) {
+        console.error("Custom FAQ kaydedilemedi:", e);
+    }
+}
+
+function deleteCustomFaq(id) {
+    if (!confirm("Bu soruyu silmek istediğinize emin misiniz?")) return;
+    let list = getCustomFaqs();
+    list = list.filter(item => item.id !== id);
+    saveCustomFaqs(list);
+    renderFaqList();
+    showToast("Soru başarıyla silindi.");
+}
+window.deleteCustomFaq = deleteCustomFaq;
+
+function renderFaqList() {
+    const container = document.getElementById("faqItemsList");
+    if (!container) return;
+
+    const customList = getCustomFaqs();
+    const allFaqs = [...DEFAULT_FAQS, ...customList];
+
+    container.innerHTML = allFaqs.map((faq, index) => {
+        const isCustom = !faq.isDefault;
+        const qEscaped = escapeFaqHtml(faq.question);
+        return `
+            <article class="faq-doc-item" id="${faq.id}">
+                <div class="faq-item-header">
+                    <div class="faq-item-q-wrap">
+                        <span class="faq-item-num">Soru ${index + 1}</span>
+                        <h3 class="faq-item-q">${qEscaped}</h3>
+                    </div>
+                    <div class="faq-item-actions">
+                        ${isCustom ? `<span class="faq-custom-badge">Eklenen Soru</span>` : ""}
+                        ${isCustom ? `<button type="button" class="btn-faq-delete" onclick="window.deleteCustomFaq('${faq.id}')">🗑️ Sil</button>` : ""}
+                    </div>
+                </div>
+                <div class="faq-item-body">
+                    ${faq.answerHtml || `<p>${escapeFaqHtml(faq.answer || "").replace(/\n/g, "<br>")}</p>`}
+                </div>
+            </article>
+        `;
+    }).join("");
+}
+
+function initFaqModule() {
+    const form = document.getElementById("faqAddForm");
+    if (form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const qInput = document.getElementById("newFaqQuestion");
+            const aInput = document.getElementById("newFaqAnswer");
+
+            const question = (qInput?.value || "").trim();
+            const answer = (aInput?.value || "").trim();
+
+            if (!question || !answer) {
+                showToast("Lütfen soru ve cevabı eksiksiz doldurun.");
+                return;
+            }
+
+            const newId = "faq_custom_" + Date.now();
+            const newFaq = {
+                id: newId,
+                isDefault: false,
+                question: question,
+                answer: answer,
+                createdAt: new Date().toISOString()
+            };
+
+            const currentCustom = getCustomFaqs();
+            currentCustom.push(newFaq);
+            saveCustomFaqs(currentCustom);
+
+            if (qInput) qInput.value = "";
+            if (aInput) aInput.value = "";
+
+            renderFaqList();
+            showToast("✓ Yeni soru & cevap başarıyla kaydedildi.");
+
+            const addedEl = document.getElementById(newId);
+            if (addedEl) {
+                setTimeout(() => {
+                    addedEl.scrollIntoView({ behavior: "smooth", block: "center" });
+                }, 50);
+            }
+        });
+    }
+
+    renderFaqList();
+}
+
 // BOOT ENGINE
 initChannelSelectors();
 selectChannel(currentChannel, currentState);
@@ -3367,6 +3571,7 @@ initRealtimeChat();
 initPresence();
 initLoginOnboarding();
 initStatsEngine();
+initFaqModule();
 
 // Dynamic Real-Time Channel Broadcast Sync (Automated GitHub Actions JSON)
 async function syncLiveChannels() {
