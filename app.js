@@ -1269,6 +1269,38 @@ document.querySelectorAll(".pitch-pill-btn").forEach(link => {
     });
 });
 
+// Eye Comfort Reading Theme Switcher (Sıcak Kağıt, Duman Gri, Sakin Koyu)
+const themePillBtns = document.querySelectorAll(".theme-pill-btn");
+const tabPitchEl = document.getElementById("tabPitch");
+
+function applyPitchTheme(themeName) {
+    if (!tabPitchEl) return;
+    tabPitchEl.classList.remove("theme-paper", "theme-slate", "theme-dark");
+    if (themeName !== "paper") {
+        tabPitchEl.classList.add(`theme-${themeName}`);
+    }
+    themePillBtns.forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-pitch-theme") === themeName);
+    });
+    try {
+        localStorage.setItem("contexta_pitch_theme", themeName);
+    } catch (e) {}
+}
+
+themePillBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const theme = btn.getAttribute("data-pitch-theme") || "paper";
+        applyPitchTheme(theme);
+        showToast(`👁️ Okuma Modu: ${btn.textContent.trim()}`);
+    });
+});
+
+// Load saved pitch theme if any (default is paper)
+try {
+    const savedTheme = localStorage.getItem("contexta_pitch_theme") || "paper";
+    applyPitchTheme(savedTheme);
+} catch (e) {}
+
 // PDF Download Engine for Investor Pitch Deck
 const btnDownloadPitchPdf = document.getElementById("btnDownloadPitchPdf");
 if (btnDownloadPitchPdf) {
@@ -1288,11 +1320,15 @@ if (btnDownloadPitchPdf) {
         const pitchElement = document.getElementById("tabPitch");
 
         if (typeof html2pdf !== "undefined" && pitchElement) {
-            // Hide the download button & nav pills during capture so they aren't in the PDF
+            // Hide the download button, theme bar & nav pills during capture so they aren't in the PDF
             const actionRow = document.querySelector(".pitch-action-row");
+            const themeBar = document.querySelector(".pitch-theme-bar");
             const navPills = document.querySelector(".pitch-nav-pills");
             if (actionRow) actionRow.style.display = "none";
+            if (themeBar) themeBar.style.display = "none";
             if (navPills) navPills.style.display = "none";
+
+            const computedBg = getComputedStyle(pitchElement).getPropertyValue('--p-bg').trim() || '#f5f2eb';
 
             const opt = {
                 margin: [10, 8, 10, 8],
@@ -1301,7 +1337,7 @@ if (btnDownloadPitchPdf) {
                 html2canvas: { 
                     scale: 2, 
                     useCORS: true, 
-                    backgroundColor: '#ffffff',
+                    backgroundColor: computedBg,
                     scrollY: 0
                 },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
@@ -1318,6 +1354,7 @@ if (btnDownloadPitchPdf) {
                 })
                 .finally(() => {
                     if (actionRow) actionRow.style.display = "flex";
+                    if (themeBar) themeBar.style.display = "flex";
                     if (navPills) navPills.style.display = "flex";
                     btnDownloadPitchPdf.disabled = false;
                     btnDownloadPitchPdf.innerHTML = originalText;
