@@ -869,18 +869,18 @@ const channelDatabase = {
     }
 };
 
-// 2. User Authentication & State (Yetkili Kullanıcılar: alim & mustafa / ms123)
+// 2. User Authentication & State (Yetkili Kullanıcılar: alim & mustafa)
 const AUTH_USERS = {
     mustafa: {
         username: "mustafa",
-        password: "ms123",
+        password: "ma123",
         displayName: "Mustafa",
         avatar: "🦁",
         role: "Kurucu Ortak / Yetkili"
     },
     alim: {
         username: "alim",
-        password: "ms123",
+        password: "ma123",
         displayName: "Alim",
         avatar: "🦊",
         role: "Kurucu Ortak / Yetkili"
@@ -1964,7 +1964,7 @@ function renderLeaderboard() {
 }
 
 // ====================================================
-// 13. AUTHENTICATION & LOGIN GATE ENGINE (alim & mustafa / ms123)
+// 13. AUTHENTICATION & LOGIN GATE ENGINE (alim & mustafa)
 // ====================================================
 function openLoginModal(canClose = true, customTitle = null, customDesc = null) {
     const modal = document.getElementById("loginModal");
