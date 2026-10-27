@@ -965,7 +965,7 @@ function updatePointsUI() {
         if (headerAvatar) headerAvatar.innerText = "👤";
         if (headerChip) {
             headerChip.classList.remove("authenticated");
-            headerChip.title = "Yetkili Girişi Yap (ms123)";
+            headerChip.title = "Yetkili Girişi Yap";
         }
         document.body.classList.remove("is-authenticated");
     }
@@ -2121,7 +2121,7 @@ function initLoginOnboarding() {
             } else {
                 // Hatalı Bilgi
                 if (errorMsg) {
-                    errorMsg.innerHTML = "❌ Hatalı kullanıcı adı veya şifre!<br><small>Yetkili kullanıcılar: <strong>alim</strong> veya <strong>mustafa</strong> (Şifre: <strong>ms123</strong>)</small>";
+                    errorMsg.innerHTML = "❌ Hatalı kullanıcı adı veya şifre!<br><small style='color:#94a3b8;'>Lütfen kurucu hesap bilgilerinizi kontrol ediniz.</small>";
                     errorMsg.style.display = "block";
                 }
                 if (passwordInput) {
