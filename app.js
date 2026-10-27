@@ -149,18 +149,24 @@ const channelDatabase = {
     atv: {
         id: "atv",
         name: "ATV",
-        genre: "Tarih / Dizi",
-        time: "⏰ 20:00 - 23:30",
+        genre: "Dram / Romantik",
+        time: "⏰ 20:00 - 23:45",
+        schedule: [
+            { time: "16:00", title: "Esra Erol'da (Canlı)", desc: "Gündüz kuşağı canlı yayın." },
+            { time: "19:00", title: "ATV Ana Haber (Canlı)", desc: "Cem Öğretir ile günün sıcak gelişmeleri." },
+            { time: "20:00", title: "Bir Gece Masalı - Mahir ve Canfeza", desc: "Komiser Mahir ile Yörük kızı Canfeza'nın Pamukkale'de başlayan masalsı aşkı.", current: true },
+            { time: "23:45", title: "Kuruluş Osman (Tekrar)", desc: "Osman Bey'in fetih mücadelesi." }
+        ],
         program: {
-            title: "Kuruluş Osman - Büyük Cenk",
-            desc: "Osman Bey obada pusatları kuşanıp fetih hazırlıklarına başlıyor.",
-            teletext300: "ATV TELETEXT S.300: 20:00 KURULUS OSMAN (CANLI) / 23:45 NIHAT HATIPOGLU",
-            teletext888: "ALTYAZI S.888: '...Osman Bey: Gayrı cenk vaktidir! Türk'ün sancağı düşmeyecek, adalet tecelli edecek...'",
+            title: "Bir Gece Masalı - Mahir ve Canfeza",
+            desc: "Komiser Mahir ile Yörük kızı Canfeza'nın Pamukkale'den İstanbul Asaf Bey konağına uzanan masalsı aşkı ve intikam mücadelesi ekranda.",
+            teletext300: "ATV TELETEXT S.300: 20:00 BIR GECE MASALI (CANLI) / 23:45 KURULUS OSMAN (T)",
+            teletext888: "ALTYAZI S.888: '...Mahir: Bir gece masalıydı bizimkisi, başladığı gibi bitmeyecek Canfeza!... Canfeza: Kaderimiz çoktan yazılmış Mahir...'",
             poll: {
-                id: "poll_atv_1",
-                question: "Kayı obasını bekleyen en büyük tuzak nereden gelecek?",
-                options: ["Bizans Komutanından", "İçerideki Hainden", "Moğol Birliğinden"],
-                results: { "Bizans Komutanından": 48, "İçerideki Hainden": 42, "Moğol Birliğinden": 10 },
+                id: "poll_atv_bgm_1",
+                question: "Mahir konaktaki sır perdesini aralayabilecek mi?",
+                options: ["Tüm sırları çözer", "Canfeza'yı korumak için susar", "Yeni bir tuzak kurulur"],
+                results: { "Tüm sırları çözer": 46, "Canfeza'yı korumak için susar": 40, "Yeni bir tuzak kurulur": 14 },
                 points: 20
             },
             campaign: {
@@ -190,18 +196,24 @@ const channelDatabase = {
     kanald: {
         id: "kanald",
         name: "Kanal D",
-        genre: "Dram / Dizi",
+        genre: "Dram / Aşk",
         time: "⏰ 20:00 - 23:45",
+        schedule: [
+            { time: "16:45", title: "Gelinim Mutfakta (Yarışma)", desc: "Altın bilezikler için kıyasıya yarış." },
+            { time: "18:30", title: "Kanal D Ana Haber (Canlı)", desc: "Günün gelişmeleri canlı yayında." },
+            { time: "20:00", title: "Uzak Şehir - Alya ve Cihan Albora", desc: "Alya vefat eden eşinin vasiyeti için Mardin Albora topraklarına gelir.", current: true },
+            { time: "23:45", title: "İnci Taneleri (Tekrar)", desc: "Azem ve Dilber'in hikayesi." }
+        ],
         program: {
-            title: "İnci Taneleri - Dilber ve Azem",
-            desc: "Azem geçmişin sır perdesini aralarken Dilber'den sürpriz adım.",
-            teletext300: "KANAL D AKIS S.300: 20:00 INCI TANELERI / 23:45 ARKA SOKAKLAR OZET",
-            teletext888: "ALTYAZI S.888: '...Azem: İnsan bazen en çok kendine geç kalır. Dilber elini tuttu ve gülümsedi...'",
+            title: "Uzak Şehir - Alya ve Cihan Albora",
+            desc: "Alya, vefat eden eşinin vasiyetini yerine getirmek için oğluyla Kanada'dan Mardin'e gelir; Albora ailesinin reisi Cihan ile karşı karşıya kalır.",
+            teletext300: "KANAL D AKIS S.300: 20:00 UZAK SEHIR (CANLI) / 23:45 INCI TANELERI (T) / 02:00 POYRAZ KARAYEL",
+            teletext888: "ALTYAZI S.888: '...Cihan Albora: Bu topraklardan oğlunu alıp gidemezsin Alya! Burası Albora konağı... Alya: Oğlumu kimseye bırakmam!...'",
             poll: {
-                id: "poll_kanald_1",
-                question: "Azem kayıp kızına bu bölümde ulaşabilecek mi?",
-                options: ["Ulaşacak", "Yeni Bir İpucu Bulacak", "Engel Çıkacak"],
-                results: { "Ulaşacak": 22, "Yeni Bir İpucu Bulacak": 58, "Engel Çıkacak": 20 },
+                id: "poll_kanald_uzaksehir_1",
+                question: "Alya oğlunu korumak için konakta kalmayı kabul edecek mi?",
+                options: ["Mecburen kabul eder", "Kaçış planı yapar", "Hukuki yola başvurur"],
+                results: { "Mecburen kabul eder": 62, "Kaçış planı yapar": 28, "Hukuki yola başvurur": 10 },
                 points: 20
             },
             campaign: {
@@ -233,16 +245,22 @@ const channelDatabase = {
         name: "NOW (Fox)",
         genre: "Dram / Sosyal",
         time: "⏰ 20:00 - 23:30",
+        schedule: [
+            { time: "16:30", title: "Fatih Ürek ile Gelin Görümce" },
+            { time: "19:00", title: "NOW Ana Haber (Selçuk Tepeli)", desc: "Günün haberleri canlı." },
+            { time: "20:00", title: "Gizli Bahçe / Anne Yarısı - Yeni Dizi Kuşağı", desc: "Sürükleyici hikayesiyle akşam kuşağı ekranlara geliyor.", current: true },
+            { time: "23:45", title: "Kızıl Goncalar (Tekrar)" }
+        ],
         program: {
-            title: "Kızıl Goncalar - Gerçekler Ortaya Çıkıyor",
-            desc: "Levent ve Meryem arasındaki diyalog tüm dengeleri sarsıyor.",
-            teletext300: "NOW AKIS S.300: 20:00 KIZIL GONCALAR (YENI) / 23:45 ORTA SAYFA CANLI",
-            teletext888: "ALTYAZI S.888: '...Meryem: Korku insanı susturur ama hakikat bir gün mutlaka haykırır...'",
+            title: "Gizli Bahçe / Anne Yarısı - Yeni Dizi Kuşağı",
+            desc: "Sürükleyici hikayesi ve güçlü oyuncu kadrosuyla NOW ekranlarında akşam kuşağı.",
+            teletext300: "NOW AKIS S.300: 20:00 GIZLI BAHCE (YENI) / 23:45 KIZIL GONCALAR (T)",
+            teletext888: "ALTYAZI S.888: '...Demir: Gerçekleri sonsuza dek saklayamazsın Nazlı! Nazlı: Oğlum için her şeyi yaparım!...'",
             poll: {
-                id: "poll_now_1",
-                question: "Zeynep yurt dışına gitmeyi kabul edecek mi?",
-                options: ["Kabul Edecek", "Ailesi İçin Kalacak"],
-                results: { "Kabul Edecek": 38, "Ailesi İçin Kalacak": 62 },
+                id: "poll_now_gizlibahce_1",
+                question: "Demir gerçeği öğrendiğinde Nazlı'yı affedecek mi?",
+                options: ["Affeder", "Aralarındaki savaş büyür"],
+                results: { "Affeder": 42, "Aralarındaki savaş büyür": 58 },
                 points: 20
             },
             campaign: {
@@ -272,41 +290,47 @@ const channelDatabase = {
     startv: {
         id: "startv",
         name: "Star TV",
-        genre: "Romantik / Dram",
-        time: "⏰ 20:00 - 23:45",
+        genre: "Romantik / Komedi",
+        time: "⏰ 20:00 - 00:15",
+        schedule: [
+            { time: "15:00", title: "Didem Arslan Yılmaz'la Vazgeçme (Canlı)", desc: "Gündemin sıcak olayları ve araştırmalar." },
+            { time: "19:00", title: "Star Haber (Canlı)", desc: "Günün en sıcak gelişmeleri ve ana haber bülteni." },
+            { time: "20:00", title: "Tuzlu Kahve - Yerli Sinema / TV Kuşağı", desc: "Kız isteme merasiminde damadın kahvesine tuz konmasıyla başlayan eğlenceli ve romantik hikaye.", current: true },
+            { time: "00:15", title: "Sevdiğim Sensin (Tekrar)", desc: "Gece kuşağı romantik dizi yayını." }
+        ],
         program: {
-            title: "Yalı Çapkını - Ferit ve Seyran",
-            desc: "Yalıda alınan sürpriz boşanma kararı tansiyonu tırmandırıyor.",
-            teletext300: "STAR AKIS S.300: 20:00 YALI CAPKINI CANLI / 23:45 SAKLA BENI TEKRAR",
-            teletext888: "ALTYAZI S.888: '...Ferit: Ben seni hiç bırakmadım Seyran! Seyran gözyaşlarıyla kapıyı çarpar...'",
+            title: "Tuzlu Kahve - Yerli Sinema / TV Kuşağı",
+            desc: "Geleneksel kız isteme merasiminde damadın kahvesine tuz konmasıyla başlayan eğlenceli, romantik ve kahkaha dolu olaylar zinciri ekrana geliyor.",
+            teletext300: "STAR AKIS S.300: 20:00 TUZLU KAHVE (CANLI) / 00:15 SEVDIGIM SENSIN / 03:00 FAZILET HANIM",
+            teletext888: "ALTYAZI S.888: '...Damat: Kahve biraz fazla mı tuzlu olmuş ne? Kız tarafı tebessüm eder... Gelin: Sevginin imtihanı bu fincanda saklı! Damat fincanı tek dikişte bitirmeye çalışır...'",
             poll: {
-                id: "poll_star_1",
-                question: "Seyran yalıya geri dönecek mi?",
-                options: ["Geri Dönecek", "Kendi Yolunu Çizecek"],
-                results: { "Geri Dönecek": 55, "Kendi Yolunu Çizecek": 45 },
+                id: "poll_star_tuzlukahve_1",
+                question: "Damat tuzlu kahveyi tek dikişte renk vermeden bitirebilecek mi?",
+                options: ["Tek dikişte bitirir", "Öksürür yarım bırakır", "Hemen su ister"],
+                results: { "Tek dikişte bitirir": 54, "Öksürür yarım bırakır": 36, "Hemen su ister": 10 },
                 points: 20
             },
             campaign: {
-                type: "Güzellik İndirimi",
-                title: "Sephora & Gratis %40 Parfüm Kuponu",
-                desc: "Yalı Çapkını izleyicilerine özel seçili parfümlerde %40 indirim kodu.",
-                code: "YALI40",
+                type: "Kahve & Mutfak Keyfi",
+                title: "Kahve Dünyası & Tchibo %30 İndirim Kuponu",
+                desc: "Tuzlu Kahve filmine özel Türk kahvesi ve fincan setlerinde geçerli indirim kodu.",
+                code: "KAHVE30",
                 points: 15,
                 actionText: "Kuponu Cüzdana Ekle (+15 P)"
             }
         },
         ad: {
-            title: "Gratis - Güzellik ve Bakım Haftası",
-            desc: "Tüm cilt bakım ve makyaj ürünlerinde 1 alana 1 bedava.",
-            teletext300: "STAR REKLAM S.200: GRATIS KAMPANYASI / MAYBELLINE LANSMANI",
-            teletext888: "REKLAM ALTYAZISI: '...kendine iyi bak, Gratis ile güzelliğine ışıltı kat...'",
+            title: "Arzum Okka - Közde Türk Kahvesi Makinesi",
+            desc: "Geleneksel lezzet, bol köpük, tek tuşla hazır.",
+            teletext300: "STAR REKLAM S.200: ARZUM OKKA LANSMANI / BEKO KAHVE MAKINELERI",
+            teletext888: "REKLAM ALTYAZISI: '...bol köpüklü közde kahve lezzeti Arzum Okka ile her an elinin altında...'",
             campaign: {
-                type: "Kozmetik Çeki",
-                title: "Gratis 80 TL İndirim Kuponu",
-                desc: "Tüm mağazalarda geçerli anında 80 TL hediye çeki.",
-                code: "GRATIS80",
-                points: 15,
-                actionText: "Çeki Cüzdana Ekle (+15 P)"
+                type: "Küçük Ev Aletleri",
+                title: "Arzum Okka'da 400 TL Sepet İndirimi",
+                desc: "TV reklam kuşağına özel online siparişlerde anında 400 TL indirim kodu.",
+                code: "OKKA400",
+                points: 20,
+                actionText: "İndirimi Cüzdana Ekle (+20 P)"
             }
         }
     },
