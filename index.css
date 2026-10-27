@@ -306,6 +306,125 @@ body {
     font-size: 0.9rem;
 }
 
+/* 1. Top 20 Channel Selector Card */
+.channel-selector-card {
+    background: linear-gradient(145deg, #161b2a, #101420);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.selector-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.selector-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.selector-title-wrap h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+.selector-title-wrap p {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    line-height: 1.35;
+}
+
+.dropdown-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dropdown-wrapper label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.channel-select {
+    width: 100%;
+    background: #1a2030;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+}
+
+.channel-select:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
+}
+
+.chips-scroll-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.chips-scroll-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.channel-chips-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-height: 140px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.channel-chip-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.channel-chip-btn:hover {
+    background: rgba(139, 92, 246, 0.2);
+    border-color: var(--purple);
+    color: #fff;
+}
+
+.channel-chip-btn.active {
+    background: linear-gradient(135deg, var(--purple), #6366f1) !important;
+    border-color: var(--purple) !important;
+    color: #fff !important;
+    font-weight: 700;
+    box-shadow: 0 4px 12px var(--purple-glow);
+}
+
 /* Identified Channel Card */
 .channel-card {
     background: var(--card-bg);
@@ -339,30 +458,150 @@ body {
     background: rgba(139, 92, 246, 0.15);
     border: 1px solid rgba(139, 92, 246, 0.3);
     color: var(--purple);
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     font-weight: 800;
-    padding: 3px 8px;
-    border-radius: 4px;
+    padding: 4px 10px;
+    border-radius: 6px;
     letter-spacing: 0.5px;
 }
 
-.state-badge {
-    font-size: 0.65rem;
+.state-toggle-group {
+    display: flex;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 2px;
+}
+
+.state-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.68rem;
     font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 12px;
+    padding: 4px 10px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
-.state-badge.program {
-    background: rgba(0, 245, 255, 0.1);
+.state-toggle-btn.active[data-state="program"] {
+    background: rgba(0, 245, 255, 0.2);
     color: var(--cyan);
-    border: 1px solid rgba(0, 245, 255, 0.2);
 }
 
-.state-badge.ad {
-    background: rgba(239, 68, 68, 0.1);
+.state-toggle-btn.active[data-state="ad"] {
+    background: rgba(239, 68, 68, 0.2);
     color: var(--red);
-    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.broadcast-meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.broadcast-time {
+    color: #facc15;
+    font-weight: 600;
+}
+
+.broadcast-genre {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Teletext Stream Box */
+.teletext-stream-box {
+    margin-top: 6px;
+    background: #000;
+    border: 1px solid rgba(0, 255, 102, 0.2);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.teletext-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.teletext-tag {
+    font-size: 0.65rem;
+    color: #00ff66;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.teletext-content {
+    font-size: 0.76rem;
+    color: #fff;
+    line-height: 1.35;
+}
+
+.teletext-content.subtitle-mode {
+    color: #facc15;
+}
+
+/* Optional Mic Section */
+.optional-mic {
+    padding: 12px 16px !important;
+}
+
+.mic-toggle-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mic-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+}
+
+.mic-mini-icon {
+    font-size: 1.3rem;
+}
+
+.mic-mini-title {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.mic-mini-sub {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+}
+
+.btn-mic-toggle {
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid var(--purple);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-mic-toggle.listening {
+    background: #ef4444 !important;
+    border-color: #ef4444 !important;
+    animation: micPulse 1.5s infinite;
 }
 
 .program-title {

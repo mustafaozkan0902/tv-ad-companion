@@ -48,58 +48,90 @@
             <!-- TAB 1: DISCOVER / LIVE TV -->
             <div class="tab-pane active" id="tabHome">
                 
-                <!-- Listening Hero Section -->
-                <section class="listening-card">
-                    <div class="mic-button-wrapper">
-                        <button class="mic-btn" id="btnListen" aria-label="TV Dinle">
-                            <span class="mic-icon">🎙️</span>
-                            <span class="mic-wave"></span>
-                            <span class="mic-wave-2"></span>
-                        </button>
-                    </div>
-                    
-                    <h3 class="mic-title" id="micStatusTitle">TV'yi Dinle</h3>
-                    <p class="mic-sub" id="micStatusSub">Televizyon sesini dinlemek ve anında kupon/anket yakalamak için dokunun.</p>
-                    
-                    <!-- Live Speech Transcription Box -->
-                    <div class="speech-box" id="speechBox">
-                        <span class="speech-label">🎙️ TV'den Duyulan:</span>
-                        <p class="speech-text" id="liveTranscript">Mikrofon bekleniyor...</p>
+                <!-- 1. TOP 20 CHANNEL SELECTOR SECTION -->
+                <section class="channel-selector-card">
+                    <div class="selector-header">
+                        <span class="selector-icon">📺</span>
+                        <div class="selector-title-wrap">
+                            <h3>İzlediğiniz TV Kanalını Seçin</h3>
+                            <p>İlk 20 ulusal kanal arasından seçin; o anki yayın ve teletekst akışı yüklensin.</p>
+                        </div>
                     </div>
 
-                    <!-- Live AI Matching Status & Feedback -->
-                    <div class="match-status-bar" id="matchStatus">
-                        <span class="match-icon">🔍</span>
-                        <span class="match-text" id="matchText">TV sesinden kanal aranıyor...</span>
+                    <!-- Dropdown Picker -->
+                    <div class="dropdown-wrapper">
+                        <label for="channelDropdown">Açılır Menüden Kanal Seçin:</label>
+                        <select id="channelDropdown" class="channel-select">
+                            <!-- Populated dynamically with 20 channels -->
+                        </select>
+                    </div>
+
+                    <!-- Scrollable 20 Channel Chips Grid -->
+                    <div class="chips-scroll-container">
+                        <span class="chips-scroll-label">Veya Doğrudan Kanala Dokunun:</span>
+                        <div class="channel-chips-grid" id="channelChipsGrid">
+                            <!-- Populated dynamically with 20 channel buttons -->
+                        </div>
                     </div>
                 </section>
 
-                <!-- Currently Identified Broadcast Card -->
+                <!-- 2. CURRENT BROADCAST, EPG & TELETEXT STREAM CARD -->
                 <section class="channel-card" id="channelCard">
                     <div class="channel-header">
                         <div class="channel-badge" id="channelBadge">SHOW TV</div>
-                        <span class="state-badge program" id="stateBadge">CANLI PROGRAM</span>
+                        <div class="state-toggle-group">
+                            <button type="button" class="state-toggle-btn active" data-state="program" id="btnStateProgram">🎬 Canlı Program</button>
+                            <button type="button" class="state-toggle-btn" data-state="ad" id="btnStateAd">📢 Reklam Kuşağı</button>
+                        </div>
                     </div>
-                    <h4 class="program-title" id="programTitle">Lezzet Yolculuğu - Şefin Özel Menüsü</h4>
-                    <p class="program-desc" id="programDesc">Ekranda taze fesleğenli makarna sosu hazırlanıyor.</p>
+
+                    <div class="broadcast-meta">
+                        <span class="broadcast-time" id="broadcastTime">⏰ 20:00 - 23:30</span>
+                        <span class="broadcast-genre" id="broadcastGenre">Dizi / Aile</span>
+                    </div>
+
+                    <h4 class="program-title" id="programTitle">Kızılcık Şerbeti - Yeni Bölüm</h4>
+                    <p class="program-desc" id="programDesc">Ekranda iki aile arasındaki yüzleşme canlı yayında.</p>
+
+                    <!-- LIVE TELETEXT & EPG STREAM BOX -->
+                    <div class="teletext-stream-box">
+                        <div class="teletext-row">
+                            <span class="teletext-tag">📟 TELETEKST S.300 (YAYIN AKIŞI):</span>
+                            <p class="teletext-content" id="teletext300Text">Yükleniyor...</p>
+                        </div>
+                        <div class="teletext-row">
+                            <span class="teletext-tag">📟 TELETEKST S.888 (CANLI ALTYAZI):</span>
+                            <p class="teletext-content subtitle-mode" id="teletext888Text">Altyazı taranıyor...</p>
+                        </div>
+                    </div>
                 </section>
 
-                <!-- Interactive Campaign & Poll Feed -->
+                <!-- 3. INTERACTIVE CONTEXTUAL REWARDS (POLL & COUPON) -->
                 <section class="interactive-feed" id="interactiveFeed">
-                    <!-- Dynamic cards injected via JavaScript -->
+                    <!-- Dynamic cards injected via JavaScript based on teletext/EPG -->
                 </section>
 
-                <!-- Quick Fallback Manual Channel Selector -->
-                <section class="manual-test-section">
-                    <span class="test-label">⚡ Mikrofonsuz Hızlı Test (Kanal Seç):</span>
-                    <div class="channel-chips">
-                        <button class="chip active" data-channel="showtv" data-state="program">🍳 Show TV (Yemek)</button>
-                        <button class="chip" data-channel="trt1" data-state="program">⚽ TRT 1 (Maç)</button>
-                        <button class="chip" data-channel="tv8" data-state="program">🧑‍🍳 TV8 (MasterChef)</button>
-                        <button class="chip" data-channel="atv" data-state="program">🔍 ATV (Müge Anlı)</button>
-                        <button class="chip" data-channel="kanald" data-state="program">💎 Kanal D (Dizi)</button>
-                        <button class="chip" data-channel="trt1" data-state="ad">🍕 Reklam (Pizza)</button>
-                        <button class="chip" data-channel="atv" data-state="ad">🚗 Reklam (Dacia)</button>
+                <!-- 4. OPTIONAL SPEECH ACR (VOICE LISTENER) -->
+                <section class="listening-card optional-mic" id="micCard">
+                    <div class="mic-toggle-header" id="micToggleHeader">
+                        <div class="mic-header-left">
+                            <span class="mic-mini-icon">🎙️</span>
+                            <div>
+                                <span class="mic-mini-title">TV Sesini Otomatik Dinlet (Opsiyonel)</span>
+                                <span class="mic-mini-sub">Mikrofonla konuşmayı dinleyip kanalı otomatik bulur.</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-mic-toggle" id="btnListen">🎙️ Dinle</button>
+                    </div>
+
+                    <!-- Live Speech Transcription Box -->
+                    <div class="speech-box" id="speechBox" style="display: none;">
+                        <span class="speech-label">🎙️ TV'den Duyulan:</span>
+                        <p class="speech-text" id="liveTranscript">Mikrofon bekleniyor...</p>
+                        <div class="match-status-bar" id="matchStatus">
+                            <span class="match-icon">🔍</span>
+                            <span class="match-text" id="matchText">TV sesinden kanal aranıyor...</span>
+                        </div>
                     </div>
                 </section>
 

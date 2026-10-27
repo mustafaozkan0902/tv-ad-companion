@@ -1,57 +1,86 @@
 // ====================================================
-// Contexta TV - Clean Mobile Companion Logic (v3.2)
-// Multi-Channel AI Matcher + Real-Time Online Chat & Presence
+// Contexta TV - Clean Mobile Companion Logic (v4.0)
+// 20 Ulusal TV Kanalı + Canlı Teletekst & EPG + Real-Time Chat
 // ====================================================
 
-// 1. Comprehensive Channel & Campaign Database
+// 1. TOP 20 TURKISH TV CHANNELS DATABASE (EPG & TELETEXT ENRICHED)
 const channelDatabase = {
     showtv: {
+        id: "showtv",
         name: "Show TV",
+        genre: "Dizi / Aile",
+        time: "⏰ 20:00 - 23:30",
         program: {
-            title: "Lezzet Yolculuğu - Şefin Özel Menüsü",
-            desc: "Stüdyoda taze fesleğenli makarna sosu hazırlanıyor.",
+            title: "Kızılcık Şerbeti - Yeni Bölüm",
+            desc: "İki farklı ailenin çocukları arasındaki gerilim ve yüzleşmeler canlı yayında.",
+            teletext300: "SHOW TELETEXT S.300: 20:00 KIZILCIK SERBETI / 23:45 BAHAR TEKRAR / 02:00 SANDIK KOKUSU",
+            teletext888: "ALTYAZI S.888: '...düğün gecesi yaşanan gerilim iki aileyi karşı karşıya getirdi. Doğa ve Fatih arasında sert tartışma...'",
+            poll: {
+                id: "poll_show_1",
+                question: "Doğa ve Fatih arasındaki gerilim bu bölümde çözülür mü?",
+                options: ["Çözülür (Barışırlar)", "Daha da Büyür", "Ayrılık Kararı Gelir"],
+                results: { "Çözülür (Barışırlar)": 28, "Daha da Büyür": 54, "Ayrılık Kararı Gelir": 18 },
+                points: 20
+            },
             campaign: {
-                type: "İndirim Kuponu",
-                title: "Makarna & Soslarda %30 İndirim",
-                desc: "Şefin hazırladığı tarife özel tüm makarna ve soslarda geçerli süpermarket kuponu.",
-                code: "SEFMAK30",
+                type: "Dizi İndirim Fırsatı",
+                title: "Dizideki Kıyafet & Takılarda %35 İndirim",
+                desc: "Kızılcık Şerbeti karakterlerinin giydiği kombinlerde Trendyol özel indirimi.",
+                code: "SERBET35",
                 points: 15,
                 actionText: "Kuponu Cüzdana Ekle (+15 P)"
             }
         },
         ad: {
-            title: "Trendyol - Kozmetik Günleri",
-            desc: "Televizyonda L'Oréal Paris ve cilt bakım ürünleri tanıtılıyor.",
+            title: "Trendyol - Büyük Sonbahar İndirimi",
+            desc: "Milyonlarca üründe geçerli kupon kuşağı ekranda.",
+            teletext300: "SHOW REKLAM S.200: TRENDYOL SONBAHAR LANSMANI / L'OREAL BAKIM GUNLERI",
+            teletext888: "REKLAM ALTYAZISI: '...Trendyol ile aradığın her şey kapında. İndirimi kaçırma...'",
             campaign: {
                 type: "Alışveriş Çeki",
-                title: "Kozmetikte 100 TL İndirim Çeki",
-                desc: "TV reklamına özel 'BAKIM100' koduyla anında indirim fırsatı.",
-                code: "BAKIM100",
+                title: "Trendyol'dan 100 TL Alışveriş Çeki",
+                desc: "TV reklamına özel 'TRENDYOL100' koduyla anında 100 TL hediye çeki.",
+                code: "TRENDYOL100",
                 points: 15,
                 actionText: "Çeki Cüzdana Ekle (+15 P)"
             }
         }
     },
     trt1: {
+        id: "trt1",
         name: "TRT 1",
+        genre: "Aksiyon / Dizi",
+        time: "⏰ 20:00 - 23:15",
         program: {
-            title: "TRT Spor: Türkiye - İtalya Canlı Maç",
-            desc: "A Milli Takımımız çeyrek finalde kıyasıya mücadele ediyor.",
+            title: "Teşkilat - Nefes Kesen Operasyon",
+            desc: "Milli İstihbarat timi sınır ötesindeki kritik hedefe sızıyor.",
+            teletext300: "TRT TELETEXT S.300: 20:00 TESKILAT (CANLI) / 22:45 ANA HABER / 23:30 GONUL DAGI",
+            teletext888: "ALTYAZI S.888: '...operasyon başarıyla ilerliyor. İkinci tim güvenli koridoru açtı, tahliye başlıyor...'",
             poll: {
-                id: "poll_match_1",
-                question: "Sizce sıradaki golü kim atar?",
-                options: ["Türkiye", "İtalya", "Gol Olmaz"],
-                results: { "Türkiye": 64, "İtalya": 24, "Gol Olmaz": 12 },
+                id: "poll_trt_1",
+                question: "Ömer Atmaca tuzağı fark edip kurtulabilecek mi?",
+                options: ["Tuzağı Fark Eder", "Yardım Ekibi Yetişir", "Tutsak Düşer"],
+                results: { "Tuzağı Fark Eder": 62, "Yardım Ekibi Yetişir": 31, "Tutsak Düşer": 7 },
                 points: 20
+            },
+            campaign: {
+                type: "Milli Teknoloji Fırsatı",
+                title: "Türk Telekom Fiber İnternet + Hediye",
+                desc: "Teşkilat dizisi izleyicilerine özel 100 Mbps fiber hızında ilk 3 ay %50 indirim.",
+                code: "TESKILATFIBER",
+                points: 15,
+                actionText: "Fırsatı Cüzdana Kaydet (+15 P)"
             }
         },
         ad: {
             title: "Yemeksepeti - Çıtır Pizza Fırsatı",
-            desc: "Maç coşkusuna özel sıcacık çıtır pizza fırsatları ekranda.",
+            desc: "TV izlerken sıcacık çıtır pizza kapınızda.",
+            teletext300: "TRT REKLAM S.200: YEMEKSEPETI PIZZA / TURKCELL 5G REKLAM KUSAGI",
+            teletext888: "REKLAM ALTYAZISI: '...çıtır çıtır bol malzemeli pizza sadece 25 dakikada kapında...'",
             campaign: {
                 type: "Yemek Kuponu",
                 title: "Büyük Boy Pizzada %40 İndirim",
-                desc: "Maç izlerken acıkanlara özel 'PIZZA40' koduyla anında indirim.",
+                desc: "TV izleyicilerine özel 'PIZZA40' koduyla anında indirim fırsatı.",
                 code: "PIZZA40",
                 points: 15,
                 actionText: "Kuponu Cüzdana Ekle (+15 P)"
@@ -59,80 +88,740 @@ const channelDatabase = {
         }
     },
     tv8: {
+        id: "tv8",
         name: "TV8",
+        genre: "Yarışma / Mutfak",
+        time: "⏰ 20:00 - 23:45",
         program: {
-            title: "MasterChef Türkiye - Takım Oyunu",
+            title: "MasterChef Türkiye - Kaptanlar Düellosu",
             desc: "Kırmızı ve Mavi takım şeflerin karşısında dokunulmazlık için yarışıyor.",
+            teletext300: "TV8 AKIS S.300: 20:00 MASTERCHEF TURKIYE CANLI / 00:15 SURVIVOR PANORAMA",
+            teletext888: "ALTYAZI S.888: '...Mehmet Şef: Süre son 3 dakika! Tabakları tezgaha koyun, değerlendirme başlıyor...'",
             poll: {
                 id: "poll_tv8_1",
-                question: "Sizce dokunulmazlığı bu akşam hangi takım kazanır?",
+                question: "Dokunulmazlığı bu akşam hangi takım kazanır?",
                 options: ["Kırmızı Takım", "Mavi Takım"],
-                results: { "Kırmızı Takım": 58, "Mavi Takım": 42 },
+                results: { "Kırmızı Takım": 56, "Mavi Takım": 44 },
                 points: 20
-            }
-        },
-        ad: {
-            title: "GetirYemek - Şefin Tercihi",
-            desc: "TV8 reklam kuşağına özel akşam yemeklerinde 120 TL hediye kuponu.",
+            },
             campaign: {
                 type: "Yemek Çeki",
                 title: "GetirYemek'ten 120 TL İndirim",
-                desc: "MasterChef izleyenlere özel 'MASTER120' koduyla anında kullanın.",
+                desc: "MasterChef izleyenlere özel 'MASTER120' koduyla anında indirim.",
                 code: "MASTER120",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        },
+        ad: {
+            title: "Getir - Market Kapında",
+            desc: "Gece atıştırmalıklarında süper hızlı teslimat.",
+            teletext300: "TV8 REKLAM S.200: GETIR KAMPANYASI / CORNETTO REKLAMI",
+            teletext888: "REKLAM ALTYAZISI: '...dakikalar içinde kapında, Getir ile mutluluk kapında...'",
+            campaign: {
+                type: "Süpermarket Çeki",
+                title: "Getir Market 75 TL İndirim",
+                desc: "Gece siparişlerinde geçerli 'GETIR75' kupon kodu.",
+                code: "GETIR75",
+                points: 15,
+                actionText: "Çeki Cüzdana Ekle (+15 P)"
+            }
+        }
+    },
+    atv: {
+        id: "atv",
+        name: "ATV",
+        genre: "Tarih / Dizi",
+        time: "⏰ 20:00 - 23:30",
+        program: {
+            title: "Kuruluş Osman - Büyük Cenk",
+            desc: "Osman Bey obada pusatları kuşanıp fetih hazırlıklarına başlıyor.",
+            teletext300: "ATV TELETEXT S.300: 20:00 KURULUS OSMAN (CANLI) / 23:45 NIHAT HATIPOGLU",
+            teletext888: "ALTYAZI S.888: '...Osman Bey: Gayrı cenk vaktidir! Türk'ün sancağı düşmeyecek, adalet tecelli edecek...'",
+            poll: {
+                id: "poll_atv_1",
+                question: "Kayı obasını bekleyen en büyük tuzak nereden gelecek?",
+                options: ["Bizans Komutanından", "İçerideki Hainden", "Moğol Birliğinden"],
+                results: { "Bizans Komutanından": 48, "İçerideki Hainden": 42, "Moğol Birliğinden": 10 },
+                points: 20
+            },
+            campaign: {
+                type: "Otomobil Lansmanı",
+                title: "Yeni Dacia Duster Test Sürüşü Randevusu",
+                desc: "Yeni Dacia Duster ile maceraya hazır olun. Test sürüşü yapana sürpriz hediye.",
+                code: "DACIA2026",
+                points: 25,
+                actionText: "Randevu Kuponunu Al (+25 P)"
+            }
+        },
+        ad: {
+            title: "Dacia Duster - Yeni SUV Reklamı",
+            desc: "Hibrit motor seçeneğiyle yollara meydan okuyan SUV.",
+            teletext300: "ATV REKLAM S.200: YENI DACIA DUSTER / VODAFONE RED LANSMANI",
+            teletext888: "REKLAM ALTYAZISI: '...Yeni Dacia Duster ile yolların hakimi olun. Yetkili bayilerde...'",
+            campaign: {
+                type: "Yakıt İndirimi",
+                title: "Opet'te 150 TL Yakıt Puanı",
+                desc: "Dacia reklamına özel Opet istasyonlarında 150 TL değerinde yakıt puanı.",
+                code: "OPETDACIA",
+                points: 20,
+                actionText: "Puanı Cüzdana Ekle (+20 P)"
+            }
+        }
+    },
+    kanald: {
+        id: "kanald",
+        name: "Kanal D",
+        genre: "Dram / Dizi",
+        time: "⏰ 20:00 - 23:45",
+        program: {
+            title: "İnci Taneleri - Dilber ve Azem",
+            desc: "Azem geçmişin sır perdesini aralarken Dilber'den sürpriz adım.",
+            teletext300: "KANAL D AKIS S.300: 20:00 INCI TANELERI / 23:45 ARKA SOKAKLAR OZET",
+            teletext888: "ALTYAZI S.888: '...Azem: İnsan bazen en çok kendine geç kalır. Dilber elini tuttu ve gülümsedi...'",
+            poll: {
+                id: "poll_kanald_1",
+                question: "Azem kayıp kızına bu bölümde ulaşabilecek mi?",
+                options: ["Ulaşacak", "Yeni Bir İpucu Bulacak", "Engel Çıkacak"],
+                results: { "Ulaşacak": 22, "Yeni Bir İpucu Bulacak": 58, "Engel Çıkacak": 20 },
+                points: 20
+            },
+            campaign: {
+                type: "Finans Fırsatı",
+                title: "Akbank 25.000 TL Faizsiz Taksitli Avans",
+                desc: "Kanal D izleyicilerine özel mobilden Akbanklı olanlara sıfır faizli nakit.",
+                code: "AKBANK0FAIZ",
+                points: 25,
+                actionText: "Fırsatı Cüzdana Kaydet (+25 P)"
+            }
+        },
+        ad: {
+            title: "Akbank - Faizsiz Kredi Kampanyası",
+            desc: "Dijital başvuruyla 5 dakikada hesabınızda.",
+            teletext300: "KANAL D REKLAM S.200: AKBANK MOBIL / ENPARA MEVDUAT FIRSATI",
+            teletext888: "REKLAM ALTYAZISI: '...faizsiz 25.000 TL nakit avans Akbank Mobil'de seni bekliyor...'",
+            campaign: {
+                type: "Finans Bonusu",
+                title: "Akbanklı Olana 500 TL Chip-Para",
+                desc: "İlk kredi kartı harcamanıza anında 500 TL chip-para hediyesi.",
+                code: "CHIP500",
+                points: 20,
+                actionText: "Bonusu Cüzdana Ekle (+20 P)"
+            }
+        }
+    },
+    now: {
+        id: "now",
+        name: "NOW (Fox)",
+        genre: "Dram / Sosyal",
+        time: "⏰ 20:00 - 23:30",
+        program: {
+            title: "Kızıl Goncalar - Gerçekler Ortaya Çıkıyor",
+            desc: "Levent ve Meryem arasındaki diyalog tüm dengeleri sarsıyor.",
+            teletext300: "NOW AKIS S.300: 20:00 KIZIL GONCALAR (YENI) / 23:45 ORTA SAYFA CANLI",
+            teletext888: "ALTYAZI S.888: '...Meryem: Korku insanı susturur ama hakikat bir gün mutlaka haykırır...'",
+            poll: {
+                id: "poll_now_1",
+                question: "Zeynep yurt dışına gitmeyi kabul edecek mi?",
+                options: ["Kabul Edecek", "Ailesi İçin Kalacak"],
+                results: { "Kabul Edecek": 38, "Ailesi İçin Kalacak": 62 },
+                points: 20
+            },
+            campaign: {
+                type: "Moda Çeki",
+                title: "Boyner %30 Sonbahar Giyim İndirimi",
+                desc: "Kızıl Goncalar dizisine özel Boyner mağazalarında ve internette geçerli kupon.",
+                code: "BOYNER30",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        },
+        ad: {
+            title: "Boyner - Yeni Sezon Mont & Kaban",
+            desc: "Dünyaca ünlü markalar Boyner'de sizi bekliyor.",
+            teletext300: "NOW REKLAM S.200: BOYNER SEZON INDIRIMI / SAMSUNG GALAXY S24",
+            teletext888: "REKLAM ALTYAZISI: '...tarzını yansıtacak en şık parçalar şimdi Boyner'de...'",
+            campaign: {
+                type: "Giyim Kuponu",
+                title: "Boyner 200 TL Hediye Çeki",
+                desc: "1000 TL ve üzeri alışverişlerde anında 200 TL indirim kodu.",
+                code: "BOYNER200",
+                points: 15,
+                actionText: "Çeki Cüzdana Ekle (+15 P)"
+            }
+        }
+    },
+    startv: {
+        id: "startv",
+        name: "Star TV",
+        genre: "Romantik / Dram",
+        time: "⏰ 20:00 - 23:45",
+        program: {
+            title: "Yalı Çapkını - Ferit ve Seyran",
+            desc: "Yalıda alınan sürpriz boşanma kararı tansiyonu tırmandırıyor.",
+            teletext300: "STAR AKIS S.300: 20:00 YALI CAPKINI CANLI / 23:45 SAKLA BENI TEKRAR",
+            teletext888: "ALTYAZI S.888: '...Ferit: Ben seni hiç bırakmadım Seyran! Seyran gözyaşlarıyla kapıyı çarpar...'",
+            poll: {
+                id: "poll_star_1",
+                question: "Seyran yalıya geri dönecek mi?",
+                options: ["Geri Dönecek", "Kendi Yolunu Çizecek"],
+                results: { "Geri Dönecek": 55, "Kendi Yolunu Çizecek": 45 },
+                points: 20
+            },
+            campaign: {
+                type: "Güzellik İndirimi",
+                title: "Sephora & Gratis %40 Parfüm Kuponu",
+                desc: "Yalı Çapkını izleyicilerine özel seçili parfümlerde %40 indirim kodu.",
+                code: "YALI40",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        },
+        ad: {
+            title: "Gratis - Güzellik ve Bakım Haftası",
+            desc: "Tüm cilt bakım ve makyaj ürünlerinde 1 alana 1 bedava.",
+            teletext300: "STAR REKLAM S.200: GRATIS KAMPANYASI / MAYBELLINE LANSMANI",
+            teletext888: "REKLAM ALTYAZISI: '...kendine iyi bak, Gratis ile güzelliğine ışıltı kat...'",
+            campaign: {
+                type: "Kozmetik Çeki",
+                title: "Gratis 80 TL İndirim Kuponu",
+                desc: "Tüm mağazalarda geçerli anında 80 TL hediye çeki.",
+                code: "GRATIS80",
+                points: 15,
+                actionText: "Çeki Cüzdana Ekle (+15 P)"
+            }
+        }
+    },
+    kanal7: {
+        id: "kanal7",
+        name: "Kanal 7",
+        genre: "Dizi / Aile",
+        time: "⏰ 20:00 - 22:30",
+        program: {
+            title: "Esaret - Büyük Yüzleşme",
+            desc: "Hira ve Orhun arasındaki sırlar bir bir açığa çıkıyor.",
+            teletext300: "KANAL 7 S.300: 20:00 ESARET / 22:30 BASKENT KULISI / 00:00 HABER",
+            teletext888: "ALTYAZI S.888: '...Orhun: Gerçekleri bilmeye hakkın vardı. Masumiyetin ortaya çıktı...'",
+            poll: {
+                id: "poll_k7_1",
+                question: "İkili arasındaki buzlar eriyecek mi?",
+                options: ["Eriyecek (Affedecek)", "Zaman Alacak"],
+                results: { "Eriyecek (Affedecek)": 68, "Zaman Alacak": 32 },
+                points: 20
+            },
+            campaign: {
+                type: "Doğal Ürünler",
+                title: "Farmasi Bitkisel Bakımda %30 İndirim",
+                desc: "Kanal 7 izleyicilerine özel doğal sabun ve kremlerde geçerli indirim.",
+                code: "DOGAL30",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        },
+        ad: {
+            title: "Süper Zeytinyağı - Doğal Soğuk Sıkım",
+            desc: "Ege'nin zeytin bahçelerinden sofranıza saf lezzet.",
+            teletext300: "KANAL 7 REKLAM S.200: EGE ZEYTINYAGI / ERSAIS TEMIZLIK",
+            teletext888: "REKLAM ALTYAZISI: '...doğallık ve sağlık bir arada, Ege'nin altın damlası...'",
+            campaign: {
+                type: "Gıda İndirimi",
+                title: "5 Litre Taş Baskı Zeytinyağında 200 TL İndirim",
+                desc: "Kapıda ödeme ve ücretsiz kargo avantajıyla hemen sipariş verin.",
+                code: "ZEYTIN200",
                 points: 15,
                 actionText: "Kuponu Cüzdana Ekle (+15 P)"
             }
         }
     },
-    atv: {
-        name: "ATV",
+    beyaztv: {
+        id: "beyaztv",
+        name: "Beyaz TV",
+        genre: "Spor / Tartışma",
+        time: "⏰ 21:00 - 01:30",
         program: {
-            title: "Müge Anlı ile Tatlı Sert",
-            desc: "Canlı yayında kayıp dosyası araştırılıyor ve ihbarlar toplanıyor.",
+            title: "Beyaz Futbol - Derbi Özel",
+            desc: "Ahmet Çakar ve Sinan Engin haftanın hakem kararlarını tartışıyor.",
+            teletext300: "BEYAZ TV S.300: 21:00 BEYAZ FUTBOL CANLI / 01:30 DERIN FUTBOL TEKRAR",
+            teletext888: "ALTYAZI S.888: '...Ahmet Çakar: Bu pozisyona penaltı diyen futbolu bilmiyordur kardeşim!...'",
             poll: {
-                id: "poll_atv_1",
-                question: "Sizce kayıp şahıs nerede bulunacak?",
-                options: ["Ankara'da", "Başka Şehirde", "Yurtdışında"],
-                results: { "Ankara'da": 52, "Başka Şehirde": 38, "Yurtdışında": 10 },
+                id: "poll_beyaz_1",
+                question: "Sizce derbide verilen penaltı kararı doğru muydu?",
+                options: ["Doğru Karar", "Hatalı / Skandal"],
+                results: { "Doğru Karar": 39, "Hatalı / Skandal": 61 },
                 points: 20
+            },
+            campaign: {
+                type: "Yemek Fırsatı",
+                title: "Köfteci Yusuf Maç Menüsünde %25 İndirim",
+                desc: "Beyaz Futbol izleyicilerine özel doyurucu ızgara köfte menüsü.",
+                code: "KOFTE25",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
             }
         },
         ad: {
-            title: "Yeni Dacia Duster Hibrit",
-            desc: "Yollara meydan okuyan SUV lansman reklamı yayında.",
+            title: "Çetinkaya - Büyük İndirim Günleri",
+            desc: "Takım elbiseden spor ayakkabıya dev kampanya.",
+            teletext300: "BEYAZ TV REKLAM S.200: CETINKAYA MAGAZALARI / DERBI MENUSU",
+            teletext888: "REKLAM ALTYAZISI: '...kalite ve uygun fiyat Çetinkaya'da buluşuyor...'",
             campaign: {
-                type: "Test Sürüşü Fırsatı",
-                title: "Ücretsiz Duster Test Sürüşü Randevusu",
-                desc: "Size en yakın bayiden hemen test randevusu oluşturun, sürpriz hediye kazanın.",
-                code: "DACIA2026",
-                points: 25,
-                actionText: "Randevu Kuponunu Al (+25 P)"
+                type: "Giyim Kuponu",
+                title: "Çetinkaya 150 TL Hediye Çeki",
+                desc: "750 TL üzeri harcamalarda geçerli anında indirim.",
+                code: "CETIN150",
+                points: 15,
+                actionText: "Çeki Cüzdana Ekle (+15 P)"
             }
         }
     },
-    kanald: {
-        name: "Kanal D",
+    trtspors: {
+        id: "trtspors",
+        name: "TRT Spor",
+        genre: "Spor / Canlı",
+        time: "⏰ 20:30 - 23:00",
         program: {
-            title: "İnci Taneleri - Yeni Bölüm",
-            desc: "Perşembe akşamlarının reyting rekortmeni dizisi ekranda.",
+            title: "Spor Manşet - Süper Lig Analizi",
+            desc: "Günün öne çıkan maç özetleri ve liderlik yarışındaki puan durumları.",
+            teletext300: "TRT SPOR S.300: 20:30 SPOR MANSET / 22:00 SUPER LIG OZETLERI / 23:30 TEKNIK ANALIZ",
+            teletext888: "ALTYAZI S.888: '...Süper Lig'de zirve yarışında puan kayıpları sonrası puan farkı 2'ye indi...'",
             poll: {
-                id: "poll_kanald_1",
-                question: "Azem ve Dilber'in hikayesinde sıradaki sır ne olacak?",
-                options: ["Her Şey Açığa Çıkacak", "Yeni Bir Engel Gelecek"],
-                results: { "Her Şey Açığa Çıkacak": 34, "Yeni Bir Engel Gelecek": 66 },
+                id: "poll_trtsp_1",
+                question: "Süper Lig'de bu sezon şampiyonluk ipini kim göğüsler?",
+                options: ["Galatasaray", "Fenerbahçe", "Beşiktaş", "Diğer"],
+                results: { "Galatasaray": 46, "Fenerbahçe": 43, "Beşiktaş": 8, "Diğer": 3 },
                 points: 20
+            },
+            campaign: {
+                type: "Spor Giyim",
+                title: "Puma & Nike Kramponlarda %30 İndirim",
+                desc: "TRT Spor izleyicilerine özel orijinal futbol ürünlerinde geçerli kod.",
+                code: "SPOR30",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
             }
         },
         ad: {
-            title: "Akbank - Faizsiz Taksitli Avans",
-            desc: "Kanal D reklamına özel mobilden ilk kez müşteri olanlara 25.000 TL faizsiz kredi.",
+            title: "Puma - Hızın Yeni Tanımı",
+            desc: "Yeni sezon futbol ayakkabıları sahalara damga vuruyor.",
+            teletext300: "TRT SPOR REKLAM S.200: PUMA ULTRA KRAMPON / RED BULL ENERJI",
+            teletext888: "REKLAM ALTYAZISI: '...sahada fark yarat, sınırları zorla...'",
             campaign: {
-                type: "Banka Kampanyası",
-                title: "25.000 TL %0 Faizli Nakit Avans",
-                desc: "Ekranda gördüğünüz Akbank kampanyasına hemen mobilden başvurun.",
-                code: "AKBANK0FAIZ",
+                type: "Spor Kuponu",
+                title: "Puma Online Mağazada 250 TL İndirim",
+                desc: "1500 TL üzeri tüm spor giyim siparişlerinde geçerli indirim.",
+                code: "PUMA250",
+                points: 20,
+                actionText: "Kuponu Cüzdana Ekle (+20 P)"
+            }
+        }
+    },
+    aspor: {
+        id: "aspor",
+        name: "A Spor",
+        genre: "Spor / Canlı",
+        time: "⏰ 21:00 - 00:30",
+        program: {
+            title: "Takım Oyunu - Transfer Gündemi",
+            desc: "Erman Toroğlu ve stüdyo konukları transfer fısıltılarını ve hakemleri konuşuyor.",
+            teletext300: "A SPOR S.300: 21:00 TAKIM OYUNU CANLI / 00:30 SON SAYFA / 02:00 SPOR AJANSI",
+            teletext888: "ALTYAZI S.888: '...Erman Toroğlu: Sahadaki futbolcu hakemi aldatmaya çalışıyorsa sarı kart çıkacak!...'",
+            poll: {
+                id: "poll_aspor_1",
+                question: "Yabancı hakem uygulaması derbilerde devam etmeli mi?",
+                options: ["Devam Etmeli", "Yerli Hakem Yönetmeli"],
+                results: { "Devam Etmeli": 73, "Yerli Hakem Yönetmeli": 27 },
+                points: 20
+            },
+            campaign: {
+                type: "Spor İndirimi",
+                title: "Orijinal Kulüp Formasında 200 TL İndirim",
+                desc: "A Spor canlı yayınına özel tüm resmi kulüp mağazası indirim kodu.",
+                code: "FORMA200",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        },
+        ad: {
+            title: "Nesine - Spor Coşkusu Cebinde",
+            desc: "Canlı maç yayınları ve istatistikler tek uygulamada.",
+            teletext300: "A SPOR REKLAM S.200: NESINE CANLI MAC / CASTROL MOTOR YAGI",
+            teletext888: "REKLAM ALTYAZISI: '...sporun kalbi burada atıyor, heyecana ortak ol...'",
+            campaign: {
+                type: "Maç Kuponu",
+                title: "Domino's Pizza Maç Menüsünde %35 İndirim",
+                desc: "Maç izlerken sıcacık pizza 'MACKEYFI' koduyla indirimli kapında.",
+                code: "MACKEYFI",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        }
+    },
+    haberturk: {
+        id: "haberturk",
+        name: "HaberTürk",
+        genre: "Haber / Tartışma",
+        time: "⏰ 20:00 - 23:00",
+        program: {
+            title: "Teke Tek - Bilim ve Ekonomi",
+            desc: "Uzman konuklar küresel piyasaları ve teknolojik dönüşümü inceliyor.",
+            teletext300: "HABERTURK S.300: 20:00 TEKE TEK CANLI / 23:00 GECE BULTENI / 01:00 BELGESEL",
+            teletext888: "ALTYAZI S.888: '...Faiz kararları ve enflasyon verilerinin piyasalara yansıması canlı yayında değerlendiriliyor...'",
+            poll: {
+                id: "poll_ht_1",
+                question: "Önümüzdeki çeyrekte altın ve döviz piyasası nasıl seyreder?",
+                options: ["Yükseliş Devam Eder", "Yatay Seyreder", "Düşüşe Geçer"],
+                results: { "Yükseliş Devam Eder": 71, "Yatay Seyreder": 21, "Düşüşe Geçer": 8 },
+                points: 20
+            },
+            campaign: {
+                type: "Finans Üyeliği",
+                title: "Matriks & Borsa Analiz Platformu 1 Ay Ücretsiz",
+                desc: "HaberTürk izleyicilerine özel profesyonel piyasa veri terminali hediye.",
+                code: "PIYASA2026",
+                points: 20,
+                actionText: "Fırsatı Cüzdana Kaydet (+20 P)"
+            }
+        },
+        ad: {
+            title: "Garanti BBVA - Dijital Yatırım",
+            desc: "Hisse senedi ve fon işlemlerinizde sıfır komisyon avantajı.",
+            teletext300: "HABERTURK REKLAM S.200: GARANTI YATIRIM / TOYOTA HYBRID",
+            teletext888: "REKLAM ALTYAZISI: '...geleceğe yatırım yap, Garanti BBVA ile birikimlerini değerlendir...'",
+            campaign: {
+                type: "Finans Kampanyası",
+                title: "Garanti BBVA 300 TL Bonus Puan",
+                desc: "Mobilden müşteri olanlara anında 300 TL harcama bonusu.",
+                code: "GARANTI300",
+                points: 20,
+                actionText: "Bonusu Cüzdana Ekle (+20 P)"
+            }
+        }
+    },
+    cnnturk: {
+        id: "cnnturk",
+        name: "CNN Türk",
+        genre: "Haber / Gündem",
+        time: "⏰ 20:30 - 23:30",
+        program: {
+            title: "Akıl Çemberi - Küresel Dengeler",
+            desc: "Harita üzerinde jeopolitik krizler ve askeri stratejiler ele alınıyor.",
+            teletext300: "CNN TURK S.300: 20:30 AKIL CEMBERI / 23:30 GECE GORUSU / 01:30 GECE HABERLERI",
+            teletext888: "ALTYAZI S.888: '...Orta Doğu'daki son diplomatik temaslar ve sınır hattındaki güvenlik operasyonu...'",
+            poll: {
+                id: "poll_cnn_1",
+                question: "Bölgesel gerilim diplomasi yoluyla çözülebilir mi?",
+                options: ["Çözülür", "Gerilim Tırmanır", "Belirsiz"],
+                results: { "Çözülür": 29, "Gerilim Tırmanır": 58, "Belirsiz": 13 },
+                points: 20
+            },
+            campaign: {
+                type: "Kitap İndirimi",
+                title: "D&R Tarih & Strateji Kitaplarında %35 İndirim",
+                desc: "CNN Türk izleyicilerine özel D&R mağazalarında geçerli indirim kuponu.",
+                code: "STRATEJI35",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        },
+        ad: {
+            title: "Shell - V-Power ile Üstün Koruma",
+            desc: "Motorunuzu tortulardan temizleyen gelişmiş yakıt formülü.",
+            teletext300: "CNN TURK REKLAM S.200: SHELL V-POWER / MERCEDES E-SERISI",
+            teletext888: "REKLAM ALTYAZISI: '...aracının performansını zirveye taşı, Shell ile yola çık...'",
+            campaign: {
+                type: "Yakıt Puanı",
+                title: "Shell ClubSmart 100 TL Yakıt Hediyesi",
+                desc: "Akaryakıt alımlarında anında 100 TL hediye yakıt puanı.",
+                code: "SHELL100",
+                points: 15,
+                actionText: "Puanı Cüzdana Ekle (+15 P)"
+            }
+        }
+    },
+    ntv: {
+        id: "ntv",
+        name: "NTV",
+        genre: "Haber / Kültür",
+        time: "⏰ 20:00 - 22:30",
+        program: {
+            title: "Yakın Plan - Bilim ve Gelecek",
+            desc: "Yapay zeka teknolojileri ve sağlık alanındaki devrim niteliğindeki yenilikler.",
+            teletext300: "NTV S.300: 20:00 NTV ANA HABER / 21:00 YAKIN PLAN / 22:30 SPOR AKSIYON",
+            teletext888: "ALTYAZI S.888: '...Yapay zekanın tıp alanındaki teşhis kabiliyeti uzman hekimlerin yerini alabilir mi?...'",
+            poll: {
+                id: "poll_ntv_1",
+                question: "Yapay zekanın meslekler üzerindeki etkisi sizce ne olacak?",
+                options: ["Yeni İş Alanları Açar", "İş Gücünü Azaltır", "Denge Değişmez"],
+                results: { "Yeni İş Alanları Açar": 44, "İş Gücünü Azaltır": 49, "Denge Değişmez": 7 },
+                points: 20
+            },
+            campaign: {
+                type: "Teknoloji Kuponu",
+                title: "MediaMarkt Akıllı Ürünlerde %25 İndirim",
+                desc: "NTV izleyicilerine özel robot süpürge ve akıllı saatlerde geçerli kod.",
+                code: "NTVTEKNO25",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        },
+        ad: {
+            title: "Doğuş Teknoloji - Geleceğin Çözümleri",
+            desc: "Yapay zeka tabanlı bulut çözümleri işinizi büyütüyor.",
+            teletext300: "NTV REKLAM S.200: DOGUS TEKNOLOJI / VOLKSWAGEN ID.4",
+            teletext888: "REKLAM ALTYAZISI: '...dijital dönüşümde lider çözümler, geleceğe bugünden adım at...'",
+            campaign: {
+                type: "Eğitim Fırsatı",
+                title: "Udemy Yazılım Eğitiminde %50 Kupon",
+                desc: "Yapay zeka ve Python eğitim setlerinde geçerli indirim kodu.",
+                code: "YAPAYZEKA50",
+                points: 20,
+                actionText: "Kuponu Cüzdana Ekle (+20 P)"
+            }
+        }
+    },
+    sozcutv: {
+        id: "sozcutv",
+        name: "Sözcü TV",
+        genre: "Haber / Gündem",
+        time: "⏰ 19:00 - 22:30",
+        program: {
+            title: "Nokta Atışı - Vatandaşın Gündemi",
+            desc: "Çarşı pazar fiyatları, emekli maaşları ve geçim şartları canlı yayında.",
+            teletext300: "SOZCU TV S.300: 19:00 ANA HABER / 20:45 NOKTA ATISI / 23:00 GECE BULTENI",
+            teletext888: "ALTYAZI S.888: '...Pazarda temel gıda sepeti fiyatları araştırıldı, vatandaşın alım gücü masaya yatırıldı...'",
+            poll: {
+                id: "poll_sozcu_1",
+                question: "Önümüzdeki aylarda temel gıda fiyatları düşüşe geçer mi?",
+                options: ["Fiyatlar Düşer", "Aynı Kalır", "Artmaya Devam Eder"],
+                results: { "Fiyatlar Düşer": 9, "Aynı Kalır": 19, "Artmaya Devam Eder": 72 },
+                points: 20
+            },
+            campaign: {
+                type: "Kitap Çeki",
+                title: "Sözcü Kitabevi 100 TL Hediye Çeki",
+                desc: "Tüm tarih ve araştırma kitaplarında geçerli 100 TL indirim çeki.",
+                code: "SOZCU100",
+                points: 15,
+                actionText: "Çeki Cüzdana Ekle (+15 P)"
+            }
+        },
+        ad: {
+            title: "Şok Marketler - Her Gün Ucuzluk",
+            desc: "Temel gıda ve temizlik ürünlerinde net indirimler.",
+            teletext300: "SOZCU REKLAM S.200: SOK MARKETLERI / DERBI KAMPANYASI",
+            teletext888: "REKLAM ALTYAZISI: '...Şok ucuzluk cebine dost, evin ihtiyaçları burada...'",
+            campaign: {
+                type: "Market Çeki",
+                title: "CepteŞok 75 TL İndirim Kuponu",
+                desc: "500 TL üzeri online market siparişinizde anında 75 TL indirim.",
+                code: "SOK75",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        }
+    },
+    halktv: {
+        id: "halktv",
+        name: "Halk TV",
+        genre: "Haber / Siyaset",
+        time: "⏰ 20:00 - 23:30",
+        program: {
+            title: "Kayda Geçsin - Hukuk ve Demokrasi",
+            desc: "Haftanın en çok konuşulan yargı kararları ve siyasi kulisler.",
+            teletext300: "HALK TV S.300: 20:00 KAYDA GECSIN / 23:30 YENI BIR SABAH OZET / 01:00 GECE BULTENI",
+            teletext888: "ALTYAZI S.888: '...Hukuk devleti ilkeleri ve anayasa tartışmaları canlı yayında tüm detaylarıyla ele alınıyor...'",
+            poll: {
+                id: "poll_halk_1",
+                question: "Haftanın en önemli gündem başlığı sizce hangisiydi?",
+                options: ["Ekonomi ve Enflasyon", "Hukuk ve Adalet", "Eğitim Sistemi"],
+                results: { "Ekonomi ve Enflasyon": 59, "Hukuk ve Adalet": 35, "Eğitim Sistemi": 6 },
+                points: 20
+            },
+            campaign: {
+                type: "Yayıncılık Fırsatı",
+                title: "Kırmızı Kedi Yayınevi %40 İndirim Kodu",
+                desc: "Halk TV izleyicilerine özel felsefe ve sosyoloji eserlerinde dev indirim.",
+                code: "HALK40",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        },
+        ad: {
+            title: "Bionorica - Doğal Sağlık Çözümleri",
+            desc: "Kış mevsiminde bağışıklığınızı güçlendiren bitkisel destek.",
+            teletext300: "HALK TV REKLAM S.200: BIONORICA SAĞLIK / D&R KITAP GÜNLERI",
+            teletext888: "REKLAM ALTYAZISI: '...doğadan gelen sağlık, soğuk kış günlerinde koruyucu kalkanın...'",
+            campaign: {
+                type: "Sağlık İndirimi",
+                title: "Eczane & Sağlık Ürünlerinde %25 İndirim",
+                desc: "Seçili vitamin ve takviye edici gıdalarda anında indirim kodu.",
+                code: "SAGLIK25",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        }
+    },
+    trthaber: {
+        id: "trthaber",
+        name: "TRT Haber",
+        genre: "Haber / Belgesel",
+        time: "⏰ 20:00 - 22:30",
+        program: {
+            title: "Birinci Boyut - Savunma ve Mega Projeler",
+            desc: "KAAN, TCG Anadolu ve Türkiye'nin havacılık ekosistemindeki son gelişmeler.",
+            teletext300: "TRT HABER S.300: 20:00 BIRINCI BOYUT / 21:00 DUNYA BULTENI / 22:30 SAVUNMA OZEL",
+            teletext888: "ALTYAZI S.888: '...Milli muharip uçak KAAN ikinci test uçuşunu başarıyla tamamladı...'",
+            poll: {
+                id: "poll_trthb_1",
+                question: "Türkiye'nin en heyecan verici teknoloji projesi hangisi?",
+                options: ["Milli Muharip Uçak KAAN", "KIZILELMA İHA", "Togg Elektrikli Araç"],
+                results: { "Milli Muharip Uçak KAAN": 64, "KIZILELMA İHA": 26, "Togg Elektrikli Araç": 10 },
+                points: 20
+            },
+            campaign: {
+                type: "E-Ticaret Kuponu",
+                title: "PttAVM'de Yerli Ürünlerde %20 İndirim",
+                desc: "TRT Haber izleyicilerine özel PttAVM alışverişlerinde geçerli indirim kodu.",
+                code: "PTTAVM20",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        },
+        ad: {
+            title: "Togg - Akıllı Cihazdan Fazlası",
+            desc: "Doğuştan elektrikli, bağlantılı ve sürdürülebilir mobilite deneyimi.",
+            teletext300: "TRT HABER REKLAM S.200: TOGG T10X / TURK HAVA YOLLARI",
+            teletext888: "REKLAM ALTYAZISI: '...yeni nesil mobilite deneyimi ile geleceğe sürün...'",
+            campaign: {
+                type: "Mobilite Çeki",
+                title: "Trugo Şarj İstasyonlarında 100 TL Şarj Hediyesi",
+                desc: "Elektrikli araç sahiplerine özel Trugo hızlı şarj hediye kuponu.",
+                code: "TRUGO100",
+                points: 20,
+                actionText: "Hediyeyi Cüzdana Ekle (+20 P)"
+            }
+        }
+    },
+    tv85: {
+        id: "tv85",
+        name: "TV8.5",
+        genre: "Spor / Avrupa",
+        time: "⏰ 21:00 - 00:00",
+        program: {
+            title: "Şampiyonlar Ligi Özel - Devler Arenası",
+            desc: "Avrupa kupalarında haftanın en görkemli golleri ve teknik analizler.",
+            teletext300: "TV8.5 S.300: 21:00 DEVLER ARENASI / 23:00 FUTBOL EKSTRA CANLI / 01:00 OZETLER",
+            teletext888: "ALTYAZI S.888: '...Real Madrid ve Manchester City arasındaki nefes kesen yarı final eşleşmesi...'",
+            poll: {
+                id: "poll_tv85_1",
+                question: "Şampiyonlar Ligi kupasını bu sezon hangi dev kaldırır?",
+                options: ["Real Madrid", "Manchester City", "Bayern Münih", "Sürpriz Bir Takım"],
+                results: { "Real Madrid": 42, "Manchester City": 45, "Bayern Münih": 9, "Sürpriz Bir Takım": 4 },
+                points: 20
+            },
+            campaign: {
+                type: "Atıştırmalık Fırsatı",
+                title: "Doritos & Pepsi Maç Paketinde %30 İndirim",
+                desc: "Şampiyonlar Ligi akşamlarına özel market teslimatlarında indirim kuponu.",
+                code: "DEVLER30",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        },
+        ad: {
+            title: "PlayStation 5 - Oyun Dünyasını Yaşa",
+            desc: "Ultra yüksek hızlı SSD ve dokunsal geri bildirimle oyunun içine gir.",
+            teletext300: "TV8.5 REKLAM S.200: SONY PLAYSTATION 5 / EA SPORTS FC 25",
+            teletext888: "REKLAM ALTYAZISI: '...oyun dünyasında sınırları kaldır, PS5 ile efsaneyi yaşa...'",
+            campaign: {
+                type: "Oyun İndirimi",
+                title: "EA Sports FC 25 Oyununda 300 TL İndirim",
+                desc: "Dijital oyun mağazalarında geçerli anında 300 TL indirim kodu.",
+                code: "FC25INDIRIM",
                 points: 25,
-                actionText: "Fırsatı Cüzdana Kaydet (+25 P)"
+                actionText: "Kuponu Cüzdana Ekle (+25 P)"
+            }
+        }
+    },
+    tlc: {
+        id: "tlc",
+        name: "TLC",
+        genre: "Yaşam / Reality",
+        time: "⏰ 20:30 - 22:30",
+        program: {
+            title: "Ağır Yaşamlar - Dr. Nowzaradan",
+            desc: "Houstan'da 300 kilonun üzerindeki hastaların hayata tutunma mücadelesi.",
+            teletext300: "TLC AKIS S.300: 20:30 AGIR YASAMLAR / 22:30 TEMIZLIK AVCILARI / 00:00 EVLILIGE 90 GUN",
+            teletext888: "ALTYAZI S.888: '...Dr. Nowzaradan: Ameliyat tek başına mucize değildir, diyet hedefine sadık kalmalısın...'",
+            poll: {
+                id: "poll_tlc_1",
+                question: "Hastanın 2 ayda 25 kilo verme hedefine ulaşabileceğini düşünüyor musunuz?",
+                options: ["Hedefe Ulaşır", "Zorlanır (Diyet Bozulur)"],
+                results: { "Hedefe Ulaşır": 38, "Zorlanır (Diyet Bozulur)": 62 },
+                points: 20
+            },
+            campaign: {
+                type: "Sağlıklı Yaşam",
+                title: "Fitpack Diyet Destek Ürünlerinde %30 İndirim",
+                desc: "TLC izleyicilerine özel sağlıklı beslenme paketlerinde indirim kuponu.",
+                code: "FIT30",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
+            }
+        },
+        ad: {
+            title: "Philips Airfryer XXL - Sağlıklı Çıtır Lezzetler",
+            desc: "Yüzde 90 daha az yağ ile çıtır patates ve sulu tavuk pişirme keyfi.",
+            teletext300: "TLC REKLAM S.200: PHILIPS AIRFRYER / DYSON V15 SUPURGE",
+            teletext888: "REKLAM ALTYAZISI: '...sağlıklı ve lezzetli yemekler bir dokunuşla hazır...'",
+            campaign: {
+                type: "Mutfak İndirimi",
+                title: "Philips Küçük Ev Aletlerinde 400 TL İndirim",
+                desc: "Airfryer ve kahve makinelerinde geçerli anında 400 TL sepet indirimi.",
+                code: "PHILIPS400",
+                points: 20,
+                actionText: "Kuponu Cüzdana Ekle (+20 P)"
+            }
+        }
+    },
+    dmax: {
+        id: "dmax",
+        name: "DMAX",
+        genre: "Otomobil / Belgesel",
+        time: "⏰ 20:30 - 22:30",
+        program: {
+            title: "Hurda Avcıları - Klasik Araba Restorasyonu",
+            desc: "Hurdaya dönmüş 1968 model Mustang garajda sıfırdan hayata döndürülüyor.",
+            teletext300: "DMAX AKIS S.300: 20:30 HURDA AVCILARI / 22:30 TAMIRAT TADILAT / 00:00 ALTIN PESINDE",
+            teletext888: "ALTYAZI S.888: '...V8 motor bloğu tamamen söküldü, şasi kumlama havuzuna gönderiliyor...'",
+            poll: {
+                id: "poll_dmax_1",
+                question: "Hurda aracın restorasyon maliyeti satış değerini karşılar mı?",
+                options: ["Büyük Kar Sağlar", "Zarar Ederler", "Manevi Değeri Yüksek"],
+                results: { "Büyük Kar Sağlar": 61, "Zarar Ederler": 27, "Manevi Değeri Yüksek": 12 },
+                points: 20
+            },
+            campaign: {
+                type: "Oto & Hırdavat",
+                title: "Bosch & Koçtaş El Aletlerinde 250 TL İndirim",
+                desc: "DMAX izleyicilerine özel matkap ve lokma takımlarında geçerli indirim kodu.",
+                code: "USTA250",
+                points: 20,
+                actionText: "Kuponu Cüzdana Ekle (+20 P)"
+            }
+        },
+        ad: {
+            title: "Castrol EDGE - Sıvı Titanyum Gücü",
+            desc: "Motorunuzun sınırlarını zorlayın, sürtünmeyi en aza indirin.",
+            teletext300: "DMAX REKLAM S.200: CASTROL EDGE MOTOR YAGI / STANLEY TERMOS",
+            teletext888: "REKLAM ALTYAZISI: '...maksimum motor performansı için Castrol EDGE...'",
+            campaign: {
+                type: "Oto Bakım",
+                title: "Castrol Motor Yağı ve Filtre Setinde %30 İndirim",
+                desc: "Tüm oto servislerinde geçerli periyodik bakım indirim kuponu.",
+                code: "CASTROL30",
+                points: 15,
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
             }
         }
     }
@@ -146,7 +835,7 @@ let userProfile = {
 };
 
 try {
-    const saved = localStorage.getItem("contexta_v3_profile");
+    const saved = localStorage.getItem("contexta_v4_profile");
     if (saved) {
         userProfile = Object.assign(userProfile, JSON.parse(saved));
     }
@@ -156,7 +845,7 @@ try {
 
 function saveProfile() {
     try {
-        localStorage.setItem("contexta_v3_profile", JSON.stringify(userProfile));
+        localStorage.setItem("contexta_v4_profile", JSON.stringify(userProfile));
     } catch (e) {}
     updatePointsUI();
 }
@@ -172,245 +861,137 @@ function updatePointsUI() {
     if (badge) badge.innerText = userProfile.points;
 }
 
-// 3. Current Channel State
+// 3. Current Active Channel & Broadcast State
 let currentChannel = "showtv";
 let currentState = "program";
 
-// 4. Speech Recognition Engine
-let recognition = null;
-let isListening = false;
-let restartTimer = null;
-
-const btnListen = document.getElementById("btnListen");
-const micStatusTitle = document.getElementById("micStatusTitle");
-const micStatusSub = document.getElementById("micStatusSub");
-const liveTranscript = document.getElementById("liveTranscript");
-const matchStatus = document.getElementById("matchStatus");
-const matchText = document.getElementById("matchText");
-
-function initSpeechRecognition() {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+// 4. Populating the Top 20 Channel Selectors (Dropdown & Scrollable Chips)
+function initChannelSelectors() {
+    const dropdown = document.getElementById("channelDropdown");
+    const chipsGrid = document.getElementById("channelChipsGrid");
     
-    if (!SpeechRecognition) {
-        micStatusTitle.innerText = "Ses Tanıma Desteklenmiyor";
-        micStatusSub.innerHTML = "Tarayıcınız ses tanımayı desteklemiyor. Lütfen <strong>Safari (iOS)</strong> veya <strong>Chrome</strong> kullanın.";
-        return null;
-    }
+    if (!dropdown || !chipsGrid) return;
     
-    const rec = new SpeechRecognition();
-    rec.continuous = false;
-    rec.interimResults = true;
-    rec.lang = "tr-TR";
-    rec.maxAlternatives = 1;
-
-    rec.onstart = () => {
-        isListening = true;
-        btnListen.classList.add("listening");
-        micStatusTitle.innerText = "🔴 TV Dinleniyor...";
-        micStatusSub.innerText = "Televizyon sesini dinliyorum. Konuşulanları aşağıda görebilirsiniz.";
-        if (matchStatus) {
-            matchStatus.className = "match-status-bar";
-            matchText.innerText = "TV sesinden kanal ipuçları aranıyor...";
-        }
-    };
-
-    rec.onresult = (event) => {
-        let transcript = "";
-        for (let i = 0; i < event.results.length; ++i) {
-            transcript += event.results[i][0].transcript;
-        }
+    dropdown.innerHTML = "";
+    chipsGrid.innerHTML = "";
+    
+    const channelKeys = Object.keys(channelDatabase);
+    
+    channelKeys.forEach((key, index) => {
+        const ch = channelDatabase[key];
         
-        if (transcript) {
-            liveTranscript.innerText = `"${transcript}"`;
-            checkKeywords(transcript);
-        }
-    };
-
-    rec.onerror = (event) => {
-        console.warn("Speech error:", event.error);
-        if (event.error === "not-allowed") {
-            isListening = false;
-            btnListen.classList.remove("listening");
-            micStatusTitle.innerText = "Mikrofon İzni Gerekli";
-            micStatusSub.innerText = "Lütfen Safari ayarlarından mikrofon iznine izin verin.";
-            alert("Mikrofon izni verilmedi. TV'yi dinlemek için izin verin.");
-        }
-    };
-
-    rec.onend = () => {
-        if (isListening) {
-            clearTimeout(restartTimer);
-            restartTimer = setTimeout(() => {
-                try {
-                    if (isListening) rec.start();
-                } catch (e) {}
-            }, 300);
-        } else {
-            btnListen.classList.remove("listening");
-            micStatusTitle.innerText = "TV'yi Dinle";
-            micStatusSub.innerText = "Televizyon sesini dinlemek ve anında kupon/anket yakalamak için dokunun.";
-        }
-    };
-
-    return rec;
-}
-
-if (btnListen) {
-    btnListen.addEventListener("click", () => {
-        if (!recognition) {
-            recognition = initSpeechRecognition();
-        }
+        // 1. Add to Dropdown
+        const opt = document.createElement("option");
+        opt.value = key;
+        opt.innerText = `${index + 1}. ${ch.name} (${ch.genre})`;
+        if (key === currentChannel) opt.selected = true;
+        dropdown.appendChild(opt);
         
-        if (!recognition) return;
+        // 2. Add to Chips Grid
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = `channel-chip-btn ${key === currentChannel ? 'active' : ''}`;
+        chip.dataset.channel = key;
+        chip.innerText = `${index + 1}. ${ch.name}`;
         
-        if (isListening) {
-            isListening = false;
-            try { recognition.stop(); } catch (e) {}
-            btnListen.classList.remove("listening");
-            micStatusTitle.innerText = "TV'yi Dinle";
-            micStatusSub.innerText = "Dinleme durduruldu. Başlatmak için dokunun.";
-        } else {
-            liveTranscript.innerText = "Ses dinleniyor, lütfen TV sesini dinletin...";
-            try {
-                recognition.start();
-            } catch (err) {
-                try { recognition.stop(); recognition.start(); } catch (e) {}
-            }
-        }
+        chip.addEventListener("click", () => {
+            selectChannel(key, currentState);
+        });
+        
+        chipsGrid.appendChild(chip);
+    });
+    
+    // Dropdown change listener
+    dropdown.addEventListener("change", (e) => {
+        selectChannel(e.target.value, currentState);
     });
 }
 
-// 5. Intelligent Turkish Keyword Matcher
-// Normalizes Turkish characters (ş->s, ç->c, etc.) so matching is 100% resilient
-function normalizeTurkish(str) {
-    return str
-        .toLowerCase()
-        .replace(/ğ/g, 'g')
-        .replace(/ü/g, 'u')
-        .replace(/ş/g, 's')
-        .replace(/ı/g, 'i')
-        .replace(/ö/g, 'o')
-        .replace(/ç/g, 'c')
-        .replace(/[^a-z0-9\s]/g, ' ')
-        .trim();
-}
-
-function checkKeywords(rawText) {
-    const text = normalizeTurkish(rawText);
-    
-    // Direct Channel Mentions
-    if (text.includes("show tv") || text.includes("show")) {
-        triggerChannel("showtv", "program", "Kanal Adı: Show TV");
-        return;
-    }
-    if (text.includes("trt 1") || text.includes("trt") || text.includes("te re te")) {
-        triggerChannel("trt1", "program", "Kanal Adı: TRT 1");
-        return;
-    }
-    if (text.includes("tv 8") || text.includes("tv8") || text.includes("te ve sekiz")) {
-        triggerChannel("tv8", "program", "Kanal Adı: TV8");
-        return;
-    }
-    if (text.includes("atv") || text.includes("a te ve")) {
-        triggerChannel("atv", "program", "Kanal Adı: ATV");
-        return;
-    }
-    if (text.includes("kanal d") || text.includes("kanalde")) {
-        triggerChannel("kanald", "program", "Kanal Adı: Kanal D");
-        return;
-    }
-
-    // Program & Content Matching
-    // A) TV8 / MasterChef
-    if (text.includes("masterchef") || text.includes("danilo") || text.includes("mehmet sef") || text.includes("dokunulmazlik") || text.includes("kirmizi takim") || text.includes("mavi takim") || text.includes("survivor")) {
-        triggerChannel("tv8", "program", "Program: MasterChef Türkiye");
-    }
-    else if (text.includes("getir") || text.includes("getiryemek")) {
-        triggerChannel("tv8", "ad", "Reklam: GetirYemek");
-    }
-    // B) TRT 1 / Maç & Spor
-    else if (text.includes("mac") || text.includes("futbol") || text.includes("gol") || text.includes("milli takim") || text.includes("turkiye") || text.includes("italya") || text.includes("penalti") || text.includes("kenan yildiz") || text.includes("teskilat") || text.includes("gonul dagi")) {
-        triggerChannel("trt1", "program", "Program: TRT Canlı Maç / Spor");
-    }
-    else if (text.includes("pizza") || text.includes("yemeksepeti") || text.includes("aciktim")) {
-        triggerChannel("trt1", "ad", "Reklam: Yemeksepeti Pizza");
-    }
-    // C) Show TV / Yemek & Dizi
-    else if (text.includes("makarna") || text.includes("tarif") || text.includes("sef") || text.includes("feslegen") || text.includes("sos") || text.includes("lezzet") || text.includes("zeytinyagi") || text.includes("kizilcik serbeti") || text.includes("bahar") || text.includes("guldur guldur")) {
-        triggerChannel("showtv", "program", "Program: Lezzet Yolculuğu");
-    }
-    else if (text.includes("trendyol") || text.includes("loreal") || text.includes("kozmetik") || text.includes("krem") || text.includes("cilt")) {
-        triggerChannel("showtv", "ad", "Reklam: Trendyol Kozmetik");
-    }
-    // D) ATV / Müge Anlı & Dizi
-    else if (text.includes("muge") || text.includes("anli") || text.includes("kayip") || text.includes("ihbar") || text.includes("tatli sert") || text.includes("esra erol") || text.includes("kurulus osman")) {
-        triggerChannel("atv", "program", "Program: Müge Anlı ile Tatlı Sert");
-    }
-    else if (text.includes("dacia") || text.includes("duster") || text.includes("suv") || text.includes("araba") || text.includes("test surusu")) {
-        triggerChannel("atv", "ad", "Reklam: Dacia Duster");
-    }
-    // E) Kanal D / Dizi & Finans
-    else if (text.includes("inci taneleri") || text.includes("dilber") || text.includes("arka sokaklar") || text.includes("yargi")) {
-        triggerChannel("kanald", "program", "Program: Kanal D Dizisi");
-    }
-    else if (text.includes("akbank") || text.includes("kredi") || text.includes("faizsiz") || text.includes("nakit") || text.includes("avans")) {
-        triggerChannel("kanald", "ad", "Reklam: Akbank Faizsiz Kredi");
-    }
-    else {
-        // Active hint when sound is heard but channel not yet confirmed
-        if (matchStatus && isListening) {
-            matchStatus.className = "match-status-bar";
-            matchText.innerText = "TV sesi duyuluyor... Kanal veya program adı bekleniyor.";
-        }
-    }
-}
-
-function triggerChannel(channelKey, stateKey, matchReason = "") {
+function selectChannel(channelKey, stateKey = "program") {
     currentChannel = channelKey;
     currentState = stateKey;
     
-    // Visual Feedback in Match Status Bar
-    if (matchStatus) {
-        matchStatus.className = "match-status-bar matched";
-        const channelName = channelDatabase[channelKey].name;
-        matchText.innerText = `🎯 Eşleşti: ${channelName} (${matchReason || 'Canlı Yayın'})`;
-    }
+    // Sync dropdown
+    const dropdown = document.getElementById("channelDropdown");
+    if (dropdown) dropdown.value = channelKey;
     
-    showToast(`📺 TV Eşleşti: ${channelDatabase[channelKey].name}!`);
+    // Sync chips
+    document.querySelectorAll(".channel-chip-btn").forEach(btn => {
+        if (btn.dataset.channel === channelKey) {
+            btn.classList.add("active");
+            // Auto scroll active chip into view smoothly
+            btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+            btn.classList.remove("active");
+        }
+    });
+    
+    showToast(`📺 Kanal Değiştirildi: ${channelDatabase[channelKey].name}`);
     renderCurrentChannel();
 }
 
-// 6. UI Rendering Engine
+// 5. State Toggle Handlers (Program vs Reklam)
+const btnStateProgram = document.getElementById("btnStateProgram");
+const btnStateAd = document.getElementById("btnStateAd");
+
+if (btnStateProgram && btnStateAd) {
+    btnStateProgram.addEventListener("click", () => {
+        currentState = "program";
+        btnStateProgram.classList.add("active");
+        btnStateAd.classList.remove("active");
+        renderCurrentChannel();
+        showToast("🎬 Program Akışına Geçildi");
+    });
+    
+    btnStateAd.addEventListener("click", () => {
+        currentState = "ad";
+        btnStateAd.classList.add("active");
+        btnStateProgram.classList.remove("active");
+        renderCurrentChannel();
+        showToast("📢 Reklam Kuşağına Geçildi");
+    });
+}
+
+// 6. UI Rendering Engine: Renders EPG, Teletext Stream & Contextual Rewards
 function renderCurrentChannel() {
     const channelData = channelDatabase[currentChannel];
     if (!channelData) return;
     
     const viewData = channelData[currentState];
     
-    // Update Channel Header Card
+    // 1. Channel Badge & Meta
     document.getElementById("channelBadge").innerText = channelData.name.toUpperCase();
-    const stateBadge = document.getElementById("stateBadge");
-    stateBadge.className = `state-badge ${currentState}`;
-    stateBadge.innerText = currentState === "program" ? "CANLI PROGRAM" : "REKLAM ARASI";
+    document.getElementById("broadcastTime").innerText = channelData.time;
+    document.getElementById("broadcastGenre").innerText = channelData.genre;
     
+    // 2. Program Details
     document.getElementById("programTitle").innerText = viewData.title;
     document.getElementById("programDesc").innerText = viewData.desc;
     
-    // Update Active Manual Chips
-    document.querySelectorAll(".channel-chips .chip").forEach(chip => {
-        if (chip.dataset.channel === currentChannel && chip.dataset.state === currentState) {
-            chip.classList.add("active");
+    // 3. Live Teletext Streams (Simulated EPG Page 300 & Live Subtitle Page 888)
+    const teletext300 = document.getElementById("teletext300Text");
+    const teletext888 = document.getElementById("teletext888Text");
+    
+    if (teletext300) teletext300.innerText = viewData.teletext300 || channelData.program.teletext300;
+    if (teletext888) teletext888.innerText = viewData.teletext888 || channelData.program.teletext888;
+    
+    // 4. State Toggles Sync
+    if (btnStateProgram && btnStateAd) {
+        if (currentState === "program") {
+            btnStateProgram.classList.add("active");
+            btnStateAd.classList.remove("active");
         } else {
-            chip.classList.remove("active");
+            btnStateAd.classList.add("active");
+            btnStateProgram.classList.remove("active");
         }
-    });
-
-    // Render Dynamic Content (Poll or Coupon)
+    }
+    
+    // 5. Dynamic Interactive Cards (Poll & Coupon based on teletext/EPG topic)
     const feed = document.getElementById("interactiveFeed");
     feed.innerHTML = "";
     
-    // Case A: Active Poll
-    if (currentState === "program" && viewData.poll) {
+    // Case A: Poll Card (If available for this state)
+    if (viewData.poll) {
         const poll = viewData.poll;
         const hasVoted = userProfile.completedPolls.includes(poll.id);
         
@@ -442,7 +1023,7 @@ function renderCurrentChannel() {
                 <h4 class="card-headline">${poll.question}</h4>
                 <div class="poll-options">
                     ${poll.options.map(opt => `
-                        <button class="poll-btn" data-option="${opt}">${opt}</button>
+                        <button type="button" class="poll-btn" data-option="${opt}">${opt}</button>
                     `).join('')}
                 </div>
             `;
@@ -460,7 +1041,7 @@ function renderCurrentChannel() {
         feed.appendChild(card);
     }
     
-    // Case B: Ad Campaign / Coupon
+    // Case B: Ad Campaign / Coupon Card (If available for this state)
     if (viewData.campaign) {
         const camp = viewData.campaign;
         const isClaimed = userProfile.walletCoupons.some(c => c.code === camp.code);
@@ -472,7 +1053,7 @@ function renderCurrentChannel() {
             <span class="card-top-tag">🎁 ${camp.type}</span>
             <h4 class="card-headline">${camp.title}</h4>
             <p class="card-body-text">${camp.desc}</p>
-            <button class="card-btn ${isClaimed ? 'claimed' : ''}">
+            <button type="button" class="card-btn ${isClaimed ? 'claimed' : ''}">
                 ${isClaimed ? '✓ Kupon Cüzdanınızda' : camp.actionText}
             </button>
         `;
@@ -483,7 +1064,8 @@ function renderCurrentChannel() {
             userProfile.walletCoupons.push({
                 title: camp.title,
                 code: camp.code,
-                date: new Date().toLocaleDateString('tr-TR')
+                date: new Date().toLocaleDateString('tr-TR'),
+                channel: channelData.name
             });
             
             addPoints(camp.points, "Kupon Kazanımı");
@@ -495,23 +1077,14 @@ function renderCurrentChannel() {
     }
 }
 
-// 7. Manual Fallback Channel Chips
-document.querySelectorAll(".channel-chips .chip").forEach(chip => {
-    chip.addEventListener("click", () => {
-        const ch = chip.dataset.channel;
-        const st = chip.dataset.state;
-        triggerChannel(ch, st, "Manuel Seçim");
-    });
-});
-
-// 8. Wallet Screen Rendering
+// 7. Wallet Screen Rendering
 function renderWallet() {
     const list = document.getElementById("walletList");
     if (!list) return;
     
     const coupons = userProfile.walletCoupons || [];
     if (coupons.length === 0) {
-        list.innerHTML = `<div class="wallet-empty">Henüz cüzdanınızda kupon yok.<br>TV izlerken gelen kuponları cüzdanınıza ekleyebilirsiniz.</div>`;
+        list.innerHTML = `<div class="wallet-empty">Henüz cüzdanınızda kupon yok.<br>TV kanallarını gezerken gelen kuponları cüzdanınıza ekleyebilirsiniz.</div>`;
         return;
     }
     
@@ -519,14 +1092,14 @@ function renderWallet() {
         <div class="wallet-item">
             <div class="wallet-info">
                 <h4>${c.title}</h4>
-                <span style="font-size: 0.7rem; color: #64748b;">Kazanıldı: ${c.date}</span>
+                <span style="font-size: 0.7rem; color: #64748b;">${c.channel ? c.channel + ' • ' : ''}${c.date}</span>
             </div>
             <div class="wallet-code">${c.code}</div>
         </div>
     `).join('');
 }
 
-// 9. Tab Navigation
+// 8. Tab Navigation
 document.querySelectorAll(".bottom-nav .nav-btn").forEach(btn => {
     btn.addEventListener("click", () => {
         document.querySelectorAll(".bottom-nav .nav-btn").forEach(b => b.classList.remove("active"));
@@ -540,15 +1113,149 @@ document.querySelectorAll(".bottom-nav .nav-btn").forEach(btn => {
         
         if (targetTab === "tabWallet") {
             renderWallet();
+        } else if (targetTab === "tabChat") {
+            const badge = btn.querySelector(".nav-badge");
+            if (badge) badge.style.display = "none";
+            renderChatHistory();
         }
     });
 });
 
+// 9. Optional Speech Recognition Engine (Mic for voice channel match)
+let recognition = null;
+let isListening = false;
+let restartTimer = null;
+
+const btnListen = document.getElementById("btnListen");
+const speechBox = document.getElementById("speechBox");
+const liveTranscript = document.getElementById("liveTranscript");
+const matchStatus = document.getElementById("matchStatus");
+const matchText = document.getElementById("matchText");
+
+function initSpeechRecognition() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+        alert("Tarayıcınız ses tanımayı desteklemiyor. Lütfen Safari (iOS) veya Chrome kullanın.");
+        return null;
+    }
+    
+    const rec = new SpeechRecognition();
+    rec.continuous = false;
+    rec.interimResults = true;
+    rec.lang = "tr-TR";
+    rec.maxAlternatives = 1;
+
+    rec.onstart = () => {
+        isListening = true;
+        btnListen.classList.add("listening");
+        btnListen.innerText = "🛑 Durdur";
+        if (speechBox) speechBox.style.display = "block";
+        if (matchStatus) {
+            matchStatus.className = "match-status-bar";
+            matchText.innerText = "TV sesinden kanal ipuçları taranıyor...";
+        }
+    };
+
+    rec.onresult = (event) => {
+        let transcript = "";
+        for (let i = 0; i < event.results.length; ++i) {
+            transcript += event.results[i][0].transcript;
+        }
+        
+        if (transcript) {
+            liveTranscript.innerText = `"${transcript}"`;
+            checkKeywords(transcript);
+        }
+    };
+
+    rec.onerror = (event) => {
+        console.warn("Speech error:", event.error);
+        if (event.error === "not-allowed") {
+            isListening = false;
+            btnListen.classList.remove("listening");
+            btnListen.innerText = "🎙️ Dinle";
+            alert("Mikrofon izni verilmedi. TV'yi dinlemek için lütfen izin verin.");
+        }
+    };
+
+    rec.onend = () => {
+        if (isListening) {
+            clearTimeout(restartTimer);
+            restartTimer = setTimeout(() => {
+                try {
+                    if (isListening) rec.start();
+                } catch (e) {}
+            }, 300);
+        } else {
+            btnListen.classList.remove("listening");
+            btnListen.innerText = "🎙️ Dinle";
+        }
+    };
+
+    return rec;
+}
+
+if (btnListen) {
+    btnListen.addEventListener("click", () => {
+        if (!recognition) {
+            recognition = initSpeechRecognition();
+        }
+        if (!recognition) return;
+        
+        if (isListening) {
+            isListening = false;
+            try { recognition.stop(); } catch (e) {}
+            btnListen.classList.remove("listening");
+            btnListen.innerText = "🎙️ Dinle";
+        } else {
+            if (speechBox) speechBox.style.display = "block";
+            liveTranscript.innerText = "Ses dinleniyor, lütfen TV sesini dinletin...";
+            try {
+                recognition.start();
+            } catch (err) {
+                try { recognition.stop(); recognition.start(); } catch (e) {}
+            }
+        }
+    });
+}
+
+function normalizeTurkish(str) {
+    return str
+        .toLowerCase()
+        .replace(/ğ/g, 'g')
+        .replace(/ü/g, 'u')
+        .replace(/ş/g, 's')
+        .replace(/ı/g, 'i')
+        .replace(/ö/g, 'o')
+        .replace(/ç/g, 'c')
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .trim();
+}
+
+function checkKeywords(rawText) {
+    const text = normalizeTurkish(rawText);
+    
+    // Direct matches for channels
+    if (text.includes("show tv") || text.includes("show")) selectChannel("showtv", "program");
+    else if (text.includes("trt 1") || text.includes("trt") || text.includes("te re te")) selectChannel("trt1", "program");
+    else if (text.includes("tv 8") || text.includes("tv8") || text.includes("masterchef")) selectChannel("tv8", "program");
+    else if (text.includes("atv") || text.includes("a te ve") || text.includes("muge anli") || text.includes("kurulus osman")) selectChannel("atv", "program");
+    else if (text.includes("kanal d") || text.includes("inci taneleri")) selectChannel("kanald", "program");
+    else if (text.includes("now") || text.includes("fox") || text.includes("kizil goncalar")) selectChannel("now", "program");
+    else if (text.includes("star") || text.includes("yali capkini")) selectChannel("startv", "program");
+    else if (text.includes("haber turk") || text.includes("haberturk")) selectChannel("haberturk", "program");
+    else if (text.includes("cnn") || text.includes("akil cemberi")) selectChannel("cnnturk", "program");
+    else if (text.includes("ntv")) selectChannel("ntv", "program");
+    else if (text.includes("sozcu")) selectChannel("sozcutv", "program");
+    else if (text.includes("halk tv")) selectChannel("halktv", "program");
+    else if (text.includes("tlc") || text.includes("agir yasamlar")) selectChannel("tlc", "program");
+    else if (text.includes("dmax") || text.includes("hurda avcilari")) selectChannel("dmax", "program");
+}
+
 // ====================================================
-// 10. REAL-TIME MULTI-USER CHAT & LIVE PRESENCE (NTFY SSE)
+// 10. REAL-TIME PERSISTENT CHAT & ONLINE PRESENCE (NTFY)
 // ====================================================
 
-// Unique Persistent Client ID & User Name
 let clientId = localStorage.getItem("contexta_client_id");
 if (!clientId) {
     clientId = "client_" + Math.random().toString(36).substring(2, 9);
@@ -564,7 +1271,6 @@ if (!userName) {
 const chatUserNameSpan = document.getElementById("chatUserName");
 if (chatUserNameSpan) chatUserNameSpan.innerText = userName;
 
-// Change user name button
 const btnChangeName = document.getElementById("btnChangeName");
 if (btnChangeName) {
     btnChangeName.addEventListener("click", () => {
@@ -578,13 +1284,12 @@ if (btnChangeName) {
     });
 }
 
-// Global Real-time Pub/Sub Endpoints (CORS-enabled, zero-config, instant SSE)
+// Real-Time Cloud Endpoints
 const NTFY_CHAT_URL = "https://ntfy.sh/ctx_tv_chat_room_85e";
 const NTFY_PRESENCE_URL = "https://ntfy.sh/ctx_tv_presence_85e";
 
 let chatHistory = [];
 
-// Load Local Chat History (Guarantees messages never vanish on refresh)
 try {
     const localSaved = localStorage.getItem("contexta_chat_history_v4");
     if (localSaved) {
@@ -593,7 +1298,6 @@ try {
     }
 } catch (e) {}
 
-// Chat Form Submission
 const chatForm = document.getElementById("chatForm");
 const chatInput = document.getElementById("chatInput");
 const chatMessages = document.getElementById("chatMessages");
@@ -613,13 +1317,11 @@ if (chatForm) {
             timestamp: Date.now()
         };
         
-        // Add locally immediately for zero-lag feeling
         chatHistory.push(newMsg);
         saveChatLocally();
         renderChatHistory();
         chatInput.value = "";
         
-        // Broadcast to cloud so friend sees it instantly
         broadcastChatMessage(newMsg);
     });
 }
@@ -652,22 +1354,18 @@ function renderChatHistory() {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-// Broadcast message via HTTP POST
 function broadcastChatMessage(msg) {
     fetch(NTFY_CHAT_URL, {
         method: "POST",
         headers: { "Content-Type": "text/plain; charset=utf-8" },
         body: JSON.stringify(msg)
-    }).catch(err => {
-        console.warn("Chat broadcast error:", err);
-    });
+    }).catch(err => console.warn("Chat broadcast error:", err));
 }
 
-// Real-Time Chat Listener (SSE + Catchup Poll)
 let chatEventSource = null;
 
 function initRealtimeChat() {
-    // 1. Fetch catchup messages from the last 24h
+    // 1. Catchup from last 24h
     fetch(`${NTFY_CHAT_URL}/json?poll=1&since=24h`)
         .then(res => res.text())
         .then(text => {
@@ -692,9 +1390,9 @@ function initRealtimeChat() {
                 renderChatHistory();
             }
         })
-        .catch(err => console.warn("Chat catchup error:", err));
+        .catch(() => {});
 
-    // 2. Open Real-Time Server-Sent Events (SSE) Stream
+    // 2. Real-time SSE
     try {
         if (chatEventSource) chatEventSource.close();
         chatEventSource = new EventSource(`${NTFY_CHAT_URL}/sse`);
@@ -709,38 +1407,29 @@ function initRealtimeChat() {
                 const data = JSON.parse(event.data);
                 if (data.event === "message" && data.message) {
                     const parsedMsg = JSON.parse(data.message);
-                    
-                    // If we haven't rendered this message yet
                     if (!chatHistory.some(m => m.id === parsedMsg.id)) {
                         chatHistory.push(parsedMsg);
                         saveChatLocally();
                         renderChatHistory();
 
-                        // If from someone else, notify user!
                         if (parsedMsg.clientId !== clientId) {
                             notifyIncomingMessage(parsedMsg);
                         }
                     }
                 }
-            } catch (err) {
-                console.warn("SSE parse error", err);
-            }
+            } catch (err) {}
         };
 
         chatEventSource.onerror = () => {
             const statusEl = document.getElementById("chatSyncStatus");
             if (statusEl) statusEl.innerHTML = '<span class="sync-dot warning"></span> Bağlantı yenileniyor...';
         };
-    } catch (e) {
-        console.warn("EventSource setup error:", e);
-    }
+    } catch (e) {}
 }
 
-// Notification for incoming message from friend
 function notifyIncomingMessage(msg) {
     const chatTab = document.getElementById("tabChat");
     if (chatTab && !chatTab.classList.contains("active")) {
-        // Show red dot badge on chat tab
         const chatNavBtn = document.querySelector('.bottom-nav .nav-btn[data-tab="tabChat"]');
         if (chatNavBtn) {
             let badge = chatNavBtn.querySelector(".nav-badge");
@@ -751,42 +1440,14 @@ function notifyIncomingMessage(msg) {
             }
             badge.style.display = "block";
         }
-        
-        // Show popup toast
         showToast(`💬 ${msg.sender}: "${msg.text.substring(0, 30)}${msg.text.length > 30 ? '...' : ''}"`);
     }
 }
 
-// Tab navigation handler clears notification badge
-document.querySelectorAll(".bottom-nav .nav-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        document.querySelectorAll(".bottom-nav .nav-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        
-        const targetTab = btn.dataset.tab;
-        document.querySelectorAll(".tab-pane").forEach(pane => pane.classList.remove("active"));
-        
-        const activePane = document.getElementById(targetTab);
-        if (activePane) activePane.classList.add("active");
-        
-        if (targetTab === "tabWallet") {
-            renderWallet();
-        } else if (targetTab === "tabChat") {
-            // Clear unread badge
-            const badge = btn.querySelector(".nav-badge");
-            if (badge) badge.style.display = "none";
-            renderChatHistory();
-        }
-    });
-});
-
-// ====================================================
-// 11. REAL-TIME ONLINE PRESENCE COUNTER
-// ====================================================
+// 11. Presence Counter
 let activePeers = {};
 
 function initPresence() {
-    // 1. Listen for heartbeats via SSE
     try {
         const presenceSource = new EventSource(`${NTFY_PRESENCE_URL}/sse`);
         presenceSource.onmessage = (event) => {
@@ -803,11 +1464,8 @@ function initPresence() {
         };
     } catch (e) {}
 
-    // 2. Broadcast own heartbeat every 8 seconds
     sendPresenceHeartbeat();
     setInterval(sendPresenceHeartbeat, 8000);
-
-    // 3. Clean up stale peers every 4 seconds
     setInterval(refreshPresenceCount, 4000);
 }
 
@@ -825,7 +1483,6 @@ function sendPresenceHeartbeat() {
 function refreshPresenceCount() {
     const now = Date.now();
     let count = 0;
-    // Any device that reported in the last 22 seconds is online
     Object.keys(activePeers).forEach(id => {
         if (now - activePeers[id] < 22000) {
             count++;
@@ -835,42 +1492,9 @@ function refreshPresenceCount() {
     });
 
     if (count < 1) count = 1;
-
     const userPill = document.getElementById("activeUserCount");
     if (userPill) userPill.innerText = `${count} Canlı`;
 }
-
-// Fallback chat polling every 4 seconds (in case SSE drops on mobile)
-setInterval(() => {
-    fetch(`${NTFY_CHAT_URL}/json?poll=1&since=30s`)
-        .then(res => res.text())
-        .then(text => {
-            if (!text) return;
-            const lines = text.trim().split("\n");
-            let hasNew = false;
-            lines.forEach(line => {
-                try {
-                    const item = JSON.parse(line);
-                    if (item.event === "message" && item.message) {
-                        const parsedMsg = JSON.parse(item.message);
-                        if (!chatHistory.some(m => m.id === parsedMsg.id)) {
-                            chatHistory.push(parsedMsg);
-                            hasNew = true;
-                            if (parsedMsg.clientId !== clientId) {
-                                notifyIncomingMessage(parsedMsg);
-                            }
-                        }
-                    }
-                } catch (e) {}
-            });
-            if (hasNew) {
-                chatHistory.sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0));
-                saveChatLocally();
-                renderChatHistory();
-            }
-        })
-        .catch(() => {});
-}, 4000);
 
 // Toast helper
 let toastTimer = null;
@@ -885,11 +1509,10 @@ function showToast(msg) {
     }, 2500);
 }
 
-// Boot real-time systems
+// BOOT ENGINE
+initChannelSelectors();
+selectChannel(currentChannel, currentState);
+updatePointsUI();
+renderWallet();
 initRealtimeChat();
 initPresence();
-
-// Initial UI Boot
-updatePointsUI();
-renderCurrentChannel();
-renderWallet();
