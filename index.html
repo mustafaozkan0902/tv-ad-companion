@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Contexta TV - Akıllı İkinci Ekran</title>
+    
+    <!-- iOS PWA Full Screen & App Settings -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Contexta TV">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0d0f17">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Main App Container -->
+    <div class="mobile-wrapper">
+        
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo">Contexta<span>TV</span></div>
+                <div class="live-pill" id="livePill">
+                    <span class="pulse-dot"></span>
+                    <span id="activeUserCount">1 Canlı</span>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="points-badge" id="pointsBadge">
+                    🏆 <span id="totalPoints">50</span> P
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Scrollable Content -->
+        <main class="app-body">
+            
+            <!-- TAB 1: DISCOVER / LIVE TV -->
+            <div class="tab-pane active" id="tabHome">
+                
+                <!-- Listening Hero Section -->
+                <section class="listening-card">
+                    <div class="mic-button-wrapper">
+                        <button class="mic-btn" id="btnListen" aria-label="TV Dinle">
+                            <span class="mic-icon">🎙️</span>
+                            <span class="mic-wave"></span>
+                            <span class="mic-wave-2"></span>
+                        </button>
+                    </div>
+                    
+                    <h3 class="mic-title" id="micStatusTitle">TV'yi Dinle</h3>
+                    <p class="mic-sub" id="micStatusSub">Televizyon sesini dinlemek ve anında kupon/anket yakalamak için dokunun.</p>
+                    
+                    <!-- Live Speech Transcription Box -->
+                    <div class="speech-box" id="speechBox">
+                        <span class="speech-label">🎙️ TV'den Duyulan:</span>
+                        <p class="speech-text" id="liveTranscript">Mikrofon bekleniyor...</p>
+                    </div>
+
+                    <!-- Live AI Matching Status & Feedback -->
+                    <div class="match-status-bar" id="matchStatus">
+                        <span class="match-icon">🔍</span>
+                        <span class="match-text" id="matchText">TV sesinden kanal aranıyor...</span>
+                    </div>
+                </section>
+
+                <!-- Currently Identified Broadcast Card -->
+                <section class="channel-card" id="channelCard">
+                    <div class="channel-header">
+                        <div class="channel-badge" id="channelBadge">SHOW TV</div>
+                        <span class="state-badge program" id="stateBadge">CANLI PROGRAM</span>
+                    </div>
+                    <h4 class="program-title" id="programTitle">Lezzet Yolculuğu - Şefin Özel Menüsü</h4>
+                    <p class="program-desc" id="programDesc">Ekranda taze fesleğenli makarna sosu hazırlanıyor.</p>
+                </section>
+
+                <!-- Interactive Campaign & Poll Feed -->
+                <section class="interactive-feed" id="interactiveFeed">
+                    <!-- Dynamic cards injected via JavaScript -->
+                </section>
+
+                <!-- Quick Fallback Manual Channel Selector -->
+                <section class="manual-test-section">
+                    <span class="test-label">⚡ Mikrofonsuz Hızlı Test (Kanal Seç):</span>
+                    <div class="channel-chips">
+                        <button class="chip active" data-channel="showtv" data-state="program">🍳 Show TV (Yemek)</button>
+                        <button class="chip" data-channel="trt1" data-state="program">⚽ TRT 1 (Maç)</button>
+                        <button class="chip" data-channel="tv8" data-state="program">🧑‍🍳 TV8 (MasterChef)</button>
+                        <button class="chip" data-channel="atv" data-state="program">🔍 ATV (Müge Anlı)</button>
+                        <button class="chip" data-channel="kanald" data-state="program">💎 Kanal D (Dizi)</button>
+                        <button class="chip" data-channel="trt1" data-state="ad">🍕 Reklam (Pizza)</button>
+                        <button class="chip" data-channel="atv" data-state="ad">🚗 Reklam (Dacia)</button>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- TAB 2: WALLET / COUPONS -->
+            <div class="tab-pane" id="tabWallet">
+                <div class="wallet-header">
+                    <h2>🎁 Kupon Cüzdanım</h2>
+                    <p>TV izlerken kazandığınız tüm indirim kuponları ve kodlar burada saklanır.</p>
+                </div>
+                
+                <div class="wallet-list" id="walletList">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- TAB 3: LIVE VIEWER CHAT -->
+            <div class="tab-pane" id="tabChat">
+                <div class="chat-header">
+                    <h2>💬 İzleyici Sohbet Odası</h2>
+                    <p>Aynı anda TV izleyen diğer kullanıcılarla canlı sohbet edin.</p>
+                    <div class="chat-status-pill" id="chatSyncStatus">
+                        <span class="sync-dot live"></span> Canlı Sohbet Bağlı
+                    </div>
+                    <div class="chat-user-bar">
+                        <span>Adınız: <strong id="chatUserName">İzleyici</strong></span>
+                        <button type="button" class="btn-change-name" id="btnChangeName">Değiştir</button>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-empty">İlk mesajı yazan siz olun!</div>
+                </div>
+                
+                <form class="chat-input-row" id="chatForm">
+                    <input type="text" id="chatInput" placeholder="Bir mesaj veya yorum yazın..." autocomplete="off" required>
+                    <button type="submit" id="chatSendBtn">Gönder</button>
+                </form>
+            </div>
+
+        </main>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav">
+            <button class="nav-btn active" data-tab="tabHome">
+                <span class="nav-icon">📺</span>
+                <span class="nav-label">Canlı TV</span>
+            </button>
+            <button class="nav-btn" data-tab="tabWallet">
+                <span class="nav-icon">🎁</span>
+                <span class="nav-label">Cüzdanım</span>
+            </button>
+            <button class="nav-btn" data-tab="tabChat">
+                <span class="nav-icon">💬</span>
+                <span class="nav-label">Sohbet</span>
+            </button>
+        </nav>
+
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
