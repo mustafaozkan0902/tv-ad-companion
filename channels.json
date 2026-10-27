@@ -4,99 +4,193 @@
     "name": "Kanal D",
     "genre": "Dram / Aşk / Suç",
     "time": "⏰ 20:00 - 23:45",
-    "last_updated": "2026-10-27 23:54:17",
     "schedule": [
       {
-        "time": "16:45",
-        "title": "Gündüz Kuşağı Programı",
-        "desc": "Günün öne çıkan aktüel olayları."
+        "time": "07:00",
+        "title": "Küçük Ağa (Tekrar)",
+        "desc": "Eğlenceli aile komedisi ekranlarda.",
+        "current": false
       },
       {
-        "time": "18:45",
+        "time": "09:00",
+        "title": "Neler Oluyor Hayatta? (Canlı)",
+        "desc": "Hakan Ural ve Ferda Yıldırım ile günün sıcak gelişmeleri.",
+        "current": false
+      },
+      {
+        "time": "11:00",
+        "title": "Yaprak Dökümü",
+        "desc": "Ali Rıza Bey ve ailesinin unutulmaz dramı.",
+        "current": false
+      },
+      {
+        "time": "13:45",
+        "title": "Gelinim Mutfakta (Yeni Bölüm)",
+        "desc": "Nursel Ergin sunumuyla altın bilezikler için kıyasıya yarış.",
+        "current": false
+      },
+      {
+        "time": "16:45",
+        "title": "Arka Sokaklar (Tekrar)",
+        "desc": "Rıza Baba ve efsanevi İstanbul asayiş ekibi.",
+        "current": false
+      },
+      {
+        "time": "18:30",
         "title": "Kanal D Ana Haber (Canlı)",
-        "desc": "Türkiye ve dünya gündemi."
+        "desc": "Günün Türkiye ve dünya gündemi canlı yayında.",
+        "current": false
       },
       {
         "time": "20:00",
-        "title": "Haysiyet (CANLI YENİ BÖLÜM)",
-        "desc": "Adalet, aile bağları ve onur mücadelesi.",
+        "title": "Haysiyet (Yeni Bölüm)",
+        "desc": "Adalet, aile bağları ve onur mücadelesi; sırlar çözülüyor.",
         "current": true
       },
       {
         "time": "23:45",
-        "title": "Haysiyet (Tekrar Kuşağı)",
-        "desc": "Günün kaçırılan anları."
+        "title": "Haysiyet (Gece Tekrar Kuşağı)",
+        "desc": "Günün sevilen prime-time yapımının gece tekrarı.",
+        "current": false
+      },
+      {
+        "time": "02:00",
+        "title": "Gelinim Mutfakta (Gece Tekrarı)",
+        "desc": "Günün kaçırılan yemek tarifleri ve yarışma heyecanı.",
+        "current": false
       }
     ],
     "program": {
-      "title": "Haysiyet - CANLI YENİ BÖLÜM",
-      "desc": "Adalet, aile bağları ve onur mücadelesi.",
-      "teletext300": "KANAL D AKIŞ S.300: 20:00 HAYSIYET (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
-      "teletext888": "ALTYAZI S.888: '...Haysiyet canlı yayın altyazı akışı devrede...'",
+      "title": "Haysiyet (Yeni Bölüm)",
+      "desc": "Adalet, aile bağları ve onur mücadelesi; sırlar çözülüyor.",
+      "teletext300": "KANAL D AKIŞ S.300: 20:00 HAYSIYET (YENI BÖLÜM) / 23:45 HAYSIYET (GECE TEKRAR KUŞAĞI)",
+      "teletext888": "ALTYAZI S.888: '...Haysiyet (Yeni Bölüm) canlı yayın altyazı akışı yayında...'",
       "poll": {
-        "id": "poll_kanald_1",
-        "question": "Haysiyet bu akşamki bölümde en çok hangi sahne konuşulacak?",
+        "id": "poll_kanald_active",
+        "question": "Haysiyet bu akşamki büyük hesaplaşmada sizce kim haklı çıkacak?",
         "options": [
-          "Büyük yüzleşme",
-          "Beklenmedik itiraf",
-          "Planların bozulması"
+          "Geçmişin sırlarını saklayanlar",
+          "Gerçeğin peşinden gidenler",
+          "İntikam arayanlar"
         ],
         "results": {
-          "Büyük yüzleşme": 52,
-          "Beklenmedik itiraf": 31,
-          "Planların bozulması": 17
+          "Geçmişin sırlarını saklayanlar": 28,
+          "Gerçeğin peşinden gidenler": 54,
+          "İntikam arayanlar": 18
         },
         "points": 20
+      },
+      "campaign": {
+        "title": "Akbank 25.000 TL Faizsiz Taksitli Avans",
+        "desc": "Kanal D prime-time izleyicilerine özel mobilden Akbanklı olanlara sıfır faizli nakit.",
+        "code": "AKBANK0FAIZ",
+        "points": 25
+      }
+    },
+    "ad": {
+      "title": "Akbank 25.000 TL Faizsiz Taksitli Avans",
+      "desc": "Kanal D prime-time izleyicilerine özel mobilden Akbanklı olanlara sıfır faizli nakit.",
+      "teletext300": "KANAL D REKLAM S.200: AKBANK 25.000 TL FAIZSIZ TAKSITLI AVANS",
+      "teletext888": "REKLAM ALTYAZISI: '...Kanal D prime-time izleyicilerine özel mobilden Akbanklı olanlara sıfır faizli nakit....'",
+      "campaign": {
+        "title": "Akbank 25.000 TL Faizsiz Taksitli Avans",
+        "desc": "Kanal D prime-time izleyicilerine özel mobilden Akbanklı olanlara sıfır faizli nakit.",
+        "code": "AKBANK0FAIZ",
+        "points": 25
       }
     }
   },
   "trt1": {
     "id": "trt1",
     "name": "TRT 1",
-    "genre": "Tarih / Dram / Aile",
+    "genre": "Tarih / Dönem / Aile",
     "time": "⏰ 20:00 - 23:45",
-    "last_updated": "2026-10-27 23:54:17",
     "schedule": [
       {
-        "time": "16:45",
-        "title": "Gündüz Kuşağı Programı",
-        "desc": "Günün öne çıkan aktüel olayları."
+        "time": "06:00",
+        "title": "İstiklal Marşı & Gün Başlıyor",
+        "desc": "Günün ilk saatlerinde haber ve kültür kuşağı.",
+        "current": false
       },
       {
-        "time": "18:45",
+        "time": "09:00",
+        "title": "Kasaba Doktoru (Tekrar)",
+        "desc": "Gönüllere dokunan fedakar hekimlerin hikayesi.",
+        "current": false
+      },
+      {
+        "time": "13:15",
+        "title": "Alişan ile Hayata Gülümse (Canlı)",
+        "desc": "Müzik, sağlık ve hayata dair keyifli sohbetler.",
+        "current": false
+      },
+      {
+        "time": "17:45",
+        "title": "Lingo Türkiye (Yarışma)",
+        "desc": "Kemal Uçar sunumuyla kelime tahmin heyecanı.",
+        "current": false
+      },
+      {
+        "time": "19:00",
         "title": "TRT 1 Ana Haber (Canlı)",
-        "desc": "Türkiye ve dünya gündemi."
+        "desc": "Doğru, tarafsız ve ilkeli habercilik.",
+        "current": false
       },
       {
         "time": "20:00",
-        "title": "Mehmed: Fetihler Sultanı (CANLI YENİ BÖLÜM)",
-        "desc": "Fatih Sultan Mehmed Han'ın İstanbul ve cihan fethi.",
+        "title": "Mehmed: Fetihler Sultanı (Yeni Bölüm)",
+        "desc": "Sultan Mehmed Han Konstantiniyye fethi için dev şahi topların döküm emrini veriyor.",
         "current": true
       },
       {
         "time": "23:45",
-        "title": "Mehmed: Fetihler Sultanı (Tekrar Kuşağı)",
-        "desc": "Günün kaçırılan anları."
+        "title": "Mehmed: Fetihler Sultanı (Gece Tekrarı)",
+        "desc": "Günün tarihi destanının gece tekrarı.",
+        "current": false
+      },
+      {
+        "time": "02:15",
+        "title": "Gönül Dağı (Tekrar)",
+        "desc": "Bozkırın sarı sıcağında samimi hikayeler.",
+        "current": false
       }
     ],
     "program": {
-      "title": "Mehmed: Fetihler Sultanı - CANLI YENİ BÖLÜM",
-      "desc": "Fatih Sultan Mehmed Han'ın İstanbul ve cihan fethi.",
-      "teletext300": "TRT 1 AKIŞ S.300: 20:00 MEHMED: FETIHLER SULTANI (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
-      "teletext888": "ALTYAZI S.888: '...Mehmed: Fetihler Sultanı canlı yayın altyazı akışı devrede...'",
+      "title": "Mehmed: Fetihler Sultanı (Yeni Bölüm)",
+      "desc": "Sultan Mehmed Han Konstantiniyye fethi için dev şahi topların döküm emrini veriyor.",
+      "teletext300": "TRT 1 AKIŞ S.300: 20:00 MEHMED: FETIHLER SULTANI (YENI BÖLÜM) / 23:45 MEHMED: FETIHLER SULTANI (GECE TEKRARI)",
+      "teletext888": "ALTYAZI S.888: '...Mehmed: Fetihler Sultanı (Yeni Bölüm) canlı yayın altyazı akışı yayında...'",
       "poll": {
-        "id": "poll_trt1_1",
-        "question": "Mehmed: Fetihler Sultanı bu akşamki bölümde en çok hangi sahne konuşulacak?",
+        "id": "poll_trt1_active",
+        "question": "Sultan Mehmed Han'ın şahi toplarla yapacağı ilk atış testi surlarda gedik açar mı?",
         "options": [
-          "Büyük yüzleşme",
-          "Beklenmedik itiraf",
-          "Planların bozulması"
+          "Evet, test tam başarıyla tamamlanır",
+          "Bizanslı casuslar sabotaj dener",
+          "Kuşatma stratejisi değişir"
         ],
         "results": {
-          "Büyük yüzleşme": 52,
-          "Beklenmedik itiraf": 31,
-          "Planların bozulması": 17
+          "Evet, test tam başarıyla tamamlanır": 62,
+          "Bizanslı casuslar sabotaj dener": 26,
+          "Kuşatma stratejisi değişir": 12
         },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Türk Telekom Prime %30 İndirim",
+        "desc": "TRT 1 izleyicilerine özel Prime ev internetinde ilk 3 ay %30 indirim fırsatı.",
+        "code": "TRT30PRIME",
+        "points": 20
+      }
+    },
+    "ad": {
+      "title": "Türk Telekom Prime %30 İndirim",
+      "desc": "TRT 1 izleyicilerine özel Prime ev internetinde ilk 3 ay %30 indirim fırsatı.",
+      "teletext300": "TRT 1 REKLAM S.200: TÜRK TELEKOM PRIME %30 İNDIRIM",
+      "teletext888": "REKLAM ALTYAZISI: '...TRT 1 izleyicilerine özel Prime ev internetinde ilk 3 ay %30 indirim fırsatı....'",
+      "campaign": {
+        "title": "Türk Telekom Prime %30 İndirim",
+        "desc": "TRT 1 izleyicilerine özel Prime ev internetinde ilk 3 ay %30 indirim fırsatı.",
+        "code": "TRT30PRIME",
         "points": 20
       }
     }
@@ -106,150 +200,288 @@
     "name": "Show TV",
     "genre": "Aile / Komedi / Dram",
     "time": "⏰ 20:00 - 23:45",
-    "last_updated": "2026-10-27 23:54:17",
     "schedule": [
       {
-        "time": "16:45",
-        "title": "Gündüz Kuşağı Programı",
-        "desc": "Günün öne çıkan aktüel olayları."
+        "time": "06:00",
+        "title": "Kendine İyi Bak (Tekrar)",
+        "desc": "Sağlıklı yaşam ve estetik önerileri.",
+        "current": false
+      },
+      {
+        "time": "08:00",
+        "title": "Bu Sabah (Canlı)",
+        "desc": "Murat Güloğlu ve Ebru Akel ile günün sıcak haberleri.",
+        "current": false
+      },
+      {
+        "time": "12:30",
+        "title": "Gelin Evi",
+        "desc": "Haftanın en marifetli gelini kim olacak?",
+        "current": false
+      },
+      {
+        "time": "15:00",
+        "title": "Didem Arslan Yılmaz'la Vazgeçme (Canlı)",
+        "desc": "Kayıpların bulunduğu, sırların aydınlatıldığı canlı yayın.",
+        "current": false
       },
       {
         "time": "18:45",
-        "title": "Show TV Ana Haber (Canlı)",
-        "desc": "Türkiye ve dünya gündemi."
+        "title": "Show Ana Haber (Canlı)",
+        "desc": "Rıdvan Bıyık yönetiminde günün gelişmeleri.",
+        "current": false
       },
       {
         "time": "20:00",
-        "title": "Bahar (CANLI YENİ BÖLÜM)",
+        "title": "Bahar - Uyanmaya Hazır Mısın? (Yeni Bölüm)",
         "desc": "Bahar'ın uyanışı ve doktorluk hayallerine geri dönüşü.",
         "current": true
       },
       {
         "time": "23:45",
-        "title": "Bahar (Tekrar Kuşağı)",
-        "desc": "Günün kaçırılan anları."
+        "title": "Bahar (Gece Tekrar Kuşağı)",
+        "desc": "Günün sevilen dizisinin gece tekrarı.",
+        "current": false
+      },
+      {
+        "time": "02:15",
+        "title": "Kızılcık Şerbeti (Tekrar)",
+        "desc": "Farklı dünyaların fırtınalı aile dramı.",
+        "current": false
       }
     ],
     "program": {
-      "title": "Bahar - CANLI YENİ BÖLÜM",
+      "title": "Bahar - Uyanmaya Hazır Mısın? (Yeni Bölüm)",
       "desc": "Bahar'ın uyanışı ve doktorluk hayallerine geri dönüşü.",
-      "teletext300": "SHOW TV AKIŞ S.300: 20:00 BAHAR (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
-      "teletext888": "ALTYAZI S.888: '...Bahar canlı yayın altyazı akışı devrede...'",
+      "teletext300": "SHOW TV AKIŞ S.300: 20:00 BAHAR - UYANMAYA HAZIR MISIN? (YENI BÖLÜM) / 23:45 BAHAR (GECE TEKRAR KUŞAĞI)",
+      "teletext888": "ALTYAZI S.888: '...Bahar - Uyanmaya Hazır Mısın? (Yeni Bölüm) canlı yayın altyazı akışı yayında...'",
       "poll": {
-        "id": "poll_showtv_1",
-        "question": "Bahar bu akşamki bölümde en çok hangi sahne konuşulacak?",
+        "id": "poll_showtv_active",
+        "question": "Bahar hastanedeki zorlu ameliyatta tek başına başarılı olabilecek mi?",
         "options": [
-          "Büyük yüzleşme",
-          "Beklenmedik itiraf",
-          "Planların bozulması"
+          "Kesinlikle başarır",
+          "Timur müdahale etmek zorunda kalır",
+          "Evren Hoca yardıma koşar"
         ],
         "results": {
-          "Büyük yüzleşme": 52,
-          "Beklenmedik itiraf": 31,
-          "Planların bozulması": 17
+          "Kesinlikle başarır": 58,
+          "Timur müdahale etmek zorunda kalır": 14,
+          "Evren Hoca yardıma koşar": 28
         },
         "points": 20
+      },
+      "campaign": {
+        "title": "Trendyol 100 TL Alışveriş Çeki",
+        "desc": "Show TV izleyicilerine özel 'SHOW100' koduyla anında 100 TL indirim hediyesi.",
+        "code": "SHOW100",
+        "points": 15
       }
-    }
-  },
-  "startv": {
-    "id": "startv",
-    "name": "Star TV",
-    "genre": "Dram / Aşk",
-    "time": "⏰ 20:00 - 23:45",
-    "last_updated": "2026-10-27 23:54:17",
-    "schedule": [
-      {
-        "time": "16:45",
-        "title": "Gündüz Kuşağı Programı",
-        "desc": "Günün öne çıkan aktüel olayları."
-      },
-      {
-        "time": "18:45",
-        "title": "Star TV Ana Haber (Canlı)",
-        "desc": "Türkiye ve dünya gündemi."
-      },
-      {
-        "time": "20:00",
-        "title": "Tuzlu Kahve / Star Sineması (CANLI YENİ BÖLÜM)",
-        "desc": "Salı akşamı ekranlara gelen özel film kuşağı.",
-        "current": true
-      },
-      {
-        "time": "23:45",
-        "title": "Tuzlu Kahve / Star Sineması (Tekrar Kuşağı)",
-        "desc": "Günün kaçırılan anları."
-      }
-    ],
-    "program": {
-      "title": "Tuzlu Kahve / Star Sineması - CANLI YENİ BÖLÜM",
-      "desc": "Salı akşamı ekranlara gelen özel film kuşağı.",
-      "teletext300": "STAR TV AKIŞ S.300: 20:00 TUZLU KAHVE / STAR SINEMASI (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
-      "teletext888": "ALTYAZI S.888: '...Tuzlu Kahve / Star Sineması canlı yayın altyazı akışı devrede...'",
-      "poll": {
-        "id": "poll_startv_1",
-        "question": "Tuzlu Kahve / Star Sineması bu akşamki bölümde en çok hangi sahne konuşulacak?",
-        "options": [
-          "Büyük yüzleşme",
-          "Beklenmedik itiraf",
-          "Planların bozulması"
-        ],
-        "results": {
-          "Büyük yüzleşme": 52,
-          "Beklenmedik itiraf": 31,
-          "Planların bozulması": 17
-        },
-        "points": 20
+    },
+    "ad": {
+      "title": "Trendyol 100 TL Alışveriş Çeki",
+      "desc": "Show TV izleyicilerine özel 'SHOW100' koduyla anında 100 TL indirim hediyesi.",
+      "teletext300": "SHOW TV REKLAM S.200: TRENDYOL 100 TL ALIŞVERIŞ ÇEKI",
+      "teletext888": "REKLAM ALTYAZISI: '...Show TV izleyicilerine özel 'SHOW100' koduyla anında 100 TL indirim hediyesi....'",
+      "campaign": {
+        "title": "Trendyol 100 TL Alışveriş Çeki",
+        "desc": "Show TV izleyicilerine özel 'SHOW100' koduyla anında 100 TL indirim hediyesi.",
+        "code": "SHOW100",
+        "points": 15
       }
     }
   },
   "atv": {
     "id": "atv",
     "name": "ATV",
-    "genre": "Dram / Töre / Aksiyon",
+    "genre": "Dram / Romantik / Töre",
     "time": "⏰ 20:00 - 23:45",
-    "last_updated": "2026-10-27 23:54:17",
     "schedule": [
       {
-        "time": "16:45",
-        "title": "Gündüz Kuşağı Programı",
-        "desc": "Günün öne çıkan aktüel olayları."
+        "time": "07:00",
+        "title": "Kahvaltı Haberleri (Canlı)",
+        "desc": "Nihan Günay ile sabahın ilk bülteni.",
+        "current": false
       },
       {
-        "time": "18:45",
+        "time": "10:00",
+        "title": "Müge Anlı ile Tatlı Sert (Canlı)",
+        "desc": "Faili meçhul dosyalar ve kayıplar canlı yayında çözülüyor.",
+        "current": false
+      },
+      {
+        "time": "13:00",
+        "title": "ATV Gün Ortası",
+        "desc": "Günün ilk yarısının özet bülteni.",
+        "current": false
+      },
+      {
+        "time": "14:00",
+        "title": "Mutfak Bahane",
+        "desc": "Derya Taşbaşı ile lezzetli tarifler.",
+        "current": false
+      },
+      {
+        "time": "16:00",
+        "title": "Esra Erol'da (Canlı)",
+        "desc": "Kavuşmalar, yüzleşmeler ve aile dramları ekranda.",
+        "current": false
+      },
+      {
+        "time": "19:00",
         "title": "ATV Ana Haber (Canlı)",
-        "desc": "Türkiye ve dünya gündemi."
+        "desc": "Cem Öğretir ile Türkiye'nin en çok izlenen ana haberi.",
+        "current": false
       },
       {
         "time": "20:00",
-        "title": "Bir Gece Masalı (CANLI YENİ BÖLÜM)",
-        "desc": "Komiser Mahir ve Yörük kızı Canfeza'nın masalsı aşkı.",
+        "title": "Bir Gece Masalı (Yeni Bölüm)",
+        "desc": "Komiser Mahir ile Yörük kızı Canfeza'nın masalsı aşkı.",
         "current": true
       },
       {
         "time": "23:45",
-        "title": "Bir Gece Masalı (Tekrar Kuşağı)",
-        "desc": "Günün kaçırılan anları."
+        "title": "Bir Gece Masalı (Gece Tekrarı)",
+        "desc": "Günün dizisinin gece tekrarı.",
+        "current": false
+      },
+      {
+        "time": "02:30",
+        "title": "Kuruluş Osman (Tekrar)",
+        "desc": "Osman Bey'in kutlu devlet kurma yürüyüşü.",
+        "current": false
       }
     ],
     "program": {
-      "title": "Bir Gece Masalı - CANLI YENİ BÖLÜM",
-      "desc": "Komiser Mahir ve Yörük kızı Canfeza'nın masalsı aşkı.",
-      "teletext300": "ATV AKIŞ S.300: 20:00 BIR GECE MASALI (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
-      "teletext888": "ALTYAZI S.888: '...Bir Gece Masalı canlı yayın altyazı akışı devrede...'",
+      "title": "Bir Gece Masalı (Yeni Bölüm)",
+      "desc": "Komiser Mahir ile Yörük kızı Canfeza'nın masalsı aşkı.",
+      "teletext300": "ATV AKIŞ S.300: 20:00 BIR GECE MASALI (YENI BÖLÜM) / 23:45 BIR GECE MASALI (GECE TEKRARI)",
+      "teletext888": "ALTYAZI S.888: '...Bir Gece Masalı (Yeni Bölüm) canlı yayın altyazı akışı yayında...'",
       "poll": {
-        "id": "poll_atv_1",
-        "question": "Bir Gece Masalı bu akşamki bölümde en çok hangi sahne konuşulacak?",
+        "id": "poll_atv_active",
+        "question": "Mahir konaktaki büyük sır perdesini bu akşam aralayabilecek mi?",
         "options": [
-          "Büyük yüzleşme",
-          "Beklenmedik itiraf",
-          "Planların bozulması"
+          "Tüm sırları ortaya çıkarır",
+          "Canfeza'yı korumak için susar",
+          "Yeni bir tuzakla karşılaşır"
         ],
         "results": {
-          "Büyük yüzleşme": 52,
-          "Beklenmedik itiraf": 31,
-          "Planların bozulması": 17
+          "Tüm sırları ortaya çıkarır": 48,
+          "Canfeza'yı korumak için susar": 38,
+          "Yeni bir tuzakla karşılaşır": 14
         },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Yeni Dacia Duster Test Sürüşü + 150 TL Yakıt",
+        "desc": "ATV izleyicilerine özel test sürüşü randevusuna anında 150 TL Opet yakıt puanı.",
+        "code": "DACIA2026",
+        "points": 25
+      }
+    },
+    "ad": {
+      "title": "Yeni Dacia Duster Test Sürüşü + 150 TL Yakıt",
+      "desc": "ATV izleyicilerine özel test sürüşü randevusuna anında 150 TL Opet yakıt puanı.",
+      "teletext300": "ATV REKLAM S.200: YENI DACIA DUSTER TEST SÜRÜŞÜ + 150 TL YAKIT",
+      "teletext888": "REKLAM ALTYAZISI: '...ATV izleyicilerine özel test sürüşü randevusuna anında 150 TL Opet yakıt puanı....'",
+      "campaign": {
+        "title": "Yeni Dacia Duster Test Sürüşü + 150 TL Yakıt",
+        "desc": "ATV izleyicilerine özel test sürüşü randevusuna anında 150 TL Opet yakıt puanı.",
+        "code": "DACIA2026",
+        "points": 25
+      }
+    }
+  },
+  "startv": {
+    "id": "startv",
+    "name": "Star TV",
+    "genre": "Dram / Aşk / Aile",
+    "time": "⏰ 20:00 - 23:45",
+    "schedule": [
+      {
+        "time": "07:00",
+        "title": "Kiralık Aşk (Tekrar)",
+        "desc": "Defne ve Ömer'in unutulmaz romantik komedisi.",
+        "current": false
+      },
+      {
+        "time": "09:30",
+        "title": "Sabahın Sultanı Seda Sayan (Canlı)",
+        "desc": "Evlilikler, yüzleşmeler ve Seda Sayan enerjisi.",
+        "current": false
+      },
+      {
+        "time": "13:30",
+        "title": "Zahide Yetiş ile Yeniden Başlasak",
+        "desc": "Umut veren gerçek yaşam hikayeleri.",
+        "current": false
+      },
+      {
+        "time": "16:15",
+        "title": "Söz (Tekrar)",
+        "desc": "Özel Kuvvetler timinin nefes kesen operasyonları.",
+        "current": false
+      },
+      {
+        "time": "19:00",
+        "title": "Star Haber (Canlı)",
+        "desc": "Nazlı Çelik ile tarafsız ana haber bülteni.",
+        "current": false
+      },
+      {
+        "time": "20:00",
+        "title": "Sahipsizler (Yeni Bölüm)",
+        "desc": "Hayatta birbirine kenetlenen 6 yetim kardeşin mücadelesi.",
+        "current": true
+      },
+      {
+        "time": "23:45",
+        "title": "Sahipsizler (Gece Tekrar Kuşağı)",
+        "desc": "Günün dram yapımının gece tekrarı.",
+        "current": false
+      },
+      {
+        "time": "02:15",
+        "title": "Yalı Çapkını (Tekrar)",
+        "desc": "Ferit ve Seyran'ın Korhan yalısındaki fırtınası.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "Sahipsizler (Yeni Bölüm)",
+      "desc": "Hayatta birbirine kenetlenen 6 yetim kardeşin mücadelesi.",
+      "teletext300": "STAR TV AKIŞ S.300: 20:00 SAHIPSIZLER (YENI BÖLÜM) / 23:45 SAHIPSIZLER (GECE TEKRAR KUŞAĞI)",
+      "teletext888": "ALTYAZI S.888: '...Sahipsizler (Yeni Bölüm) canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_startv_active",
+        "question": "Sahipsizler dizisinde kardeşler konağın baskılarına direnebilecek mi?",
+        "options": [
+          "Birbirlerinden asla ayrılmazlar",
+          "Büyük kardeş fedakarlık yapar",
+          "Beklenmedik bir akraba sahip çıkar"
+        ],
+        "results": {
+          "Birbirlerinden asla ayrılmazlar": 66,
+          "Büyük kardeş fedakarlık yapar": 24,
+          "Beklenmedik bir akraba sahip çıkar": 10
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Arzum Okka'da 400 TL Sepet İndirimi",
+        "desc": "Star TV reklam kuşağına özel online kahve makinesi siparişinde anında 400 TL indirim.",
+        "code": "OKKA400",
+        "points": 20
+      }
+    },
+    "ad": {
+      "title": "Arzum Okka'da 400 TL Sepet İndirimi",
+      "desc": "Star TV reklam kuşağına özel online kahve makinesi siparişinde anında 400 TL indirim.",
+      "teletext300": "STAR TV REKLAM S.200: ARZUM OKKA'DA 400 TL SEPET İNDIRIMI",
+      "teletext888": "REKLAM ALTYAZISI: '...Star TV reklam kuşağına özel online kahve makinesi siparişinde anında 400 TL indirim....'",
+      "campaign": {
+        "title": "Arzum Okka'da 400 TL Sepet İndirimi",
+        "desc": "Star TV reklam kuşağına özel online kahve makinesi siparişinde anında 400 TL indirim.",
+        "code": "OKKA400",
         "points": 20
       }
     }
@@ -257,50 +489,94 @@
   "now": {
     "id": "now",
     "name": "NOW (Fox)",
-    "genre": "Dram / Sosyal",
+    "genre": "Dram / Sosyal / Aile",
     "time": "⏰ 20:00 - 23:45",
-    "last_updated": "2026-10-27 23:54:17",
     "schedule": [
       {
-        "time": "16:45",
-        "title": "Gündüz Kuşağı Programı",
-        "desc": "Günün öne çıkan aktüel olayları."
+        "time": "07:30",
+        "title": "İlker Karagöz ile Çalar Saat (Canlı)",
+        "desc": "Sabahın ilk gazeteleri ve gündemin nabzı.",
+        "current": false
       },
       {
-        "time": "18:45",
-        "title": "NOW (Fox) Ana Haber (Canlı)",
-        "desc": "Türkiye ve dünya gündemi."
+        "time": "11:00",
+        "title": "Çağla ile Yeni Bir Gün",
+        "desc": "Çağla Şıkel ile sağlık, moda ve pratik bilgiler.",
+        "current": false
+      },
+      {
+        "time": "13:30",
+        "title": "En Hamarat Benim",
+        "desc": "Kadir Ezildi ile temizlik ve yemek yarışması.",
+        "current": false
+      },
+      {
+        "time": "16:30",
+        "title": "Fatih Ürek ile Gelin Görümce",
+        "desc": "Eğlenceli mutfak atışmaları ve ödüller.",
+        "current": false
+      },
+      {
+        "time": "19:00",
+        "title": "Selçuk Tepeli ile NOW Ana Haber (Canlı)",
+        "desc": "Günün manşetleri ve dobra yorumlar.",
+        "current": false
       },
       {
         "time": "20:00",
-        "title": "Gizli Bahçe (CANLI YENİ BÖLÜM)",
-        "desc": "Nazlı ve Demir'in sırlarla dolu velayet mücadelesi.",
+        "title": "Gizli Bahçe (Yeni Bölüm)",
+        "desc": "Demir ve Nazlı'nın velayet ve aşk savaşı.",
         "current": true
       },
       {
         "time": "23:45",
-        "title": "Gizli Bahçe (Tekrar Kuşağı)",
-        "desc": "Günün kaçırılan anları."
+        "title": "Gizli Bahçe (Gece Tekrarı)",
+        "desc": "Günün dizisinin gece yayını.",
+        "current": false
+      },
+      {
+        "time": "02:15",
+        "title": "Kızıl Goncalar (Tekrar)",
+        "desc": "Meryem ve Levent'in derin hesaplaşması.",
+        "current": false
       }
     ],
     "program": {
-      "title": "Gizli Bahçe - CANLI YENİ BÖLÜM",
-      "desc": "Nazlı ve Demir'in sırlarla dolu velayet mücadelesi.",
-      "teletext300": "NOW (FOX) AKIŞ S.300: 20:00 GIZLI BAHÇE (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
-      "teletext888": "ALTYAZI S.888: '...Gizli Bahçe canlı yayın altyazı akışı devrede...'",
+      "title": "Gizli Bahçe (Yeni Bölüm)",
+      "desc": "Demir ve Nazlı'nın velayet ve aşk savaşı.",
+      "teletext300": "NOW (FOX) AKIŞ S.300: 20:00 GIZLI BAHÇE (YENI BÖLÜM) / 23:45 GIZLI BAHÇE (GECE TEKRARI)",
+      "teletext888": "ALTYAZI S.888: '...Gizli Bahçe (Yeni Bölüm) canlı yayın altyazı akışı yayında...'",
       "poll": {
-        "id": "poll_now_1",
-        "question": "Gizli Bahçe bu akşamki bölümde en çok hangi sahne konuşulacak?",
+        "id": "poll_now_active",
+        "question": "Demir bu akşam Nazlı'nın sakladığı büyük velayet sırrını çözecek mi?",
         "options": [
-          "Büyük yüzleşme",
-          "Beklenmedik itiraf",
-          "Planların bozulması"
+          "Gerçeği öğrenir ve yüzleşir",
+          "Nazlı bir kez daha atlatır",
+          "Aile büyükleri araya girer"
         ],
         "results": {
-          "Büyük yüzleşme": 52,
-          "Beklenmedik itiraf": 31,
-          "Planların bozulması": 17
+          "Gerçeği öğrenir ve yüzleşir": 52,
+          "Nazlı bir kez daha atlatır": 36,
+          "Aile büyükleri araya girer": 12
         },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Boyner %30 Yeni Sezon Mont Kuponu",
+        "desc": "NOW TV izleyicilerine özel Boyner'de geçerli 'BOYNER30' indirim kodu.",
+        "code": "BOYNER30",
+        "points": 20
+      }
+    },
+    "ad": {
+      "title": "Boyner %30 Yeni Sezon Mont Kuponu",
+      "desc": "NOW TV izleyicilerine özel Boyner'de geçerli 'BOYNER30' indirim kodu.",
+      "teletext300": "NOW (FOX) REKLAM S.200: BOYNER %30 YENI SEZON MONT KUPONU",
+      "teletext888": "REKLAM ALTYAZISI: '...NOW TV izleyicilerine özel Boyner'de geçerli 'BOYNER30' indirim kodu....'",
+      "campaign": {
+        "title": "Boyner %30 Yeni Sezon Mont Kuponu",
+        "desc": "NOW TV izleyicilerine özel Boyner'de geçerli 'BOYNER30' indirim kodu.",
+        "code": "BOYNER30",
         "points": 20
       }
     }
@@ -310,48 +586,1231 @@
     "name": "TV8",
     "genre": "Yarışma / Eğlence",
     "time": "⏰ 20:00 - 23:45",
-    "last_updated": "2026-10-27 23:54:17",
     "schedule": [
       {
-        "time": "16:45",
-        "title": "Gündüz Kuşağı Programı",
-        "desc": "Günün öne çıkan aktüel olayları."
+        "time": "07:15",
+        "title": "8'de Sağlık",
+        "desc": "Uzman doktorlarla sağlıklı yaşam rehberi.",
+        "current": false
       },
       {
-        "time": "18:45",
-        "title": "TV8 Ana Haber (Canlı)",
-        "desc": "Türkiye ve dünya gündemi."
+        "time": "09:00",
+        "title": "Aramızda Kalmasın (Canlı)",
+        "desc": "Magazin dünyasının en sıcak kulisleri.",
+        "current": false
+      },
+      {
+        "time": "11:15",
+        "title": "Demet ve Jess ile Gel Konuşalım",
+        "desc": "Gündem, sosyal medya ve eğlenceli sohbetler.",
+        "current": false
+      },
+      {
+        "time": "13:30",
+        "title": "Zuhal Topal'la Yemekteyiz (Yeni Bölüm)",
+        "desc": "Büyük ödül 150.000 TL için kıyasıya mutfak rekabeti.",
+        "current": false
+      },
+      {
+        "time": "16:00",
+        "title": "MasterChef Türkiye (Özet)",
+        "desc": "Haftanın en kritik yemekleri ve pota adayları.",
+        "current": false
       },
       {
         "time": "20:00",
-        "title": "MasterChef Türkiye (CANLI YENİ BÖLÜM)",
-        "desc": "Haftanın ilk dokunulmazlık ve eleme adayı yarışı.",
+        "title": "MasterChef Türkiye (Yeni Bölüm - Dokunulmazlık)",
+        "desc": "Mehmet, Danilo ve Somer Şef ile haftanın ilk dokunulmazlık oyunu.",
         "current": true
       },
       {
         "time": "23:45",
-        "title": "MasterChef Türkiye (Tekrar Kuşağı)",
-        "desc": "Günün kaçırılan anları."
+        "title": "MasterChef Türkiye (Gece Özeti)",
+        "desc": "Gecenin kazanan tabağı ve potaya giren isimler.",
+        "current": false
+      },
+      {
+        "time": "02:30",
+        "title": "Zuhal Topal'la Yemekteyiz (Tekrar)",
+        "desc": "Günün masa tartışmaları ve puanlaması.",
+        "current": false
       }
     ],
     "program": {
-      "title": "MasterChef Türkiye - CANLI YENİ BÖLÜM",
-      "desc": "Haftanın ilk dokunulmazlık ve eleme adayı yarışı.",
-      "teletext300": "TV8 AKIŞ S.300: 20:00 MASTERCHEF TÜRKIYE (CANLI YENİ BÖLÜM) / 23:45 TEKRAR",
-      "teletext888": "ALTYAZI S.888: '...MasterChef Türkiye canlı yayın altyazı akışı devrede...'",
+      "title": "MasterChef Türkiye (Yeni Bölüm - Dokunulmazlık)",
+      "desc": "Mehmet, Danilo ve Somer Şef ile haftanın ilk dokunulmazlık oyunu.",
+      "teletext300": "TV8 AKIŞ S.300: 20:00 MASTERCHEF TÜRKIYE (YENI BÖLÜM - DOKUNULMAZLIK) / 23:45 MASTERCHEF TÜRKIYE (GECE ÖZETI)",
+      "teletext888": "ALTYAZI S.888: '...MasterChef Türkiye (Yeni Bölüm - Dokunulmazlık) canlı yayın altyazı akışı yayında...'",
       "poll": {
-        "id": "poll_tv8_1",
-        "question": "MasterChef Türkiye bu akşamki bölümde en çok hangi sahne konuşulacak?",
+        "id": "poll_tv8_active",
+        "question": "MasterChef dokunulmazlık oyununda bu akşam hangi takım kazanacak?",
         "options": [
-          "Büyük yüzleşme",
-          "Beklenmedik itiraf",
-          "Planların bozulması"
+          "Mavi Takım",
+          "Kırmızı Takım",
+          "Kıl payı farkla Mavi"
         ],
         "results": {
-          "Büyük yüzleşme": 52,
-          "Beklenmedik itiraf": 31,
-          "Planların bozulması": 17
+          "Mavi Takım": 56,
+          "Kırmızı Takım": 34,
+          "Kıl payı farkla Mavi": 10
         },
+        "points": 20
+      },
+      "campaign": {
+        "title": "GetirYemek'ten 120 TL İndirim Kuponu",
+        "desc": "TV8 MasterChef kuşağına özel ilk siparişe 120 TL hediye indirim kodu.",
+        "code": "MASTERGETIR",
+        "points": 25
+      }
+    },
+    "ad": {
+      "title": "GetirYemek'ten 120 TL İndirim Kuponu",
+      "desc": "TV8 MasterChef kuşağına özel ilk siparişe 120 TL hediye indirim kodu.",
+      "teletext300": "TV8 REKLAM S.200: GETIRYEMEK'TEN 120 TL İNDIRIM KUPONU",
+      "teletext888": "REKLAM ALTYAZISI: '...TV8 MasterChef kuşağına özel ilk siparişe 120 TL hediye indirim kodu....'",
+      "campaign": {
+        "title": "GetirYemek'ten 120 TL İndirim Kuponu",
+        "desc": "TV8 MasterChef kuşağına özel ilk siparişe 120 TL hediye indirim kodu.",
+        "code": "MASTERGETIR",
+        "points": 25
+      }
+    }
+  },
+  "kanal7": {
+    "id": "kanal7",
+    "name": "Kanal 7",
+    "genre": "Dram / Aile / Günlük",
+    "time": "⏰ 18:00 - 23:45",
+    "schedule": [
+      {
+        "time": "06:30",
+        "title": "Kanal 7'de Sabah",
+        "desc": "Günün ilk haberleri.",
+        "current": false
+      },
+      {
+        "time": "09:00",
+        "title": "Nermin'in Enfes Mutfağı",
+        "desc": "Pratik ve lezzetli yemek tarifleri.",
+        "current": false
+      },
+      {
+        "time": "11:30",
+        "title": "Rüzgarlı Tepe (Tekrar)",
+        "desc": "İntikam ve aşk ikilemi.",
+        "current": false
+      },
+      {
+        "time": "14:30",
+        "title": "Gelin (Günlük Dizi)",
+        "desc": "Törelerin gölgesinde aşk ve adalet savaşı.",
+        "current": false
+      },
+      {
+        "time": "18:00",
+        "title": "Kanal 7 Ana Haber (Canlı)",
+        "desc": "Tümer Doğru ile ilkeli ana haber.",
+        "current": true
+      },
+      {
+        "time": "19:00",
+        "title": "Esaret (Yeni Bölüm)",
+        "desc": "Orhun ve Hira'nın fırtınalı aşkı ve Demirhanlı konağının sırları.",
+        "current": false
+      },
+      {
+        "time": "21:15",
+        "title": "Rüzgarlı Tepe (Yeni Bölüm)",
+        "desc": "Halil ve Zeynep'in büyük intikam savaşı.",
+        "current": false
+      },
+      {
+        "time": "23:45",
+        "title": "Esaret (Gece Tekrarı)",
+        "desc": "Günün bölümünün tekrarı.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "Kanal 7 Ana Haber (Canlı)",
+      "desc": "Tümer Doğru ile ilkeli ana haber.",
+      "teletext300": "KANAL 7 AKIŞ S.300: 18:00 KANAL 7 ANA HABER (CANLI) / 23:45 ESARET (GECE TEKRARI)",
+      "teletext888": "ALTYAZI S.888: '...Kanal 7 Ana Haber (Canlı) canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_kanal7_active",
+        "question": "Orhun bu akşam Hira'ya kurulan komployu bozabilecek mi?",
+        "options": [
+          "Komployu ortaya çıkarır",
+          "Afife Hanım engeller",
+          "Hira konağı terk eder"
+        ],
+        "results": {
+          "Komployu ortaya çıkarır": 60,
+          "Afife Hanım engeller": 28,
+          "Hira konağı terk eder": 12
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Karaca Mutfak ve Çeyiz Setinde %40 İndirim",
+        "desc": "Kanal 7 izleyicilerine özel tencere ve yemek takımlarında geçerli indirim.",
+        "code": "KARACA40",
+        "points": 20
+      }
+    },
+    "ad": {
+      "title": "Karaca Mutfak ve Çeyiz Setinde %40 İndirim",
+      "desc": "Kanal 7 izleyicilerine özel tencere ve yemek takımlarında geçerli indirim.",
+      "teletext300": "KANAL 7 REKLAM S.200: KARACA MUTFAK VE ÇEYIZ SETINDE %40 İNDIRIM",
+      "teletext888": "REKLAM ALTYAZISI: '...Kanal 7 izleyicilerine özel tencere ve yemek takımlarında geçerli indirim....'",
+      "campaign": {
+        "title": "Karaca Mutfak ve Çeyiz Setinde %40 İndirim",
+        "desc": "Kanal 7 izleyicilerine özel tencere ve yemek takımlarında geçerli indirim.",
+        "code": "KARACA40",
+        "points": 20
+      }
+    }
+  },
+  "beyaztv": {
+    "id": "beyaztv",
+    "name": "Beyaz TV",
+    "genre": "Spor / Tartışma / Magazin",
+    "time": "⏰ 20:00 - 00:30",
+    "schedule": [
+      {
+        "time": "07:30",
+        "title": "Uyan Türkiyem (Canlı)",
+        "desc": "Günün ilk gelişmeleri.",
+        "current": false
+      },
+      {
+        "time": "09:00",
+        "title": "Söylemezsem Olmaz (Canlı)",
+        "desc": "Magazin dünyasında bomba iddialar.",
+        "current": false
+      },
+      {
+        "time": "13:00",
+        "title": "Beyaz Gazete",
+        "desc": "Gün ortası haberleri.",
+        "current": false
+      },
+      {
+        "time": "18:30",
+        "title": "Beyaz Ana Haber (Canlı)",
+        "desc": "Günün sıcak gündemi.",
+        "current": false
+      },
+      {
+        "time": "20:00",
+        "title": "Beyaz Futbol - Derbi Özel (Canlı)",
+        "desc": "Ertem Şener, Sinan Engin, Ahmet Çakar, Rasim Ozan Kütahyalı ve Abdülkerim Durmaz ile fırtınalı futbol gecesi.",
+        "current": true
+      },
+      {
+        "time": "00:30",
+        "title": "Derin Futbol (Canlı Devam)",
+        "desc": "Hakem kararları, VAR tartışmaları ve sıcak kulisler.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "Beyaz Futbol - Derbi Özel (Canlı)",
+      "desc": "Ertem Şener, Sinan Engin, Ahmet Çakar, Rasim Ozan Kütahyalı ve Abdülkerim Durmaz ile fırtınalı futbol gecesi.",
+      "teletext300": "BEYAZ TV AKIŞ S.300: 20:00 BEYAZ FUTBOL - DERBI ÖZEL (CANLI) / 00:30 DERIN FUTBOL (CANLI DEVAM)",
+      "teletext888": "ALTYAZI S.888: '...Beyaz Futbol - Derbi Özel (Canlı) canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_beyaztv_active",
+        "question": "Ahmet Çakar'ın bu haftaki hakem kararları yorumuna katılıyor musunuz?",
+        "options": [
+          "Kesinlikle katılıyorum",
+          "Fazla abartıyor",
+          "Hakem haklıydı"
+        ],
+        "results": {
+          "Kesinlikle katılıyorum": 55,
+          "Fazla abartıyor": 35,
+          "Hakem haklıydı": 10
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Puma & Adidas Kramponlarda %25 İndirim",
+        "desc": "Beyaz Futbol izleyicilerine özel spor giyimde geçerli kupon kodu.",
+        "code": "FUTBOL25",
+        "points": 20
+      }
+    },
+    "ad": {
+      "title": "Puma & Adidas Kramponlarda %25 İndirim",
+      "desc": "Beyaz Futbol izleyicilerine özel spor giyimde geçerli kupon kodu.",
+      "teletext300": "BEYAZ TV REKLAM S.200: PUMA & ADIDAS KRAMPONLARDA %25 İNDIRIM",
+      "teletext888": "REKLAM ALTYAZISI: '...Beyaz Futbol izleyicilerine özel spor giyimde geçerli kupon kodu....'",
+      "campaign": {
+        "title": "Puma & Adidas Kramponlarda %25 İndirim",
+        "desc": "Beyaz Futbol izleyicilerine özel spor giyimde geçerli kupon kodu.",
+        "code": "FUTBOL25",
+        "points": 20
+      }
+    }
+  },
+  "trtspors": {
+    "id": "trtspors",
+    "name": "TRT Spor",
+    "genre": "Canlı Spor & Maç",
+    "time": "⏰ 20:00 - 00:30",
+    "schedule": [
+      {
+        "time": "07:00",
+        "title": "İlk Baskı (Canlı)",
+        "desc": "Sabah spor gazeteleri ve özetler.",
+        "current": false
+      },
+      {
+        "time": "11:00",
+        "title": "Spor Bülteni",
+        "desc": "Günün sıcak gelişmeleri.",
+        "current": false
+      },
+      {
+        "time": "14:00",
+        "title": "Gündem Futbol",
+        "desc": "Kulüplerden antrenman ve transfer haberleri.",
+        "current": false
+      },
+      {
+        "time": "17:30",
+        "title": "Spor Stüdyosu",
+        "desc": "Süper Lig takımlarının son durumu.",
+        "current": false
+      },
+      {
+        "time": "19:00",
+        "title": "Ana Haber Spor",
+        "desc": "Dünya ve Türkiye spor gündemi.",
+        "current": false
+      },
+      {
+        "time": "20:00",
+        "title": "Spor Manşet (Canlı)",
+        "desc": "Cem Dizdar ve Erbatur Ergenekon ile derinlemesine futbol analizi.",
+        "current": true
+      },
+      {
+        "time": "22:30",
+        "title": "Teknik Analiz (Canlı)",
+        "desc": "Taktik tahtasında haftanın taktikleri ve gol analizleri.",
+        "current": false
+      },
+      {
+        "time": "00:30",
+        "title": "Aktüel Futbol",
+        "desc": "Günün kaçırılan golleri ve özetleri.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "Spor Manşet (Canlı)",
+      "desc": "Cem Dizdar ve Erbatur Ergenekon ile derinlemesine futbol analizi.",
+      "teletext300": "TRT SPOR AKIŞ S.300: 20:00 SPOR MANŞET (CANLI) / 00:30 AKTÜEL FUTBOL",
+      "teletext888": "ALTYAZI S.888: '...Spor Manşet (Canlı) canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_trtspors_active",
+        "question": "Süper Lig'de bu haftanın en başarılı taktiğini kim sahaya yansıttı?",
+        "options": [
+          "Lider takım",
+          "Haftanın sürpriz takımı",
+          "Savunma futbolu"
+        ],
+        "results": {
+          "Lider takım": 50,
+          "Haftanın sürpriz takımı": 38,
+          "Savunma futbolu": 12
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Decathlon Doğa ve Futbol Ekipmanlarında %20 İndirim",
+        "desc": "TRT Spor izleyicilerine özel spor aksesuarlarında geçerli indirim kodu.",
+        "code": "TRTSPOR20",
+        "points": 15
+      }
+    },
+    "ad": {
+      "title": "Decathlon Doğa ve Futbol Ekipmanlarında %20 İndirim",
+      "desc": "TRT Spor izleyicilerine özel spor aksesuarlarında geçerli indirim kodu.",
+      "teletext300": "TRT SPOR REKLAM S.200: DECATHLON DOĞA VE FUTBOL EKIPMANLARINDA %20 İNDIRIM",
+      "teletext888": "REKLAM ALTYAZISI: '...TRT Spor izleyicilerine özel spor aksesuarlarında geçerli indirim kodu....'",
+      "campaign": {
+        "title": "Decathlon Doğa ve Futbol Ekipmanlarında %20 İndirim",
+        "desc": "TRT Spor izleyicilerine özel spor aksesuarlarında geçerli indirim kodu.",
+        "code": "TRTSPOR20",
+        "points": 15
+      }
+    }
+  },
+  "aspor": {
+    "id": "aspor",
+    "name": "A Spor",
+    "genre": "Canlı Spor / Transfer",
+    "time": "⏰ 20:00 - 23:00",
+    "schedule": [
+      {
+        "time": "07:00",
+        "title": "Sabah Sporu (Canlı)",
+        "desc": "Günün ilk spor haberleri.",
+        "current": false
+      },
+      {
+        "time": "11:00",
+        "title": "Spor Ajansı",
+        "desc": "Kulüp başkanlarının açıklamaları ve transfer iddiaları.",
+        "current": false
+      },
+      {
+        "time": "15:00",
+        "title": "Gün Ortası Spor",
+        "desc": "Antrenman sahasından canlı bağlantılar.",
+        "current": false
+      },
+      {
+        "time": "18:00",
+        "title": "Ana Haber Spor",
+        "desc": "Günün spor bülteni.",
+        "current": false
+      },
+      {
+        "time": "20:00",
+        "title": "Takım Oyunu (Canlı)",
+        "desc": "Erman Toroğlu ve usta yorumcularla canlı maç ve pozisyon değerlendirmeleri.",
+        "current": true
+      },
+      {
+        "time": "23:00",
+        "title": "Son Sayfa (Canlı)",
+        "desc": "Gece yarısının en sıcak transfer kulisleri.",
+        "current": false
+      },
+      {
+        "time": "01:00",
+        "title": "Artı Futbol",
+        "desc": "Tüm liglerin geniş özetleri.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "Takım Oyunu (Canlı)",
+      "desc": "Erman Toroğlu ve usta yorumcularla canlı maç ve pozisyon değerlendirmeleri.",
+      "teletext300": "A SPOR AKIŞ S.300: 20:00 TAKIM OYUNU (CANLI) / 23:00 SON SAYFA (CANLI)",
+      "teletext888": "ALTYAZI S.888: '...Takım Oyunu (Canlı) canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_aspor_active",
+        "question": "Erman Toroğlu'nun tartışmalı penaltı pozisyonu yorumuna katılıyor musunuz?",
+        "options": [
+          "Hakem kesinlikle haklıydı",
+          "Hatalı karardı",
+          "VAR müdahale etmeliydi"
+        ],
+        "results": {
+          "Hakem kesinlikle haklıydı": 44,
+          "Hatalı karardı": 40,
+          "VAR müdahale etmeliydi": 16
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Tivibu Spor İlk 3 Ay Ücretsiz Kampanyası",
+        "desc": "A Spor izleyicilerine özel Tivibu paketlerinde geçerli özel fırsat kodu.",
+        "code": "ASPORTIVIBU",
+        "points": 20
+      }
+    },
+    "ad": {
+      "title": "Tivibu Spor İlk 3 Ay Ücretsiz Kampanyası",
+      "desc": "A Spor izleyicilerine özel Tivibu paketlerinde geçerli özel fırsat kodu.",
+      "teletext300": "A SPOR REKLAM S.200: TIVIBU SPOR İLK 3 AY ÜCRETSIZ KAMPANYASI",
+      "teletext888": "REKLAM ALTYAZISI: '...A Spor izleyicilerine özel Tivibu paketlerinde geçerli özel fırsat kodu....'",
+      "campaign": {
+        "title": "Tivibu Spor İlk 3 Ay Ücretsiz Kampanyası",
+        "desc": "A Spor izleyicilerine özel Tivibu paketlerinde geçerli özel fırsat kodu.",
+        "code": "ASPORTIVIBU",
+        "points": 20
+      }
+    }
+  },
+  "haberturk": {
+    "id": "haberturk",
+    "name": "HaberTürk",
+    "genre": "Haber / Tartışma",
+    "time": "⏰ 20:00 - 23:30",
+    "schedule": [
+      {
+        "time": "06:00",
+        "title": "Güne Bakış",
+        "desc": "Sabahın ilk bülteni.",
+        "current": false
+      },
+      {
+        "time": "09:00",
+        "title": "Para Gündem (Canlı)",
+        "desc": "Ebru Baki ile borsa, altın ve döviz analizi.",
+        "current": false
+      },
+      {
+        "time": "12:00",
+        "title": "Gün Ortası Haberleri",
+        "desc": "Sıcak gelişmeler.",
+        "current": false
+      },
+      {
+        "time": "18:00",
+        "title": "HaberTürk Ana Haber (Canlı)",
+        "desc": "Mehmet Akif Ersoy ile dosya haberler.",
+        "current": false
+      },
+      {
+        "time": "20:00",
+        "title": "Teke Tek (Canlı)",
+        "desc": "Fatih Altaylı ekolüyle bilim, tarih, felsefe ve jeopolitik tartışması.",
+        "current": true
+      },
+      {
+        "time": "23:30",
+        "title": "Olaylar ve Görüşler (Canlı)",
+        "desc": "Siyaset ve küresel gelişmeler masada.",
+        "current": false
+      },
+      {
+        "time": "01:30",
+        "title": "Gece Bülteni",
+        "desc": "Dünya başkentlerinden canlı bağlantılar.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "Teke Tek (Canlı)",
+      "desc": "Fatih Altaylı ekolüyle bilim, tarih, felsefe ve jeopolitik tartışması.",
+      "teletext300": "HABERTÜRK AKIŞ S.300: 20:00 TEKE TEK (CANLI) / 23:30 OLAYLAR VE GÖRÜŞLER (CANLI)",
+      "teletext888": "ALTYAZI S.888: '...Teke Tek (Canlı) canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_haberturk_active",
+        "question": "Teke Tek programındaki yapay zeka ve gelecek vizyonu öngörülerine katılıyor musunuz?",
+        "options": [
+          "Büyük fırsatlar doğuracak",
+          "İş gücünü tehdit edecek",
+          "Dengeli yaklaşılmalı"
+        ],
+        "results": {
+          "Büyük fırsatlar doğuracak": 46,
+          "İş gücünü tehdit edecek": 36,
+          "Dengeli yaklaşılmalı": 18
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "İş Bankası Maximum ile 500 TL MaxiPuan",
+        "desc": "HaberTürk izleyicilerine özel Maximum Kart başvurularına 500 TL hediye puan.",
+        "code": "ISBANKMAX",
+        "points": 25
+      }
+    },
+    "ad": {
+      "title": "İş Bankası Maximum ile 500 TL MaxiPuan",
+      "desc": "HaberTürk izleyicilerine özel Maximum Kart başvurularına 500 TL hediye puan.",
+      "teletext300": "HABERTÜRK REKLAM S.200: İŞ BANKASI MAXIMUM ILE 500 TL MAXIPUAN",
+      "teletext888": "REKLAM ALTYAZISI: '...HaberTürk izleyicilerine özel Maximum Kart başvurularına 500 TL hediye puan....'",
+      "campaign": {
+        "title": "İş Bankası Maximum ile 500 TL MaxiPuan",
+        "desc": "HaberTürk izleyicilerine özel Maximum Kart başvurularına 500 TL hediye puan.",
+        "code": "ISBANKMAX",
+        "points": 25
+      }
+    }
+  },
+  "cnnturk": {
+    "id": "cnnturk",
+    "name": "CNN Türk",
+    "genre": "Haber / Küresel",
+    "time": "⏰ 20:00 - 23:45",
+    "schedule": [
+      {
+        "time": "06:00",
+        "title": "Güne Merhaba",
+        "desc": "Sabahın ilk dünya haberleri.",
+        "current": false
+      },
+      {
+        "time": "09:00",
+        "title": "Parametre",
+        "desc": "Ekonominin nabzı ve piyasa yorumları.",
+        "current": false
+      },
+      {
+        "time": "13:00",
+        "title": "Bugün",
+        "desc": "Son dakika haberleri.",
+        "current": false
+      },
+      {
+        "time": "18:00",
+        "title": "CNN Türk Ana Haber (Canlı)",
+        "desc": "Fulya Öztürk ile sahadan sıcak görüntüler.",
+        "current": false
+      },
+      {
+        "time": "20:00",
+        "title": "Akıl Çemberi (Canlı)",
+        "desc": "Ahmet Hakan ve uzman konuklarla iç ve dış politika masada.",
+        "current": true
+      },
+      {
+        "time": "23:45",
+        "title": "Gece Görüşü (Canlı)",
+        "desc": "Hande Fırat ile başkent kulisleri.",
+        "current": false
+      },
+      {
+        "time": "01:30",
+        "title": "Dünyadan Haberler",
+        "desc": "Küresel ajans bültenleri.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "Akıl Çemberi (Canlı)",
+      "desc": "Ahmet Hakan ve uzman konuklarla iç ve dış politika masada.",
+      "teletext300": "CNN TÜRK AKIŞ S.300: 20:00 AKIL ÇEMBERI (CANLI) / 23:45 GECE GÖRÜŞÜ (CANLI)",
+      "teletext888": "ALTYAZI S.888: '...Akıl Çemberi (Canlı) canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_cnnturk_active",
+        "question": "Akıl Çemberi'nde tartışılan dış politika hamleleri bölgede dengeyi nasıl etkiler?",
+        "options": [
+          "Türkiye'nin ağırlığını artırır",
+          "Yeni diplomatik kapılar açar",
+          "Tansiyonu düşürür"
+        ],
+        "results": {
+          "Türkiye'nin ağırlığını artırır": 64,
+          "Yeni diplomatik kapılar açar": 24,
+          "Tansiyonu düşürür": 12
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Enpara.com Sıfır Masraflı Vadeli Mevduat",
+        "desc": "CNN Türk izleyicilerine özel hoş geldin faiziyle anında hesap açma imkanı.",
+        "code": "ENPARAFAIZ",
+        "points": 25
+      }
+    },
+    "ad": {
+      "title": "Enpara.com Sıfır Masraflı Vadeli Mevduat",
+      "desc": "CNN Türk izleyicilerine özel hoş geldin faiziyle anında hesap açma imkanı.",
+      "teletext300": "CNN TÜRK REKLAM S.200: ENPARA.COM SIFIR MASRAFLI VADELI MEVDUAT",
+      "teletext888": "REKLAM ALTYAZISI: '...CNN Türk izleyicilerine özel hoş geldin faiziyle anında hesap açma imkanı....'",
+      "campaign": {
+        "title": "Enpara.com Sıfır Masraflı Vadeli Mevduat",
+        "desc": "CNN Türk izleyicilerine özel hoş geldin faiziyle anında hesap açma imkanı.",
+        "code": "ENPARAFAIZ",
+        "points": 25
+      }
+    }
+  },
+  "ntv": {
+    "id": "ntv",
+    "name": "NTV",
+    "genre": "Haber / Ekonomi / Kültür",
+    "time": "⏰ 20:00 - 00:00",
+    "schedule": [
+      {
+        "time": "07:00",
+        "title": "Geri Sayım (Canlı)",
+        "desc": "Piyasalar açılmadan önceki son durum.",
+        "current": false
+      },
+      {
+        "time": "10:00",
+        "title": "Piyasa Ekranı",
+        "desc": "Borsa ve şirket haberleri.",
+        "current": false
+      },
+      {
+        "time": "14:00",
+        "title": "Günün İçinden",
+        "desc": "Detaylı haber analizleri.",
+        "current": false
+      },
+      {
+        "time": "18:00",
+        "title": "NTV Ana Haber (Canlı)",
+        "desc": "Seda Öğretir ile güvenilir haber.",
+        "current": false
+      },
+      {
+        "time": "20:00",
+        "title": "Yakın Plan (Canlı)",
+        "desc": "Teknoloji, bilim ve yapay zeka devrimi masada.",
+        "current": true
+      },
+      {
+        "time": "22:30",
+        "title": "Pasaport",
+        "desc": "Dünyanın en ilginç coğrafyalarından belgesel kuşağı.",
+        "current": false
+      },
+      {
+        "time": "00:00",
+        "title": "Gece Bülteni",
+        "desc": "Günün kapanış haberleri.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "Yakın Plan (Canlı)",
+      "desc": "Teknoloji, bilim ve yapay zeka devrimi masada.",
+      "teletext300": "NTV AKIŞ S.300: 20:00 YAKIN PLAN (CANLI) / 00:00 GECE BÜLTENI",
+      "teletext888": "ALTYAZI S.888: '...Yakın Plan (Canlı) canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_ntv_active",
+        "question": "NTV Yakın Plan'da ele alınan elektrikli araç dönüşümü Türkiye'de ne kadar sürede yaygınlaşır?",
+        "options": [
+          "2-3 yıl içinde",
+          "5 yıl sonra",
+          "Daha uzun sürer"
+        ],
+        "results": {
+          "2-3 yıl içinde": 42,
+          "5 yıl sonra": 46,
+          "Daha uzun sürer": 12
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Garanti BBVA Bonus'tan 300 TL Hediye",
+        "desc": "NTV izleyicilerine özel mobilden Bonus kart başvurularına 300 TL nakit iade.",
+        "code": "BONUSNTV",
+        "points": 20
+      }
+    },
+    "ad": {
+      "title": "Garanti BBVA Bonus'tan 300 TL Hediye",
+      "desc": "NTV izleyicilerine özel mobilden Bonus kart başvurularına 300 TL nakit iade.",
+      "teletext300": "NTV REKLAM S.200: GARANTI BBVA BONUS'TAN 300 TL HEDIYE",
+      "teletext888": "REKLAM ALTYAZISI: '...NTV izleyicilerine özel mobilden Bonus kart başvurularına 300 TL nakit iade....'",
+      "campaign": {
+        "title": "Garanti BBVA Bonus'tan 300 TL Hediye",
+        "desc": "NTV izleyicilerine özel mobilden Bonus kart başvurularına 300 TL nakit iade.",
+        "code": "BONUSNTV",
+        "points": 20
+      }
+    }
+  },
+  "sozcutv": {
+    "id": "sozcutv",
+    "name": "Sözcü TV",
+    "genre": "Haber / Gündem",
+    "time": "⏰ 20:45 - 23:45",
+    "schedule": [
+      {
+        "time": "07:00",
+        "title": "Sabah Şerifleri",
+        "desc": "Günün ilk manşetleri.",
+        "current": false
+      },
+      {
+        "time": "10:00",
+        "title": "Sokağın Sesi",
+        "desc": "Pazar yerlerinden ve esnaftan canlı röportajlar.",
+        "current": false
+      },
+      {
+        "time": "13:00",
+        "title": "Haber Masası",
+        "desc": "Gündemdeki davalar ve gelişmeler.",
+        "current": false
+      },
+      {
+        "time": "19:00",
+        "title": "Sözcü TV Ana Haber (Canlı)",
+        "desc": "Fatih Portakal ile halkın gündemi ve dobra yorumlar.",
+        "current": false
+      },
+      {
+        "time": "20:45",
+        "title": "Nokta Atışı (Canlı)",
+        "desc": "İpek Özbey ile araştırmacı gazetecilik dosyaları.",
+        "current": true
+      },
+      {
+        "time": "23:45",
+        "title": "Gece Raporu",
+        "desc": "Günün kapanış analizi.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "Nokta Atışı (Canlı)",
+      "desc": "İpek Özbey ile araştırmacı gazetecilik dosyaları.",
+      "teletext300": "SÖZCÜ TV AKIŞ S.300: 20:45 NOKTA ATIŞI (CANLI) / 23:45 GECE RAPORU",
+      "teletext888": "ALTYAZI S.888: '...Nokta Atışı (Canlı) canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_sozcutv_active",
+        "question": "Fatih Portakal'ın ana haber bültenindeki emekli maaşları yorumuna katılıyor musunuz?",
+        "options": [
+          "Yüzde yüz katılıyorum",
+          "Daha fazlası yapılmalı",
+          "Bütçe dengeleri gözetilmeli"
+        ],
+        "results": {
+          "Yüzde yüz katılıyorum": 72,
+          "Daha fazlası yapılmalı": 20,
+          "Bütçe dengeleri gözetilmeli": 8
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Sözcü Kitabevi'nde Tüm Kitaplarda %35 İndirim",
+        "desc": "Sözcü TV izleyicilerine özel 'SOZCU35' kupon koduyla anında indirim.",
+        "code": "SOZCU35",
+        "points": 15
+      }
+    },
+    "ad": {
+      "title": "Sözcü Kitabevi'nde Tüm Kitaplarda %35 İndirim",
+      "desc": "Sözcü TV izleyicilerine özel 'SOZCU35' kupon koduyla anında indirim.",
+      "teletext300": "SÖZCÜ TV REKLAM S.200: SÖZCÜ KITABEVI'NDE TÜM KITAPLARDA %35 İNDIRIM",
+      "teletext888": "REKLAM ALTYAZISI: '...Sözcü TV izleyicilerine özel 'SOZCU35' kupon koduyla anında indirim....'",
+      "campaign": {
+        "title": "Sözcü Kitabevi'nde Tüm Kitaplarda %35 İndirim",
+        "desc": "Sözcü TV izleyicilerine özel 'SOZCU35' kupon koduyla anında indirim.",
+        "code": "SOZCU35",
+        "points": 15
+      }
+    }
+  },
+  "halktv": {
+    "id": "halktv",
+    "name": "Halk TV",
+    "genre": "Haber / Yorum",
+    "time": "⏰ 20:00 - 23:45",
+    "schedule": [
+      {
+        "time": "07:00",
+        "title": "İsmail Küçükkaya ile Yeni Bir Sabah (Canlı)",
+        "desc": "Manşetler, çalar saat ve gündem analizi.",
+        "current": false
+      },
+      {
+        "time": "11:00",
+        "title": "Haber Masası",
+        "desc": "Ekonomi ve meclis kulisleri.",
+        "current": false
+      },
+      {
+        "time": "18:00",
+        "title": "Halk TV Ana Haber (Canlı)",
+        "desc": "Ece Üner ile cesur ve tarafsız habercilik.",
+        "current": false
+      },
+      {
+        "time": "20:00",
+        "title": "Kayda Geçsin (Canlı)",
+        "desc": "Şule Aydın, Murat Ağırel, Timur Soykan ve Barış Pehlivan ile büyük dosyalar.",
+        "current": true
+      },
+      {
+        "time": "23:45",
+        "title": "Sözüm Var (Canlı)",
+        "desc": "Gece kuşağı tartışma programı.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "Kayda Geçsin (Canlı)",
+      "desc": "Şule Aydın, Murat Ağırel, Timur Soykan ve Barış Pehlivan ile büyük dosyalar.",
+      "teletext300": "HALK TV AKIŞ S.300: 20:00 KAYDA GEÇSIN (CANLI) / 23:45 SÖZÜM VAR (CANLI)",
+      "teletext888": "ALTYAZI S.888: '...Kayda Geçsin (Canlı) canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_halktv_active",
+        "question": "Kayda Geçsin ekibinin ortaya çıkardığı kamu harcamaları dosyasını nasıl değerlendiriyorsunuz?",
+        "options": [
+          "Yargı acilen incelemeli",
+          "Kamuoyu duyarlılığı şart",
+          "Daha derin araştırılmalı"
+        ],
+        "results": {
+          "Yargı acilen incelemeli": 68,
+          "Kamuoyu duyarlılığı şart": 22,
+          "Daha derin araştırılmalı": 10
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Kırmızı Kedi Yayınevi %40 İndirim Fırsatı",
+        "desc": "Halk TV izleyicilerine özel araştırma-inceleme kitaplarında geçerli kupon kodu.",
+        "code": "KEDIKAT40",
+        "points": 15
+      }
+    },
+    "ad": {
+      "title": "Kırmızı Kedi Yayınevi %40 İndirim Fırsatı",
+      "desc": "Halk TV izleyicilerine özel araştırma-inceleme kitaplarında geçerli kupon kodu.",
+      "teletext300": "HALK TV REKLAM S.200: KIRMIZI KEDI YAYINEVI %40 İNDIRIM FIRSATI",
+      "teletext888": "REKLAM ALTYAZISI: '...Halk TV izleyicilerine özel araştırma-inceleme kitaplarında geçerli kupon kodu....'",
+      "campaign": {
+        "title": "Kırmızı Kedi Yayınevi %40 İndirim Fırsatı",
+        "desc": "Halk TV izleyicilerine özel araştırma-inceleme kitaplarında geçerli kupon kodu.",
+        "code": "KEDIKAT40",
+        "points": 15
+      }
+    }
+  },
+  "trthaber": {
+    "id": "trthaber",
+    "name": "TRT Haber",
+    "genre": "Kamu Haberciliği",
+    "time": "⏰ 20:00 - 00:00",
+    "schedule": [
+      {
+        "time": "06:00",
+        "title": "Haber 06",
+        "desc": "Sabahın ilk bülteni.",
+        "current": false
+      },
+      {
+        "time": "09:00",
+        "title": "Haber Bülteni (Her Saat Başı)",
+        "desc": "Türkiye'nin 81 ilinden canlı yayın.",
+        "current": false
+      },
+      {
+        "time": "14:00",
+        "title": "Öğle Bülteni",
+        "desc": "Bakanlıklar ve kabine açıklamaları.",
+        "current": false
+      },
+      {
+        "time": "19:00",
+        "title": "TRT Haber Ana Haber (Canlı)",
+        "desc": "Günün tüm gelişmeleri.",
+        "current": false
+      },
+      {
+        "time": "20:00",
+        "title": "Birinci Boyut - Savunma ve Mega Projeler",
+        "desc": "KAAN, Kızılelma, TCG Anadolu ve yerli teknoloji atılımları.",
+        "current": true
+      },
+      {
+        "time": "22:00",
+        "title": "Satır Başı",
+        "desc": "Dünya başkentlerindeki son durum.",
+        "current": false
+      },
+      {
+        "time": "00:00",
+        "title": "Gece Bakışı",
+        "desc": "Günün kapanış raporu.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "Birinci Boyut - Savunma ve Mega Projeler",
+      "desc": "KAAN, Kızılelma, TCG Anadolu ve yerli teknoloji atılımları.",
+      "teletext300": "TRT HABER AKIŞ S.300: 20:00 BIRINCI BOYUT - SAVUNMA VE MEGA PROJELER / 00:00 GECE BAKIŞI",
+      "teletext888": "ALTYAZI S.888: '...Birinci Boyut - Savunma ve Mega Projeler canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_trthaber_active",
+        "question": "Türkiye'nin Milli Muharip Uçağı KAAN'ın seri üretime geçiş süreci havacılık sanayimizi nasıl etkiler?",
+        "options": [
+          "Küresel ligde ilk 5'e sokar",
+          "Savunmada tam bağımsızlık sağlar",
+          "İhracat rekorları kırar"
+        ],
+        "results": {
+          "Küresel ligde ilk 5'e sokar": 54,
+          "Savunmada tam bağımsızlık sağlar": 34,
+          "İhracat rekorları kırar": 12
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "TÜBİTAK Yayınları Popüler Bilim Kitaplarında %30 İndirim",
+        "desc": "TRT Haber izleyicilerine özel bilim ve teknoloji kitaplarında geçerli kod.",
+        "code": "TUBITAK30",
+        "points": 15
+      }
+    },
+    "ad": {
+      "title": "TÜBİTAK Yayınları Popüler Bilim Kitaplarında %30 İndirim",
+      "desc": "TRT Haber izleyicilerine özel bilim ve teknoloji kitaplarında geçerli kod.",
+      "teletext300": "TRT HABER REKLAM S.200: TÜBİTAK YAYINLARI POPÜLER BILIM KITAPLARINDA %30 İNDIRIM",
+      "teletext888": "REKLAM ALTYAZISI: '...TRT Haber izleyicilerine özel bilim ve teknoloji kitaplarında geçerli kod....'",
+      "campaign": {
+        "title": "TÜBİTAK Yayınları Popüler Bilim Kitaplarında %30 İndirim",
+        "desc": "TRT Haber izleyicilerine özel bilim ve teknoloji kitaplarında geçerli kod.",
+        "code": "TUBITAK30",
+        "points": 15
+      }
+    }
+  },
+  "tv85": {
+    "id": "tv85",
+    "name": "TV8.5",
+    "genre": "Avrupa Futbolu & Boks",
+    "time": "⏰ 20:45 - 23:00",
+    "schedule": [
+      {
+        "time": "08:00",
+        "title": "Şampiyonlar Ligi Efsane Maçlar",
+        "desc": "Tarihe geçen finaller.",
+        "current": false
+      },
+      {
+        "time": "12:00",
+        "title": "Avrupa'dan Futbol",
+        "desc": "Premier Lig, La Liga ve Serie A özetleri.",
+        "current": false
+      },
+      {
+        "time": "17:00",
+        "title": "Maç Önü Analiz",
+        "desc": "Şampiyonlar Ligi ve Konferans Ligi kadroları.",
+        "current": false
+      },
+      {
+        "time": "20:45",
+        "title": "UEFA Şampiyonlar Ligi Maç Gecesi (Canlı)",
+        "desc": "Devler Ligi'nde canlı maç yayınları ve stüdyo heyecanı.",
+        "current": true
+      },
+      {
+        "time": "23:00",
+        "title": "Şampiyonlar Ligi Geniş Özetler (Canlı)",
+        "desc": "Gecenin tüm golleri ve tartışmalı anları.",
+        "current": false
+      },
+      {
+        "time": "01:00",
+        "title": "Boks Gecesi",
+        "desc": "Uluslararası unvan maçları.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "UEFA Şampiyonlar Ligi Maç Gecesi (Canlı)",
+      "desc": "Devler Ligi'nde canlı maç yayınları ve stüdyo heyecanı.",
+      "teletext300": "TV8.5 AKIŞ S.300: 20:45 UEFA ŞAMPIYONLAR LIGI MAÇ GECESI (CANLI) / 23:00 ŞAMPIYONLAR LIGI GENIŞ ÖZETLER (CANLI)",
+      "teletext888": "ALTYAZI S.888: '...UEFA Şampiyonlar Ligi Maç Gecesi (Canlı) canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_tv85_active",
+        "question": "Bu sezon Şampiyonlar Ligi kupasını hangi dev kulüp müzesine götürür?",
+        "options": [
+          "Real Madrid",
+          "Manchester City",
+          "Bayern Münih"
+        ],
+        "results": {
+          "Real Madrid": 48,
+          "Manchester City": 42,
+          "Bayern Münih": 10
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Exxen Spor Paketi İlk Ay %50 İndirim",
+        "desc": "TV8.5 izleyicilerine özel Şampiyonlar Ligi ve Avrupa Ligi maçlarını canlı izleme kodu.",
+        "code": "EXXEN50",
+        "points": 25
+      }
+    },
+    "ad": {
+      "title": "Exxen Spor Paketi İlk Ay %50 İndirim",
+      "desc": "TV8.5 izleyicilerine özel Şampiyonlar Ligi ve Avrupa Ligi maçlarını canlı izleme kodu.",
+      "teletext300": "TV8.5 REKLAM S.200: EXXEN SPOR PAKETI İLK AY %50 İNDIRIM",
+      "teletext888": "REKLAM ALTYAZISI: '...TV8.5 izleyicilerine özel Şampiyonlar Ligi ve Avrupa Ligi maçlarını canlı izleme kodu....'",
+      "campaign": {
+        "title": "Exxen Spor Paketi İlk Ay %50 İndirim",
+        "desc": "TV8.5 izleyicilerine özel Şampiyonlar Ligi ve Avrupa Ligi maçlarını canlı izleme kodu.",
+        "code": "EXXEN50",
+        "points": 25
+      }
+    }
+  },
+  "tlc": {
+    "id": "tlc",
+    "name": "TLC",
+    "genre": "Belgesel / Yaşam / Emlak",
+    "time": "⏰ 20:30 - 01:00",
+    "schedule": [
+      {
+        "time": "08:00",
+        "title": "Kupon Avcıları",
+        "desc": "Amerikan süpermarketlerinde çılgın tasarruf.",
+        "current": false
+      },
+      {
+        "time": "11:00",
+        "title": "Rüya Gibi Evler",
+        "desc": "Eski evlerin inanılmaz dönüşümü.",
+        "current": false
+      },
+      {
+        "time": "15:00",
+        "title": "Pastacılar Krallığı",
+        "desc": "Buddy Valastro dev pastalar üretiyor.",
+        "current": false
+      },
+      {
+        "time": "18:00",
+        "title": "Evim Şahane Emlak",
+        "desc": "Sahil kasabalarında ev arayışı.",
+        "current": false
+      },
+      {
+        "time": "20:30",
+        "title": "Ağır Yaşamlar (Yeni Bölüm)",
+        "desc": "Dr. Nowzaradan ve obezite hastalarının hayata dönüş mücadelesi.",
+        "current": true
+      },
+      {
+        "time": "22:30",
+        "title": "Temizlik Bağımlıları",
+        "desc": "Aşırı dağınık evlerin 3 günde muazzam temizliği.",
+        "current": false
+      },
+      {
+        "time": "01:00",
+        "title": "Gizemli Teşhisler",
+        "desc": "Tıbbın açıklamakta zorlandığı vakalar.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "Ağır Yaşamlar (Yeni Bölüm)",
+      "desc": "Dr. Nowzaradan ve obezite hastalarının hayata dönüş mücadelesi.",
+      "teletext300": "TLC AKIŞ S.300: 20:30 AĞIR YAŞAMLAR (YENI BÖLÜM) / 01:00 GIZEMLI TEŞHISLER",
+      "teletext888": "ALTYAZI S.888: '...Ağır Yaşamlar (Yeni Bölüm) canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_tlc_active",
+        "question": "Dr. Nowzaradan'ın bu haftaki hastası ameliyat için gereken kiloyu verebilecek mi?",
+        "options": [
+          "Sıkı diyetle başarır",
+          "Kaçamak yapar zorlanır",
+          "İkinci şansta verir"
+        ],
+        "results": {
+          "Sıkı diyetle başarır": 52,
+          "Kaçamak yapar zorlanır": 38,
+          "İkinci şansta verir": 10
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "IKEA Ev Dekorasyonunda 250 TL Kupon",
+        "desc": "TLC Rüya Evler kuşağına özel online mobilya alışverişlerinde geçerli indirim.",
+        "code": "IKEA250",
+        "points": 20
+      }
+    },
+    "ad": {
+      "title": "IKEA Ev Dekorasyonunda 250 TL Kupon",
+      "desc": "TLC Rüya Evler kuşağına özel online mobilya alışverişlerinde geçerli indirim.",
+      "teletext300": "TLC REKLAM S.200: IKEA EV DEKORASYONUNDA 250 TL KUPON",
+      "teletext888": "REKLAM ALTYAZISI: '...TLC Rüya Evler kuşağına özel online mobilya alışverişlerinde geçerli indirim....'",
+      "campaign": {
+        "title": "IKEA Ev Dekorasyonunda 250 TL Kupon",
+        "desc": "TLC Rüya Evler kuşağına özel online mobilya alışverişlerinde geçerli indirim.",
+        "code": "IKEA250",
+        "points": 20
+      }
+    }
+  },
+  "dmax": {
+    "id": "dmax",
+    "name": "DMAX",
+    "genre": "Aksiyon / Macera / Otomotiv",
+    "time": "⏰ 20:30 - 01:00",
+    "schedule": [
+      {
+        "time": "08:00",
+        "title": "Tamirat Tadilat (Wheeler Dealers)",
+        "desc": "Mike Brewer ve Edd China hurda arabaları yeniliyor.",
+        "current": false
+      },
+      {
+        "time": "11:00",
+        "title": "Altın Peşinde (Gold Rush)",
+        "desc": "Alaska'nın dondurucu nehirlerinde altın avı.",
+        "current": false
+      },
+      {
+        "time": "15:00",
+        "title": "Nasıl Yapılır? (How It's Made)",
+        "desc": "Fabrikaların iç yüzü ve üretim bantları.",
+        "current": false
+      },
+      {
+        "time": "18:00",
+        "title": "Ağaç Ev Ustaları",
+        "desc": "Doğanın kucağında devasa ahşap mimariler.",
+        "current": false
+      },
+      {
+        "time": "20:30",
+        "title": "Hurda Avcıları (Yeni Bölüm)",
+        "desc": "Drew Pritchard tarihi malikanelerden antika hazineler topluyor.",
+        "current": true
+      },
+      {
+        "time": "22:30",
+        "title": "Ölümcül Av (Deadliest Catch)",
+        "desc": "Bering Boğazı'nda dev yengeç fırtınası.",
+        "current": false
+      },
+      {
+        "time": "01:00",
+        "title": "Mitoloji Avcıları (MythBusters)",
+        "desc": "Efsanelerin bilimsel deneylerle testi.",
+        "current": false
+      }
+    ],
+    "program": {
+      "title": "Hurda Avcıları (Yeni Bölüm)",
+      "desc": "Drew Pritchard tarihi malikanelerden antika hazineler topluyor.",
+      "teletext300": "DMAX AKIŞ S.300: 20:30 HURDA AVCILARI (YENI BÖLÜM) / 01:00 MITOLOJI AVCILARI (MYTHBUSTERS)",
+      "teletext888": "ALTYAZI S.888: '...Hurda Avcıları (Yeni Bölüm) canlı yayın altyazı akışı yayında...'",
+      "poll": {
+        "id": "poll_dmax_active",
+        "question": "Drew Pritchard bu akşamki eski İngiliz kalesinden karlı bir antika bulabilecek mi?",
+        "options": [
+          "Muhteşem bir parça yakalar",
+          "Fiyat çok yüksek çıkar",
+          "Restorasyon masrafı aşar"
+        ],
+        "results": {
+          "Muhteşem bir parça yakalar": 62,
+          "Fiyat çok yüksek çıkar": 26,
+          "Restorasyon masrafı aşar": 12
+        },
+        "points": 20
+      },
+      "campaign": {
+        "title": "Castrol Edge Motor Yağında %30 İndirim",
+        "desc": "DMAX Otomotiv kuşağına özel tüm periyodik bakım servislerinde indirim kodu.",
+        "code": "CASTROL30",
+        "points": 20
+      }
+    },
+    "ad": {
+      "title": "Castrol Edge Motor Yağında %30 İndirim",
+      "desc": "DMAX Otomotiv kuşağına özel tüm periyodik bakım servislerinde indirim kodu.",
+      "teletext300": "DMAX REKLAM S.200: CASTROL EDGE MOTOR YAĞINDA %30 İNDIRIM",
+      "teletext888": "REKLAM ALTYAZISI: '...DMAX Otomotiv kuşağına özel tüm periyodik bakım servislerinde indirim kodu....'",
+      "campaign": {
+        "title": "Castrol Edge Motor Yağında %30 İndirim",
+        "desc": "DMAX Otomotiv kuşağına özel tüm periyodik bakım servislerinde indirim kodu.",
+        "code": "CASTROL30",
         "points": 20
       }
     }
