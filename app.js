@@ -1141,6 +1141,9 @@ document.querySelectorAll(".bottom-nav .nav-btn").forEach(btn => {
             const badge = btn.querySelector(".nav-badge");
             if (badge) badge.style.display = "none";
             renderChatHistory();
+        } else if (targetTab === "tabPitch") {
+            const body = document.querySelector(".app-body");
+            if (body) body.scrollTop = 0;
         }
     });
 });
