@@ -8,25 +8,31 @@ const channelDatabase = {
     showtv: {
         id: "showtv",
         name: "Show TV",
-        genre: "Dizi / Aile",
-        time: "⏰ 20:00 - 23:30",
+        genre: "Sinema / Komedi",
+        time: "⏰ 20:00 - 22:30",
+        schedule: [
+            { time: "18:45", title: "Show Ana Haber (Canlı)" },
+            { time: "20:00", title: "Korkusuz Korkak (Kemal Sunal - Yerli Sinema)", current: true },
+            { time: "22:15", title: "Bahar (Tekrar)" },
+            { time: "01:00", title: "Kızılcık Şerbeti (Tekrar)" }
+        ],
         program: {
-            title: "Kızılcık Şerbeti - Yeni Bölüm",
-            desc: "İki farklı ailenin çocukları arasındaki gerilim ve yüzleşmeler canlı yayında.",
-            teletext300: "SHOW TELETEXT S.300: 20:00 KIZILCIK SERBETI / 23:45 BAHAR TEKRAR / 02:00 SANDIK KOKUSU",
-            teletext888: "ALTYAZI S.888: '...düğün gecesi yaşanan gerilim iki aileyi karşı karşıya getirdi. Doğa ve Fatih arasında sert tartışma...'",
+            title: "Korkusuz Korkak - Kemal Sunal Sineması",
+            desc: "Bombacı Mülayim ve Gaddar Kerim'in efsanevi komedi macerası ekranda.",
+            teletext300: "SHOW TELETEXT S.300: 20:00 KORKUSUZ KORKAK / 22:15 BAHAR / 01:00 KIZILCIK SERBETI",
+            teletext888: "ALTYAZI S.888: '...Mülayim: 'Ben Bombacı Mülayim! Korkusuz adamım ben!'... Gaddar Kerim: 'Gel ulan buraya!'...'",
             poll: {
-                id: "poll_show_1",
-                question: "Doğa ve Fatih arasındaki gerilim bu bölümde çözülür mü?",
-                options: ["Çözülür (Barışırlar)", "Daha da Büyür", "Ayrılık Kararı Gelir"],
-                results: { "Çözülür (Barışırlar)": 28, "Daha da Büyür": 54, "Ayrılık Kararı Gelir": 18 },
+                id: "poll_show_korkusuz_1",
+                question: "Kemal Sunal'ın bu filmdeki en unutulmaz repliği hangisi?",
+                options: ["Mesela yani!", "Bombacı Mülayim!", "Gaddar Kerim seni arıyor"],
+                results: { "Mesela yani!": 54, "Bombacı Mülayim!": 32, "Gaddar Kerim seni arıyor": 14 },
                 points: 20
             },
             campaign: {
-                type: "Dizi İndirim Fırsatı",
-                title: "Dizideki Kıyafet & Takılarda %35 İndirim",
-                desc: "Kızılcık Şerbeti karakterlerinin giydiği kombinlerde Trendyol özel indirimi.",
-                code: "SERBET35",
+                type: "Sinema & Eğlence Fırsatı",
+                title: "Biletinial Sinema Biletlerinde 2. Bilet %50 İndirimli",
+                desc: "Show TV sinema kuşağı izleyicilerine özel 'SINEMA50' indirim kodu.",
+                code: "SINEMA50",
                 points: 15,
                 actionText: "Kuponu Cüzdana Ekle (+15 P)"
             }
@@ -49,27 +55,34 @@ const channelDatabase = {
     trt1: {
         id: "trt1",
         name: "TRT 1",
-        genre: "Aksiyon / Dizi",
-        time: "⏰ 20:00 - 23:15",
+        genre: "Tarih / Dönem Dizisi",
+        time: "⏰ 20:00 - 00:15",
+        schedule: [
+            { time: "17:30", title: "Lingo Türkiye (Yarışma)", desc: "Kemal Uçar ile kelime tahmin yarışması." },
+            { time: "19:00", title: "TRT 1 Ana Haber (Canlı)", desc: "Türkiye ve dünyadan sıcak gelişmeler." },
+            { time: "19:55", title: "İddiaların Aksine", desc: "Gündemdeki iddialar ve gerçekler." },
+            { time: "20:00", title: "Mehmed: Fetihler Sultanı - Yeni Bölüm", desc: "Sultan Mehmed Han Konstantiniyye surlarını aşmak için dev şahi topların döküm emrini veriyor.", current: true },
+            { time: "00:15", title: "Gönül Dağı (Tekrar)", desc: "Bozkırın sarı sıcağında samimi hikayeler." }
+        ],
         program: {
-            title: "Teşkilat - Nefes Kesen Operasyon",
-            desc: "Milli İstihbarat timi sınır ötesindeki kritik hedefe sızıyor.",
-            teletext300: "TRT TELETEXT S.300: 20:00 TESKILAT (CANLI) / 22:45 ANA HABER / 23:30 GONUL DAGI",
-            teletext888: "ALTYAZI S.888: '...operasyon başarıyla ilerliyor. İkinci tim güvenli koridoru açtı, tahliye başlıyor...'",
+            title: "Mehmed: Fetihler Sultanı - Yeni Bölüm",
+            desc: "Sultan Mehmed Han Konstantiniyye fethi için dev şahi topların döküm emrini veriyor. Zağanos Paşa ve Çandarlı Halil Paşa arasında strateji tartışması canlı yayında.",
+            teletext300: "TRT TELETEXT S.300: 20:00 MEHMED FETIHLER SULTANI (CANLI) / 00:15 GONUL DAGI (T) / 02:50 SEKSENLER",
+            teletext888: "ALTYAZI S.888: '...Sultan Mehmed: Konstantiniyye fethi İslamın ve cihanın kaderini değiştirecektir. Zağanos Paşa hazırlıklar tamamlansın!... Zağanos Paşa: Emriniz baş üstüne Sultanım...'",
             poll: {
-                id: "poll_trt_1",
-                question: "Ömer Atmaca tuzağı fark edip kurtulabilecek mi?",
-                options: ["Tuzağı Fark Eder", "Yardım Ekibi Yetişir", "Tutsak Düşer"],
-                results: { "Tuzağı Fark Eder": 62, "Yardım Ekibi Yetişir": 31, "Tutsak Düşer": 7 },
+                id: "poll_trt_mehmed_1",
+                question: "Sultan Mehmed bu bölümde şahi topların ilk atış testini yapacak mı?",
+                options: ["Evet, Test Başarılı Olur", "Bizans Tuzağına Düşerler", "Kuşatma Ertelenir"],
+                results: { "Evet, Test Başarılı Olur": 64, "Bizans Tuzağına Düşerler": 26, "Kuşatma Ertelenir": 10 },
                 points: 20
             },
             campaign: {
-                type: "Milli Teknoloji Fırsatı",
-                title: "Türk Telekom Fiber İnternet + Hediye",
-                desc: "Teşkilat dizisi izleyicilerine özel 100 Mbps fiber hızında ilk 3 ay %50 indirim.",
-                code: "TESKILATFIBER",
+                type: "Tarih & Kültür Kitapları",
+                title: "D&R ve Kitapyurdu Tarih Kitaplarında %35 İndirim",
+                desc: "Mehmed: Fetihler Sultanı izleyicilerine özel Fatih ve İstanbul fethi kitaplarında geçerli indirim kodu.",
+                code: "FETIH35",
                 points: 15,
-                actionText: "Fırsatı Cüzdana Kaydet (+15 P)"
+                actionText: "Kuponu Cüzdana Ekle (+15 P)"
             }
         },
         ad: {
@@ -92,6 +105,11 @@ const channelDatabase = {
         name: "TV8",
         genre: "Yarışma / Mutfak",
         time: "⏰ 20:00 - 23:45",
+        schedule: [
+            { time: "16:00", title: "Zuhal Topal'la Yemekteyiz" },
+            { time: "20:00", title: "MasterChef Türkiye - Kaptanlar Düellosu", current: true },
+            { time: "00:15", title: "Survivor Panorama / Tekrar" }
+        ],
         program: {
             title: "MasterChef Türkiye - Kaptanlar Düellosu",
             desc: "Kırmızı ve Mavi takım şeflerin karşısında dokunulmazlık için yarışıyor.",
@@ -884,7 +902,7 @@ function updatePointsUI() {
 }
 
 // 3. Current Active Channel & Broadcast State
-let currentChannel = "showtv";
+let currentChannel = localStorage.getItem("contexta_selected_channel") || "trt1";
 let currentState = "program";
 
 // 4. Populating the Top 20 Channel Selectors (Dropdown & Scrollable Chips)
@@ -932,6 +950,9 @@ function initChannelSelectors() {
 function selectChannel(channelKey, stateKey = "program") {
     currentChannel = channelKey;
     currentState = stateKey;
+    try {
+        localStorage.setItem("contexta_selected_channel", channelKey);
+    } catch (e) {}
     
     // Sync dropdown
     const dropdown = document.getElementById("channelDropdown");
@@ -974,6 +995,64 @@ if (btnStateProgram && btnStateAd) {
     });
 }
 
+// Schedule Drawer Toggle Handler
+const btnToggleSchedule = document.getElementById("btnToggleSchedule");
+if (btnToggleSchedule) {
+    btnToggleSchedule.addEventListener("click", () => {
+        const drawer = document.getElementById("channelScheduleDrawer");
+        if (drawer) {
+            const isShown = drawer.style.display === "flex";
+            drawer.style.display = isShown ? "none" : "flex";
+            btnToggleSchedule.innerText = isShown ? "📋 Günün Akışı" : "✖ Kapat";
+        }
+    });
+}
+
+function renderScheduleDrawer(channelData) {
+    const drawer = document.getElementById("channelScheduleDrawer");
+    if (!drawer) return;
+
+    const schedule = channelData.schedule || [
+        { time: "09:00", title: "Sabah Kuşağı & Yaşam" },
+        { time: "13:00", title: "Gündüz Kuşağı Programı" },
+        { time: "19:00", title: `${channelData.name} Ana Haber (Canlı)` },
+        { time: "20:00", title: channelData.program.title, current: true },
+        { time: "23:45", title: "Gece Sineması / Tekrar" }
+    ];
+
+    drawer.innerHTML = `
+        <div class="schedule-drawer-header">
+            <span>📅 ${channelData.name.toUpperCase()} GÜNLÜK YAYIN AKIŞI</span>
+            <span>İzlediğiniz Programa Dokunun</span>
+        </div>
+        ${schedule.map(item => `
+            <button type="button" class="schedule-item-btn ${item.current ? 'current' : ''}" data-title="${item.title}">
+                <div>
+                    <span class="schedule-item-time">${item.time}</span>
+                    <span>${item.title}</span>
+                </div>
+                ${item.current ? '<span>🟢 Canlı</span>' : '<span>Seç ❯</span>'}
+            </button>
+        `).join('')}
+    `;
+
+    drawer.querySelectorAll(".schedule-item-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const chosenTitle = btn.dataset.title;
+            channelData.program.title = chosenTitle;
+            if (channelData.schedule) {
+                channelData.schedule.forEach(s => s.current = (s.title === chosenTitle));
+            }
+            channelData.program.teletext300 = `${channelData.name.toUpperCase()} S.300: CANLI YAYIN: ${chosenTitle.toUpperCase()}`;
+            channelData.program.teletext888 = `ALTYAZI S.888: '${chosenTitle} canlı yayını devam ediyor...'`;
+            showToast(`📺 Yayındaki Program Seçildi: ${chosenTitle}`);
+            drawer.style.display = "none";
+            if (btnToggleSchedule) btnToggleSchedule.innerText = "📋 Günün Akışı";
+            renderCurrentChannel();
+        });
+    });
+}
+
 // 6. UI Rendering Engine: Renders EPG, Teletext Stream & Contextual Rewards
 function renderCurrentChannel() {
     const channelData = channelDatabase[currentChannel];
@@ -985,6 +1064,9 @@ function renderCurrentChannel() {
     document.getElementById("channelBadge").innerText = channelData.name.toUpperCase();
     document.getElementById("broadcastTime").innerText = channelData.time;
     document.getElementById("broadcastGenre").innerText = channelData.genre;
+
+    // Render Daily Schedule Drawer
+    renderScheduleDrawer(channelData);
     
     // 2. Program Details
     document.getElementById("programTitle").innerText = viewData.title;
@@ -1341,14 +1423,14 @@ function normalizeTurkish(str) {
 function checkKeywords(rawText) {
     const text = normalizeTurkish(rawText);
     
-    // Direct matches for channels
-    if (text.includes("show tv") || text.includes("show")) selectChannel("showtv", "program");
-    else if (text.includes("trt 1") || text.includes("trt") || text.includes("te re te")) selectChannel("trt1", "program");
+    // Direct matches for channels and current programs
+    if (text.includes("trt 1") || text.includes("trt") || text.includes("mehmed") || text.includes("fetihler") || text.includes("fatih") || text.includes("zaganos") || text.includes("teskilat")) selectChannel("trt1", "program");
+    else if (text.includes("show tv") || text.includes("korkusuz korkak") || text.includes("mülayim") || text.includes("bahar") || text.includes("kizilcik")) selectChannel("showtv", "program");
     else if (text.includes("tv 8") || text.includes("tv8") || text.includes("masterchef")) selectChannel("tv8", "program");
-    else if (text.includes("atv") || text.includes("a te ve") || text.includes("muge anli") || text.includes("kurulus osman")) selectChannel("atv", "program");
-    else if (text.includes("kanal d") || text.includes("inci taneleri")) selectChannel("kanald", "program");
-    else if (text.includes("now") || text.includes("fox") || text.includes("kizil goncalar")) selectChannel("now", "program");
-    else if (text.includes("star") || text.includes("yali capkini")) selectChannel("startv", "program");
+    else if (text.includes("atv") || text.includes("a te ve") || text.includes("bir gece masali") || text.includes("muge anli") || text.includes("kurulus osman")) selectChannel("atv", "program");
+    else if (text.includes("kanal d") || text.includes("uzak sehir") || text.includes("haysiyet") || text.includes("inci taneleri")) selectChannel("kanald", "program");
+    else if (text.includes("now") || text.includes("fox") || text.includes("anne yarisi") || text.includes("kizil goncalar")) selectChannel("now", "program");
+    else if (text.includes("star") || text.includes("tuzlu kahve") || text.includes("sahipsizler") || text.includes("yali capkini")) selectChannel("startv", "program");
     else if (text.includes("haber turk") || text.includes("haberturk")) selectChannel("haberturk", "program");
     else if (text.includes("cnn") || text.includes("akil cemberi")) selectChannel("cnnturk", "program");
     else if (text.includes("ntv")) selectChannel("ntv", "program");
