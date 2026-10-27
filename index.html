@@ -36,6 +36,10 @@
             </div>
             
             <div class="header-right">
+                <div class="user-chip" id="userHeaderChip" title="Profili Düzenle">
+                    <span class="user-avatar" id="headerUserAvatar">🦁</span>
+                    <span class="user-name" id="headerUserName">İzleyici</span>
+                </div>
                 <div class="points-badge" id="pointsBadge">
                     🏆 <span id="totalPoints">50</span> P
                 </div>
@@ -149,7 +153,90 @@
                 </div>
             </div>
 
-            <!-- TAB 3: LIVE VIEWER CHAT -->
+            <!-- TAB 3: LEADERBOARD / ARKADAŞ PUAN SIRALAMASI -->
+            <div class="tab-pane" id="tabLeaderboard">
+                <div class="leaderboard-header">
+                    <h2>🏆 Arkadaş Puan Sıralaması</h2>
+                    <p>TV izlerken anket çözün, kupon toplayın ve arkadaşlarınızla yarışın!</p>
+                </div>
+
+                <!-- My Personal Scorecard -->
+                <div class="my-score-card" id="myScoreCard">
+                    <div class="score-user-row">
+                        <div class="score-avatar-wrap">
+                            <span class="score-avatar" id="myScoreAvatar">🦁</span>
+                        </div>
+                        <div class="score-details">
+                            <div class="score-name-row">
+                                <h3 id="myScoreName">İzleyici</h3>
+                                <span class="score-rank-badge" id="myScoreRankBadge">#1 Sırada</span>
+                            </div>
+                            <div class="score-level-text" id="myScoreLevel">Seviye 1 • TV Kaşifi</div>
+                        </div>
+                        <div class="score-points-val">
+                            <span class="big-pts" id="myScorePoints">50</span>
+                            <span class="pts-label">PUAN</span>
+                        </div>
+                    </div>
+                    <div class="score-progress-wrap">
+                        <div class="score-progress-bar">
+                            <div class="score-progress-fill" id="myScoreProgress" style="width: 50%;"></div>
+                        </div>
+                        <div class="score-progress-label">
+                            <span id="nextLevelLabel">Sonraki Seviye: 100 P</span>
+                            <span id="pointsToNextLabel">50 P kaldı</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Leaderboard List -->
+                <div class="leaderboard-section">
+                    <div class="leaderboard-section-title">
+                        <span>👥 CANLI PUAN TABLOSU</span>
+                        <span class="live-sync-pill"><span class="sync-dot live"></span> Anlık Canlı</span>
+                    </div>
+                    <div class="leaderboard-list" id="leaderboardList">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- How to Earn Points Info Card -->
+                <div class="earn-info-card">
+                    <h4>⚡ Nasıl Puan Kazanılır?</h4>
+                    <div class="earn-grid">
+                        <div class="earn-item">
+                            <span class="earn-icon">👋</span>
+                            <div class="earn-text">
+                                <strong>Kayıt & Giriş</strong>
+                                <span>+50 Başlangıç Puanı</span>
+                            </div>
+                        </div>
+                        <div class="earn-item">
+                            <span class="earn-icon">🗳️</span>
+                            <div class="earn-text">
+                                <strong>Canlı TV Anketi</strong>
+                                <span>Her ankette +20 Puan</span>
+                            </div>
+                        </div>
+                        <div class="earn-item">
+                            <span class="earn-icon">🎁</span>
+                            <div class="earn-text">
+                                <strong>Kupon Ekle</strong>
+                                <span>Her kuponda +15 Puan</span>
+                            </div>
+                        </div>
+                        <div class="earn-item">
+                            <span class="earn-icon">💬</span>
+                            <div class="earn-text">
+                                <strong>Canlı Sohbet</strong>
+                                <span>Mesaj yaz, aktif kal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: LIVE VIEWER CHAT -->
             <div class="tab-pane" id="tabChat">
                 <div class="chat-header">
                     <h2>💬 İzleyici Sohbet Odası</h2>
@@ -185,12 +272,60 @@
                 <span class="nav-icon">🎁</span>
                 <span class="nav-label">Cüzdanım</span>
             </button>
+            <button class="nav-btn" data-tab="tabLeaderboard">
+                <span class="nav-icon">🏆</span>
+                <span class="nav-label">Sıralama</span>
+            </button>
             <button class="nav-btn" data-tab="tabChat">
                 <span class="nav-icon">💬</span>
                 <span class="nav-label">Sohbet</span>
             </button>
         </nav>
 
+    </div>
+
+    <!-- SIMPLE ONBOARDING & LOGIN MODAL -->
+    <div class="modal-overlay" id="loginModal" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-icon">📺</div>
+                <h3>Contexta TV'ye Hoş Geldiniz!</h3>
+                <p>Arkadaşlarınızla canlı TV izlerken anketlere katılın, kupon toplayın ve puan yarışına başlayın!</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="loginNameInput">Rumuzunuz veya Adınız:</label>
+                    <input type="text" id="loginNameInput" placeholder="Örn: Mustafa, Can, Ece..." maxlength="18" required autocomplete="nickname">
+                </div>
+
+                <div class="form-group">
+                    <label>Profil Avatarınızı Seçin:</label>
+                    <div class="avatar-picker" id="avatarPicker">
+                        <button type="button" class="avatar-opt active" data-avatar="🦁">🦁</button>
+                        <button type="button" class="avatar-opt" data-avatar="🦊">🦊</button>
+                        <button type="button" class="avatar-opt" data-avatar="🚀">🚀</button>
+                        <button type="button" class="avatar-opt" data-avatar="👑">👑</button>
+                        <button type="button" class="avatar-opt" data-avatar="🎯">🎯</button>
+                        <button type="button" class="avatar-opt" data-avatar="📺">📺</button>
+                        <button type="button" class="avatar-opt" data-avatar="🌟">🌟</button>
+                        <button type="button" class="avatar-opt" data-avatar="🐱">🐱</button>
+                    </div>
+                </div>
+
+                <div class="bonus-notice">
+                    🎁 İlk girişte <strong>+50 Hoş Geldin Puanı</strong> anında hesabınıza eklenecek!
+                </div>
+
+                <button type="submit" class="btn-primary-login" id="btnSubmitLogin">
+                    🚀 Giriş Yap & Yarışmaya Başla
+                </button>
+                
+                <button type="button" class="btn-close-modal" id="btnCloseLoginModal" style="display: none;">
+                    Kapat
+                </button>
+            </form>
+        </div>
     </div>
 
     <!-- Notification Toast -->

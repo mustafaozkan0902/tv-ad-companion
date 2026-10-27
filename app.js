@@ -828,6 +828,16 @@ const channelDatabase = {
 };
 
 // 2. User State & Storage
+let clientId = localStorage.getItem("contexta_client_id");
+if (!clientId) {
+    clientId = "client_" + Math.random().toString(36).substring(2, 9);
+    localStorage.setItem("contexta_client_id", clientId);
+}
+
+let userName = localStorage.getItem("contexta_username") || "";
+let userAvatar = localStorage.getItem("contexta_avatar") || "🦁";
+let isLoggedIn = localStorage.getItem("contexta_logged_in") === "true";
+
 let userProfile = {
     points: 50,
     walletCoupons: [],
@@ -848,6 +858,10 @@ function saveProfile() {
         localStorage.setItem("contexta_v4_profile", JSON.stringify(userProfile));
     } catch (e) {}
     updatePointsUI();
+    renderLeaderboard();
+    if (typeof sendPresenceHeartbeat === "function") {
+        sendPresenceHeartbeat();
+    }
 }
 
 function addPoints(amount, reason = "") {
@@ -859,6 +873,14 @@ function addPoints(amount, reason = "") {
 function updatePointsUI() {
     const badge = document.getElementById("totalPoints");
     if (badge) badge.innerText = userProfile.points;
+
+    const headerName = document.getElementById("headerUserName");
+    const headerAvatar = document.getElementById("headerUserAvatar");
+    if (headerName) headerName.innerText = userName || "Giriş Yap";
+    if (headerAvatar) headerAvatar.innerText = userAvatar || "🦁";
+
+    const chatNameStrong = document.getElementById("chatUserName");
+    if (chatNameStrong) chatNameStrong.innerText = `${userAvatar || '🦁'} ${userName || "İzleyici"}`;
 }
 
 // 3. Current Active Channel & Broadcast State
@@ -1113,6 +1135,8 @@ document.querySelectorAll(".bottom-nav .nav-btn").forEach(btn => {
         
         if (targetTab === "tabWallet") {
             renderWallet();
+        } else if (targetTab === "tabLeaderboard") {
+            renderLeaderboard();
         } else if (targetTab === "tabChat") {
             const badge = btn.querySelector(".nav-badge");
             if (badge) badge.style.display = "none";
@@ -1253,36 +1277,9 @@ function checkKeywords(rawText) {
 }
 
 // ====================================================
+// ====================================================
 // 10. REAL-TIME PERSISTENT CHAT & ONLINE PRESENCE (NTFY)
 // ====================================================
-
-let clientId = localStorage.getItem("contexta_client_id");
-if (!clientId) {
-    clientId = "client_" + Math.random().toString(36).substring(2, 9);
-    localStorage.setItem("contexta_client_id", clientId);
-}
-
-let userName = localStorage.getItem("contexta_username");
-if (!userName) {
-    userName = "İzleyici_" + Math.floor(Math.random() * 900 + 100);
-    localStorage.setItem("contexta_username", userName);
-}
-
-const chatUserNameSpan = document.getElementById("chatUserName");
-if (chatUserNameSpan) chatUserNameSpan.innerText = userName;
-
-const btnChangeName = document.getElementById("btnChangeName");
-if (btnChangeName) {
-    btnChangeName.addEventListener("click", () => {
-        const newName = prompt("Sohbette görünecek adınızı yazın:", userName);
-        if (newName && newName.trim()) {
-            userName = newName.trim();
-            localStorage.setItem("contexta_username", userName);
-            if (chatUserNameSpan) chatUserNameSpan.innerText = userName;
-            showToast(`Adınız '${userName}' olarak güncellendi.`);
-        }
-    });
-}
 
 // Real-Time Cloud Endpoints
 const NTFY_CHAT_URL = "https://ntfy.sh/ctx_tv_chat_room_85e";
@@ -1307,11 +1304,18 @@ if (chatForm) {
         e.preventDefault();
         const text = chatInput.value.trim();
         if (!text) return;
+
+        // If not logged in yet, prompt login modal
+        if (!isLoggedIn || !userName) {
+            openLoginModal(false);
+            return;
+        }
         
         const newMsg = {
             id: Date.now() + "_" + Math.random().toString(36).substring(2, 7),
             clientId: clientId,
             sender: userName,
+            avatar: userAvatar,
             text: text,
             time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
             timestamp: Date.now()
@@ -1342,9 +1346,10 @@ function renderChatHistory() {
     
     chatMessages.innerHTML = chatHistory.map(msg => {
         const isMine = msg.clientId === clientId;
+        const avatar = msg.avatar || "👤";
         return `
             <div class="chat-bubble ${isMine ? 'mine' : 'other'}">
-                <span class="chat-sender">${isMine ? 'Siz (' + msg.sender + ')' : msg.sender}</span>
+                <span class="chat-sender">${avatar} ${isMine ? 'Siz (' + msg.sender + ')' : msg.sender}</span>
                 <span>${msg.text}</span>
                 <span class="chat-time">${msg.time}</span>
             </div>
@@ -1444,8 +1449,16 @@ function notifyIncomingMessage(msg) {
     }
 }
 
-// 11. Presence Counter
+// ====================================================
+// 11. PRESENCE ENGINE & CANLI ARKADAŞ PUAN SIRALAMASI
+// ====================================================
 let activePeers = {};
+let leaderboardPeers = {};
+
+try {
+    const savedLb = localStorage.getItem("contexta_leaderboard_v1");
+    if (savedLb) leaderboardPeers = JSON.parse(savedLb);
+} catch (e) {}
 
 function initPresence() {
     try {
@@ -1458,6 +1471,20 @@ function initPresence() {
                     if (peer.clientId) {
                         activePeers[peer.clientId] = Date.now();
                         refreshPresenceCount();
+
+                        // Live friend score update
+                        if (peer.sender && peer.points !== undefined) {
+                            leaderboardPeers[peer.clientId] = {
+                                name: peer.sender,
+                                avatar: peer.avatar || "👤",
+                                points: peer.points || 0,
+                                lastSeen: Date.now()
+                            };
+                            try {
+                                localStorage.setItem("contexta_leaderboard_v1", JSON.stringify(leaderboardPeers));
+                            } catch (e) {}
+                            renderLeaderboard();
+                        }
                     }
                 }
             } catch (e) {}
@@ -1476,7 +1503,13 @@ function sendPresenceHeartbeat() {
     fetch(NTFY_PRESENCE_URL, {
         method: "POST",
         headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify({ clientId, sender: userName, timestamp: Date.now() })
+        body: JSON.stringify({
+            clientId,
+            sender: userName || "İzleyici",
+            avatar: userAvatar || "🦁",
+            points: userProfile.points || 0,
+            timestamp: Date.now()
+        })
     }).catch(() => {});
 }
 
@@ -1494,6 +1527,250 @@ function refreshPresenceCount() {
     if (count < 1) count = 1;
     const userPill = document.getElementById("activeUserCount");
     if (userPill) userPill.innerText = `${count} Canlı`;
+}
+
+// 12. LEADERBOARD RENDERING ENGINE
+function renderLeaderboard() {
+    const list = document.getElementById("leaderboardList");
+    const myScoreName = document.getElementById("myScoreName");
+    const myScoreAvatar = document.getElementById("myScoreAvatar");
+    const myScorePoints = document.getElementById("myScorePoints");
+    const myScoreLevel = document.getElementById("myScoreLevel");
+    const myScoreProgress = document.getElementById("myScoreProgress");
+    const nextLevelLabel = document.getElementById("nextLevelLabel");
+    const pointsToNextLabel = document.getElementById("pointsToNextLabel");
+    const myScoreRankBadge = document.getElementById("myScoreRankBadge");
+
+    const pts = userProfile.points || 0;
+
+    // Update Personal Scorecard
+    if (myScoreName) myScoreName.innerText = userName || "İzleyici";
+    if (myScoreAvatar) myScoreAvatar.innerText = userAvatar || "🦁";
+    if (myScorePoints) myScorePoints.innerText = pts;
+
+    // Calculate level
+    let levelName = "Seviye 1 • TV Çaylağı";
+    let nextThreshold = 100;
+    let prevThreshold = 0;
+
+    if (pts >= 300) {
+        levelName = "Seviye 4 • TV Efsanesi 👑";
+        nextThreshold = 500;
+        prevThreshold = 300;
+    } else if (pts >= 200) {
+        levelName = "Seviye 3 • TV Gurmesi 🌟";
+        nextThreshold = 300;
+        prevThreshold = 200;
+    } else if (pts >= 100) {
+        levelName = "Seviye 2 • TV Kaşifi 🚀";
+        nextThreshold = 200;
+        prevThreshold = 100;
+    }
+
+    if (myScoreLevel) myScoreLevel.innerText = levelName;
+    if (nextLevelLabel) nextLevelLabel.innerText = `Sonraki Seviye: ${nextThreshold} P`;
+
+    const remaining = Math.max(0, nextThreshold - pts);
+    if (pointsToNextLabel) pointsToNextLabel.innerText = `${remaining} P kaldı`;
+
+    const progressPct = Math.min(100, Math.max(10, ((pts - prevThreshold) / (nextThreshold - prevThreshold)) * 100));
+    if (myScoreProgress) myScoreProgress.style.width = `${progressPct}%`;
+
+    // Build complete leaderboard array
+    const allUsers = [];
+
+    // Current user
+    allUsers.push({
+        id: clientId,
+        name: userName || "Siz",
+        avatar: userAvatar || "🦁",
+        points: pts,
+        isMe: true,
+        isOnline: true,
+        lastSeen: Date.now()
+    });
+
+    // Peers from network
+    const now = Date.now();
+    Object.keys(leaderboardPeers).forEach(id => {
+        if (id !== clientId) {
+            const peer = leaderboardPeers[id];
+            const isOnline = (now - (peer.lastSeen || 0)) < 30000;
+            allUsers.push({
+                id: id,
+                name: peer.name || "Arkadaş",
+                avatar: peer.avatar || "👤",
+                points: peer.points || 0,
+                isMe: false,
+                isOnline: isOnline,
+                lastSeen: peer.lastSeen
+            });
+        }
+    });
+
+    // Sort descending by points
+    allUsers.sort((a, b) => (b.points || 0) - (a.points || 0));
+
+    // Find my rank
+    const myIndex = allUsers.findIndex(u => u.isMe);
+    if (myScoreRankBadge) {
+        myScoreRankBadge.innerText = `#${myIndex + 1} Sırada`;
+    }
+
+    // Render list HTML
+    if (list) {
+        if (allUsers.length === 1) {
+            list.innerHTML = `
+                <div class="leaderboard-item me">
+                    <div class="item-left">
+                        <span class="item-rank rank-1">🥇 1</span>
+                        <span class="item-avatar">${userAvatar}</span>
+                        <div class="item-name-wrap">
+                            <span class="item-name">${userName || "Siz"} <small>(Siz)</small></span>
+                            <span class="item-status online">🟢 Çevrimiçi</span>
+                        </div>
+                    </div>
+                    <span class="item-points">${pts} P</span>
+                </div>
+                <div class="leaderboard-empty-hint">
+                    👥 <strong>Arkadaşlarınızla Yarışın:</strong><br>
+                    Bu sitenin linkini arkadaşlarınıza gönderin. Onlar da kendi rumuzlarıyla girdiklerinde puanları burada canlı sıralanacak!
+                </div>
+            `;
+        } else {
+            list.innerHTML = allUsers.map((u, idx) => {
+                let rankClass = "";
+                let medal = `${idx + 1}`;
+                if (idx === 0) { rankClass = "rank-1"; medal = "🥇 1"; }
+                else if (idx === 1) { rankClass = "rank-2"; medal = "🥈 2"; }
+                else if (idx === 2) { rankClass = "rank-3"; medal = "🥉 3"; }
+
+                return `
+                    <div class="leaderboard-item ${u.isMe ? 'me' : ''}">
+                        <div class="item-left">
+                            <span class="item-rank ${rankClass}">${medal}</span>
+                            <span class="item-avatar">${u.avatar || '👤'}</span>
+                            <div class="item-name-wrap">
+                                <span class="item-name">${u.name}${u.isMe ? ' <small>(Siz)</small>' : ''}</span>
+                                <span class="item-status ${u.isOnline ? 'online' : ''}">
+                                    ${u.isOnline ? '🟢 Çevrimiçi' : '⚪ Son Görülme'}
+                                </span>
+                            </div>
+                        </div>
+                        <span class="item-points">${u.points} P</span>
+                    </div>
+                `;
+            }).join('');
+        }
+    }
+}
+
+// ====================================================
+// 13. USER ONBOARDING & LOGIN MODAL ENGINE
+// ====================================================
+function openLoginModal(canClose = false) {
+    const modal = document.getElementById("loginModal");
+    const closeBtn = document.getElementById("btnCloseLoginModal");
+    const nameInput = document.getElementById("loginNameInput");
+    
+    if (!modal) return;
+    
+    if (nameInput) {
+        nameInput.value = userName || "";
+    }
+    
+    if (closeBtn) {
+        closeBtn.style.display = canClose ? "block" : "none";
+    }
+
+    // Set active avatar button
+    document.querySelectorAll(".avatar-opt").forEach(btn => {
+        if (btn.dataset.avatar === userAvatar) {
+            btn.classList.add("active");
+        } else {
+            btn.classList.remove("active");
+        }
+    });
+    
+    modal.style.display = "flex";
+}
+
+function closeLoginModal() {
+    const modal = document.getElementById("loginModal");
+    if (modal) modal.style.display = "none";
+}
+
+function initLoginOnboarding() {
+    // Avatar picker buttons
+    const avatarButtons = document.querySelectorAll(".avatar-opt");
+    avatarButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            avatarButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            userAvatar = btn.dataset.avatar;
+        });
+    });
+
+    // Form submit
+    const loginForm = document.getElementById("loginForm");
+    if (loginForm) {
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const nameInput = document.getElementById("loginNameInput");
+            const rawName = nameInput ? nameInput.value.trim() : "";
+            if (!rawName) return;
+
+            const isFirstLogin = !isLoggedIn;
+            userName = rawName;
+            isLoggedIn = true;
+
+            localStorage.setItem("contexta_username", userName);
+            localStorage.setItem("contexta_avatar", userAvatar);
+            localStorage.setItem("contexta_logged_in", "true");
+
+            if (isFirstLogin && (!userProfile.points || userProfile.points < 50)) {
+                userProfile.points = 50;
+            }
+
+            saveProfile();
+            closeLoginModal();
+            updatePointsUI();
+            renderLeaderboard();
+
+            showToast(`🎉 Hoş geldin ${userName}! Puan yarışına katıldın.`);
+        });
+    }
+
+    // Close button
+    const closeBtn = document.getElementById("btnCloseLoginModal");
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            closeLoginModal();
+        });
+    }
+
+    // Header chip click to edit profile
+    const userHeaderChip = document.getElementById("userHeaderChip");
+    if (userHeaderChip) {
+        userHeaderChip.addEventListener("click", () => {
+            openLoginModal(true);
+        });
+    }
+
+    // Chat rename button click
+    const btnChangeName = document.getElementById("btnChangeName");
+    if (btnChangeName) {
+        btnChangeName.addEventListener("click", () => {
+            openLoginModal(true);
+        });
+    }
+
+    // If not logged in, prompt modal
+    if (!isLoggedIn || !userName) {
+        setTimeout(() => {
+            openLoginModal(false);
+        }, 300);
+    }
 }
 
 // Toast helper
@@ -1514,5 +1791,7 @@ initChannelSelectors();
 selectChannel(currentChannel, currentState);
 updatePointsUI();
 renderWallet();
+renderLeaderboard();
 initRealtimeChat();
 initPresence();
+initLoginOnboarding();
