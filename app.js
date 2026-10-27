@@ -869,16 +869,48 @@ const channelDatabase = {
     }
 };
 
-// 2. User State & Storage
+// 2. User Authentication & State (Yetkili Kullanıcılar: alim & mustafa / ms123)
+const AUTH_USERS = {
+    mustafa: {
+        username: "mustafa",
+        password: "ms123",
+        displayName: "Mustafa",
+        avatar: "🦁",
+        role: "Kurucu Ortak / Yetkili"
+    },
+    alim: {
+        username: "alim",
+        password: "ms123",
+        displayName: "Alim",
+        avatar: "🦊",
+        role: "Kurucu Ortak / Yetkili"
+    }
+};
+
+let authUser = null;
+try {
+    const savedAuth = localStorage.getItem("contexta_auth_user");
+    if (savedAuth) {
+        const parsed = JSON.parse(savedAuth);
+        if (parsed && parsed.username && AUTH_USERS[parsed.username.toLowerCase()]) {
+            authUser = AUTH_USERS[parsed.username.toLowerCase()];
+        }
+    }
+} catch (e) {}
+
+function isAuthenticated() {
+    return authUser !== null;
+}
+
 let clientId = localStorage.getItem("contexta_client_id");
 if (!clientId) {
     clientId = "client_" + Math.random().toString(36).substring(2, 9);
     localStorage.setItem("contexta_client_id", clientId);
 }
 
-let userName = localStorage.getItem("contexta_username") || "";
-let userAvatar = localStorage.getItem("contexta_avatar") || "🦁";
-let isLoggedIn = localStorage.getItem("contexta_logged_in") === "true";
+let userName = authUser ? authUser.displayName : (localStorage.getItem("contexta_username") || "Misafir");
+let userAvatar = authUser ? authUser.avatar : (localStorage.getItem("contexta_avatar") || "👤");
+let isLoggedIn = isAuthenticated();
 
 let userProfile = {
     points: 50,
@@ -918,11 +950,28 @@ function updatePointsUI() {
 
     const headerName = document.getElementById("headerUserName");
     const headerAvatar = document.getElementById("headerUserAvatar");
-    if (headerName) headerName.innerText = userName || "Giriş Yap";
-    if (headerAvatar) headerAvatar.innerText = userAvatar || "🦁";
+    const headerChip = document.getElementById("userHeaderChip");
+
+    if (isAuthenticated()) {
+        if (headerName) headerName.innerText = authUser.displayName;
+        if (headerAvatar) headerAvatar.innerText = authUser.avatar;
+        if (headerChip) {
+            headerChip.classList.add("authenticated");
+            headerChip.title = `${authUser.displayName} (${authUser.role}) - Çıkış için tıklayın`;
+        }
+        document.body.classList.add("is-authenticated");
+    } else {
+        if (headerName) headerName.innerText = "Misafir (Giriş Yap)";
+        if (headerAvatar) headerAvatar.innerText = "👤";
+        if (headerChip) {
+            headerChip.classList.remove("authenticated");
+            headerChip.title = "Yetkili Girişi Yap (ms123)";
+        }
+        document.body.classList.remove("is-authenticated");
+    }
 
     const chatNameStrong = document.getElementById("chatUserName");
-    if (chatNameStrong) chatNameStrong.innerText = `${userAvatar || '🦁'} ${userName || "İzleyici"}`;
+    if (chatNameStrong) chatNameStrong.innerText = `${userAvatar || '👤'} ${userName || "Misafir"}`;
 }
 
 // 3. Current Active Channel & Broadcast State
@@ -1227,34 +1276,54 @@ function renderWallet() {
     `).join('');
 }
 
-// 8. Tab Navigation (Yukarı Taşınan Sekmeler)
+// 8. Tab Navigation (Yukarı Taşınan Sekmeler & Yetkili Koruması)
+let pendingProtectedTab = null;
+
+function switchToTab(targetTab) {
+    const btn = document.querySelector(`.nav-btn[data-tab="${targetTab}"]`);
+    if (!btn) return;
+
+    // Korumalı sekme kontrolü: Şifre ile giriş yapmayanlar sadece ana ekranı (tabHome) görebilir!
+    if (btn.dataset.protected === "true" && !isAuthenticated()) {
+        pendingProtectedTab = targetTab;
+        const tabLabel = btn.querySelector(".nav-label") ? btn.querySelector(".nav-label").innerText : "Özel Bölüm";
+        openLoginModal(true, "Yetkili Girişi Gerekli", `🔒 <strong>${tabLabel}</strong> bölümüne erişmek için lütfen yetkili şifrenizle giriş yapınız.<br><small style="color:#94a3b8;">(Misafirler yalnızca Canlı TV ana ekranını izleyebilir)</small>`);
+        showToast(`🔒 ${tabLabel} için yetkili girişi gereklidir.`);
+        return;
+    }
+
+    document.querySelectorAll(".app-nav-bar .nav-btn, .top-nav-bar .nav-btn, .bottom-nav .nav-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    
+    document.querySelectorAll(".tab-pane").forEach(pane => pane.classList.remove("active"));
+    
+    const activePane = document.getElementById(targetTab);
+    if (activePane) activePane.classList.add("active");
+    
+    if (targetTab === "tabWallet") {
+        renderWallet();
+    } else if (targetTab === "tabLeaderboard") {
+        renderLeaderboard();
+    } else if (targetTab === "tabChat") {
+        const badge = btn.querySelector(".nav-badge");
+        if (badge) badge.style.display = "none";
+        renderChatHistory();
+    } else if (targetTab === "tabPitch") {
+        const body = document.querySelector(".app-body");
+        if (body) body.scrollTop = 0;
+    } else if (targetTab === "tabStats") {
+        const body = document.querySelector(".app-body");
+        if (body) body.scrollTop = 0;
+        renderStatsTable();
+    } else if (targetTab === "tabPatent") {
+        const body = document.querySelector(".app-body");
+        if (body) body.scrollTop = 0;
+    }
+}
+
 document.querySelectorAll(".app-nav-bar .nav-btn, .top-nav-bar .nav-btn, .bottom-nav .nav-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-        document.querySelectorAll(".app-nav-bar .nav-btn, .top-nav-bar .nav-btn, .bottom-nav .nav-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        
-        const targetTab = btn.dataset.tab;
-        document.querySelectorAll(".tab-pane").forEach(pane => pane.classList.remove("active"));
-        
-        const activePane = document.getElementById(targetTab);
-        if (activePane) activePane.classList.add("active");
-        
-        if (targetTab === "tabWallet") {
-            renderWallet();
-        } else if (targetTab === "tabLeaderboard") {
-            renderLeaderboard();
-        } else if (targetTab === "tabChat") {
-            const badge = btn.querySelector(".nav-badge");
-            if (badge) badge.style.display = "none";
-            renderChatHistory();
-        } else if (targetTab === "tabPitch") {
-            const body = document.querySelector(".app-body");
-            if (body) body.scrollTop = 0;
-        } else if (targetTab === "tabStats") {
-            const body = document.querySelector(".app-body");
-            if (body) body.scrollTop = 0;
-            renderStatsTable();
-        }
+        switchToTab(btn.dataset.tab);
     });
 });
 
@@ -1895,48 +1964,106 @@ function renderLeaderboard() {
 }
 
 // ====================================================
-// 13. USER ONBOARDING & LOGIN MODAL ENGINE
+// 13. AUTHENTICATION & LOGIN GATE ENGINE (alim & mustafa / ms123)
 // ====================================================
-function openLoginModal(canClose = false) {
+function openLoginModal(canClose = true, customTitle = null, customDesc = null) {
     const modal = document.getElementById("loginModal");
     const closeBtn = document.getElementById("btnCloseLoginModal");
-    const nameInput = document.getElementById("loginNameInput");
+    const usernameInput = document.getElementById("loginUsername");
+    const passwordInput = document.getElementById("loginPassword");
+    const errorMsg = document.getElementById("loginErrorMsg");
+    const titleEl = document.getElementById("loginModalTitle");
+    const descEl = document.getElementById("loginModalDesc");
     
     if (!modal) return;
     
-    if (nameInput) {
-        nameInput.value = userName || "";
+    if (errorMsg) {
+        errorMsg.style.display = "none";
+        errorMsg.innerHTML = "";
+    }
+
+    if (titleEl) {
+        titleEl.innerText = customTitle || "Yetkili Kullanıcı Girişi";
+    }
+
+    if (descEl) {
+        if (customDesc) {
+            descEl.innerHTML = customDesc;
+        } else {
+            descEl.innerText = "Contexta TV kapalı devre test ortamı. Özel bölümlere (Cüzdan, Sıralama, Sohbet, Sunum, İstatistik, Patent) erişmek için giriş yapınız.";
+        }
+    }
+
+    if (usernameInput) {
+        usernameInput.value = authUser ? authUser.username : (localStorage.getItem("contexta_last_auth_user") || "");
     }
     
+    if (passwordInput) {
+        passwordInput.value = "";
+    }
+
     if (closeBtn) {
         closeBtn.style.display = canClose ? "block" : "none";
     }
 
-    // Set active avatar button
-    document.querySelectorAll(".avatar-opt").forEach(btn => {
-        if (btn.dataset.avatar === userAvatar) {
-            btn.classList.add("active");
-        } else {
-            btn.classList.remove("active");
-        }
-    });
-    
     modal.style.display = "flex";
+
+    setTimeout(() => {
+        if (usernameInput && !usernameInput.value) {
+            usernameInput.focus();
+        } else if (passwordInput) {
+            passwordInput.focus();
+        }
+    }, 120);
 }
 
 function closeLoginModal() {
     const modal = document.getElementById("loginModal");
     if (modal) modal.style.display = "none";
+
+    // Giriş yapılmadıysa her zaman tabHome'da kalması zorunludur!
+    if (!isAuthenticated()) {
+        pendingProtectedTab = null;
+        document.querySelectorAll(".app-nav-bar .nav-btn, .top-nav-bar .nav-btn, .bottom-nav .nav-btn").forEach(b => b.classList.remove("active"));
+        const homeBtn = document.querySelector('.nav-btn[data-tab="tabHome"]');
+        if (homeBtn) homeBtn.classList.add("active");
+        
+        document.querySelectorAll(".tab-pane").forEach(pane => pane.classList.remove("active"));
+        const homePane = document.getElementById("tabHome");
+        if (homePane) homePane.classList.add("active");
+    }
+}
+
+function logoutUser() {
+    authUser = null;
+    isLoggedIn = false;
+    userName = "Misafir";
+    userAvatar = "👤";
+    localStorage.removeItem("contexta_auth_user");
+    localStorage.removeItem("contexta_logged_in");
+    document.body.classList.remove("is-authenticated");
+
+    switchToTab("tabHome");
+    updatePointsUI();
+    renderLeaderboard();
+    showToast("🔒 Oturum kapatıldı. Yalnızca ana ekran (Canlı TV) görüntülenebilir.");
 }
 
 function initLoginOnboarding() {
-    // Avatar picker buttons
-    const avatarButtons = document.querySelectorAll(".avatar-opt");
-    avatarButtons.forEach(btn => {
+    // Quick user selection chips (alim / mustafa)
+    document.querySelectorAll(".btn-quick-user").forEach(btn => {
         btn.addEventListener("click", () => {
-            avatarButtons.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            userAvatar = btn.dataset.avatar;
+            const userKey = btn.dataset.user;
+            const usernameInput = document.getElementById("loginUsername");
+            const passwordInput = document.getElementById("loginPassword");
+            const errorMsg = document.getElementById("loginErrorMsg");
+
+            if (errorMsg) errorMsg.style.display = "none";
+            if (usernameInput) usernameInput.value = userKey;
+            if (passwordInput) {
+                passwordInput.value = "";
+                passwordInput.focus();
+            }
         });
     });
 
@@ -1945,60 +2072,96 @@ function initLoginOnboarding() {
     if (loginForm) {
         loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            const nameInput = document.getElementById("loginNameInput");
-            const rawName = nameInput ? nameInput.value.trim() : "";
-            if (!rawName) return;
+            const usernameInput = document.getElementById("loginUsername");
+            const passwordInput = document.getElementById("loginPassword");
+            const errorMsg = document.getElementById("loginErrorMsg");
 
-            const isFirstLogin = !isLoggedIn;
-            userName = rawName;
-            isLoggedIn = true;
+            const rawUser = usernameInput ? usernameInput.value.trim().toLowerCase() : "";
+            const rawPass = passwordInput ? passwordInput.value.trim() : "";
 
-            localStorage.setItem("contexta_username", userName);
-            localStorage.setItem("contexta_avatar", userAvatar);
-            localStorage.setItem("contexta_logged_in", "true");
-
-            if (isFirstLogin && (!userProfile.points || userProfile.points < 50)) {
-                userProfile.points = 50;
+            if (!rawUser || !rawPass) {
+                if (errorMsg) {
+                    errorMsg.innerText = "Lütfen kullanıcı adı ve şifrenizi giriniz.";
+                    errorMsg.style.display = "block";
+                }
+                return;
             }
 
-            saveProfile();
-            closeLoginModal();
-            updatePointsUI();
-            renderLeaderboard();
+            const targetUser = AUTH_USERS[rawUser];
+            if (targetUser && targetUser.password === rawPass) {
+                // Başarılı Giriş!
+                authUser = targetUser;
+                userName = authUser.displayName;
+                userAvatar = authUser.avatar;
+                isLoggedIn = true;
 
-            showToast(`🎉 Hoş geldin ${userName}! Puan yarışına katıldın.`);
+                localStorage.setItem("contexta_auth_user", JSON.stringify(authUser));
+                localStorage.setItem("contexta_last_auth_user", authUser.username);
+                localStorage.setItem("contexta_username", userName);
+                localStorage.setItem("contexta_avatar", userAvatar);
+                localStorage.setItem("contexta_logged_in", "true");
+
+                if (!userProfile.points || userProfile.points < 50) {
+                    userProfile.points = 50;
+                }
+
+                document.body.classList.add("is-authenticated");
+                saveProfile();
+                closeLoginModal();
+                updatePointsUI();
+                renderLeaderboard();
+
+                showToast(`🎉 Hoş geldin ${authUser.displayName}! Tüm bölümler kullanıma açıldı.`);
+
+                if (pendingProtectedTab) {
+                    const nextTab = pendingProtectedTab;
+                    pendingProtectedTab = null;
+                    switchToTab(nextTab);
+                }
+            } else {
+                // Hatalı Bilgi
+                if (errorMsg) {
+                    errorMsg.innerHTML = "❌ Hatalı kullanıcı adı veya şifre!<br><small>Yetkili kullanıcılar: <strong>alim</strong> veya <strong>mustafa</strong> (Şifre: <strong>ms123</strong>)</small>";
+                    errorMsg.style.display = "block";
+                }
+                if (passwordInput) {
+                    passwordInput.value = "";
+                    passwordInput.focus();
+                }
+            }
         });
     }
 
-    // Close button
+    // Close button ("Misafir Olarak Ana Ekrana Dön")
     const closeBtn = document.getElementById("btnCloseLoginModal");
     if (closeBtn) {
         closeBtn.addEventListener("click", () => {
             closeLoginModal();
+            showToast("📺 Misafir modu: Yalnızca Canlı TV ana ekranını izleyebilirsiniz.");
         });
     }
 
-    // Header chip click to edit profile
+    // Header chip click
     const userHeaderChip = document.getElementById("userHeaderChip");
     if (userHeaderChip) {
         userHeaderChip.addEventListener("click", () => {
-            openLoginModal(true);
+            if (isAuthenticated()) {
+                const doLogout = confirm(`👤 Oturum Açık: ${authUser.displayName} (${authUser.role})\n\nOturumu kapatıp misafir moduna geçmek istiyor musunuz?`);
+                if (doLogout) {
+                    logoutUser();
+                }
+            } else {
+                openLoginModal(true);
+            }
         });
     }
 
-    // Chat rename button click
-    const btnChangeName = document.getElementById("btnChangeName");
-    if (btnChangeName) {
-        btnChangeName.addEventListener("click", () => {
-            openLoginModal(true);
-        });
-    }
-
-    // If not logged in, prompt modal
-    if (!isLoggedIn || !userName) {
-        setTimeout(() => {
-            openLoginModal(false);
-        }, 300);
+    // Initial check on load
+    if (isAuthenticated()) {
+        document.body.classList.add("is-authenticated");
+    } else {
+        document.body.classList.remove("is-authenticated");
+        switchToTab("tabHome");
     }
 }
 

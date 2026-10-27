@@ -55,25 +55,35 @@
                 <span class="nav-icon">📺</span>
                 <span class="nav-label">Canlı TV</span>
             </button>
-            <button class="nav-btn" data-tab="tabWallet">
+            <button class="nav-btn" data-tab="tabWallet" data-protected="true">
                 <span class="nav-icon">🎁</span>
                 <span class="nav-label">Cüzdan</span>
+                <span class="lock-indicator">🔒</span>
             </button>
-            <button class="nav-btn" data-tab="tabLeaderboard">
+            <button class="nav-btn" data-tab="tabLeaderboard" data-protected="true">
                 <span class="nav-icon">🏆</span>
                 <span class="nav-label">Sıralama</span>
+                <span class="lock-indicator">🔒</span>
             </button>
-            <button class="nav-btn" data-tab="tabChat">
+            <button class="nav-btn" data-tab="tabChat" data-protected="true">
                 <span class="nav-icon">💬</span>
                 <span class="nav-label">Sohbet</span>
+                <span class="lock-indicator">🔒</span>
             </button>
-            <button class="nav-btn pitch-nav-btn" data-tab="tabPitch">
+            <button class="nav-btn pitch-nav-btn" data-tab="tabPitch" data-protected="true">
                 <span class="nav-icon">🚀</span>
                 <span class="nav-label">Sunum</span>
+                <span class="lock-indicator">🔒</span>
             </button>
-            <button class="nav-btn stats-nav-btn" data-tab="tabStats">
+            <button class="nav-btn stats-nav-btn" data-tab="tabStats" data-protected="true">
                 <span class="nav-icon">📊</span>
                 <span class="nav-label">İstatistik</span>
+                <span class="lock-indicator">🔒</span>
+            </button>
+            <button class="nav-btn patent-nav-btn" data-tab="tabPatent" data-protected="true">
+                <span class="nav-icon">⚖️</span>
+                <span class="nav-label">Patent</span>
+                <span class="lock-indicator">🔒</span>
             </button>
         </nav>
 
@@ -912,49 +922,243 @@
                 </div>
             </div>
 
+            <!-- TAB 7: PATENT & INTELLECTUAL PROPERTY ROADMAP (TÜRKİYE PATENT STRATEJİSİ) -->
+            <div class="tab-pane" id="tabPatent">
+                <!-- Patent Hero Header -->
+                <div class="patent-hero">
+                    <div class="patent-badge">⚖️ TÜRKPATENT & PCT FİKRİ MÜLKİYET YOL HARİTASI</div>
+                    <h2 class="patent-title">Contexta TV <span>Patent Stratejisi</span></h2>
+                    <p class="patent-subtitle">Yazılım Tabanlı Buluşların Türkiye'de ve Dünyada Tescili, Hukuki Koruma Kalkanı ve Teşvik Süreci</p>
+                    <div class="patent-meta-bar">
+                        <span>📜 Yasal Dayanak: <strong>SMK No. 6769 m.82 (CII Kriteri)</strong></span>
+                        <span>🏛️ Merci: <strong>TÜRKPATENT & WIPO (PCT)</strong></span>
+                        <span>💰 Teşvik: <strong>TÜBİTAK 1601 Destekli (%80-100 Hibe)</strong></span>
+                    </div>
+                </div>
+
+                <!-- 1. Hukuki Temel & Kritik Kural (Yazılım Nasıl Patentlenir?) -->
+                <div class="patent-card">
+                    <div class="patent-card-tag cyan">⚖️ HUKUKİ TEMEL & YÖNTEM PATENTSİZLİK YANILGISI</div>
+                    <h3 class="patent-card-title">Türkiye'de Yazılım Nasıl Patentlenir? (SMK m.82 Kuralı)</h3>
+                    <p class="patent-p-desc">Türkiye'de Sınai Mülkiyet Kanunu (SMK m.82/2-c) uyarınca <em>"bilgisayar programları tek başlarına"</em> patentlenemez; sadece FSEK kapsamında telif hakkı koruması alır. <strong>ANCAK TÜRKPATENT ve Avrupa Patent Sözleşmesi (EPO) içtihatlarına göre:</strong></p>
+
+                    <div class="patent-rule-grid">
+                        <div class="p-rule-box bad">
+                            <span class="r-icon">❌</span>
+                            <div>
+                                <strong>Patentlenemeyen (Salt Yazılım):</strong>
+                                <p>Sadece ekranda bir hesaplama yapan veya iş metodolojisi işleten soyut algoritmalar ve kaynak kodları tek başına patentlenemez.</p>
+                            </div>
+                        </div>
+                        <div class="p-rule-box good">
+                            <span class="r-icon">✅</span>
+                            <div>
+                                <strong>Patentlenebilen (Bilgisayar Tabanlı Buluş - CII):</strong>
+                                <p>Donanımla (mikrofon, ses kartı, sunucu RAM döngüsü, DVB teletext dekoder) teknik bir problemi çözen ve <strong>harici dünyada fiziksel/teknik bir etki</strong> (0.2 sn akustik parmak izi eşleşmesi ile yayın senkronizasyonu) yaratan yöntemler <strong>"YÖNTEM VE SİSTEM PATENTİ"</strong> olarak tescil edilir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Adım Adım Patent Başvuru Yol Haritası (Timeline) -->
+                <div class="patent-card">
+                    <div class="patent-card-tag purple">🗺️ ADIM ADIM YOL HARİTASI</div>
+                    <h3 class="patent-card-title">TÜRKPATENT'ten Küresel WIPO / PCT Korumasına 6 Adım</h3>
+                    <p class="patent-p-desc">Contexta TV'nin fikri haklarını adım adım güvenceye alacağımız resmi başvuru takvimi:</p>
+
+                    <div class="patent-timeline">
+                        <div class="p-step">
+                            <div class="p-step-num">1</div>
+                            <div class="p-step-content">
+                                <span class="p-step-phase">1. AY • TEKNİĞİN BİLİNEN DURUMU (PRIOR ART) TARAMASI</span>
+                                <strong>Ön Patent Araştırması & Ayırt Edici Unsur Tespiti</strong>
+                                <p>TÜRKPATENT, Espacenet, WIPO ve Google Patents veri tabanlarında akustik ACR (IPC: H04N 21/43, G10L 19/018) taraması yapılır. Shazam (US 6990453) ve Gracenote patentlerinden ayırt edici olan <em>"16kHz tepe spektrogramı ile Teletekst S.300/888 NLP akışının çapraz eşleşmesi"</em> yenilik unsuru olarak kurgulanır.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-step">
+                            <div class="p-step-num">2</div>
+                            <div class="p-step-content">
+                                <span class="p-step-phase">1. - 2. AY • TARİFNAME & İSTEM (CLAIMS) YAZIMI</span>
+                                <strong>Patent Vekili ile İstem Setinin (Claims) İnşası</strong>
+                                <p>TÜRKPATENT Sicilli resmi bir Patent Vekili ile 3 bağımsız koruma kalkanı yazılır:
+                                <br>• <strong>Yöntem İstemi:</strong> Canlı TV sesinin mikrofon ve teletekst ile hibrit senkronizasyonu yöntemi.
+                                <br>• <strong>Sistem İstemi:</strong> 0.2 saniye gecikmeli Redis döner bellek tamponu ve sunucu kümesi.
+                                <br>• <strong>Bilgisayarla Okunabilir Ortam İstemi:</strong> İstemci tarafında sıfır uygulama (PWA) Web Audio API modülü.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-step highlight">
+                            <div class="p-step-num">3</div>
+                            <div class="p-step-content">
+                                <span class="p-step-phase">2. AY • TÜRKPATENT BAŞVURUSU (RÜÇHAN TARİHİ)</span>
+                                <strong>Resmi Başvuru & "Patent Pending" Koruma Kalkanı</strong>
+                                <p>TÜRKPATENT'e resmi başvuru yapılarak <strong>Rüçhan Numarası (Priority Date)</strong> alınır. Bu andan itibaren yatırımcı sunumlarında ve pazarda <strong>"Patent Pending (Patenti Alınmaktadır)"</strong> ibaresi yasal olarak kullanılır; fikir çalınmaya karşı koruma altına alınır.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-step">
+                            <div class="p-step-num">4</div>
+                            <div class="p-step-content">
+                                <span class="p-step-phase">3. AY • TÜBİTAK 1601 DESTEĞİ</span>
+                                <strong>%80 - %100 Hibe Destek Başvurusu (Sıfır Maliyet)</strong>
+                                <p>TÜBİTAK 1601 Patent Destek Programı'na başvurulur. TÜBİTAK, ulusal başvuru harçlarını ve resmi patent vekili ücretlerinin <strong>%80 ile %100'ünü karşılıksız hibe</strong> olarak öder.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-step">
+                            <div class="p-step-num">5</div>
+                            <div class="p-step-content">
+                                <span class="p-step-phase">6. - 9. AY • ARAŞTIRMA VE İNCELEME RAPORU</span>
+                                <strong>TÜRKPATENT / EPO Resmi Yenilik Tescili</strong>
+                                <p>Patent ofisinin uzmanları dünyadaki tüm teknolojileri tarayarak resmi Araştırma Raporu (Search Report) yayınlar. İstemlerin yenilik ve buluş basamağı içerdiği tescillenir.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-step highlight-gold">
+                            <div class="p-step-num">6</div>
+                            <div class="p-step-content">
+                                <span class="p-step-phase">12. AY • PCT İLE 150+ ÜLKEDE ULUSLARARASI TESCİL</span>
+                                <strong>WIPO Patent Cooperation Treaty (Küresel Koruma)</strong>
+                                <p>Türkiye başvuru tarihinden itibaren tam 12 ay içinde WIPO üzerinden tek bir PCT başvurusu yapılır. Bu hamle ile ABD, Avrupa Birliği, Çin, Brezilya vb. 150'den fazla ülkede patentleme hakkı rezerve edilir ve şirketin tohum/Seri A değerlemesi katlanır.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Neleri Koruma Altına Alıyoruz? (Patent & Marka Kapsamı) -->
+                <div class="patent-card">
+                    <div class="patent-card-tag green">🛡️ TESCİL EDİLECEK 4 FİKRİ MÜLKİYET KALKANI</div>
+                    <h3 class="patent-card-title">Contexta TV'nin Fikri Mülkiyet (IP) Portföyü</h3>
+
+                    <div class="patent-ip-grid">
+                        <div class="ip-box">
+                            <div class="ip-icon">📡</div>
+                            <div class="ip-info">
+                                <strong>1. Akustik ACR + Teletekst Yöntem Patenti</strong>
+                                <span>Televizyon ses tepe frekansları (Peak Constellation) ile canlı Teletekst S.300/888 akışını çapraz doğrulayan hibrit eşleştirme yöntemi.</span>
+                            </div>
+                        </div>
+                        <div class="ip-box">
+                            <div class="ip-icon">⚡</div>
+                            <div class="ip-info">
+                                <strong>2. 0.2 Saniye Gecikmeli Döner Bellek Sistem Patenti</strong>
+                                <span>20+ kanalın canlı ses akışını donanımsal RAM tamponunda (Redis Ring Buffer) tutarak mikro saniyede sorgulayan bulut mimarisi.</span>
+                            </div>
+                        </div>
+                        <div class="ip-box">
+                            <div class="ip-icon">📱</div>
+                            <div class="ip-info">
+                                <strong>3. Sıfır İndirme (PWA) İkinci Ekran Faydalı Model / Arayüz</strong>
+                                <span>Kullanıcıya uygulama yükletmeden Web Audio API üzerinden TV ile eşleşen ikinci ekran kupon/anket tetikleme arayüzü.</span>
+                            </div>
+                        </div>
+                        <div class="ip-box">
+                            <div class="ip-icon">🏷️</div>
+                            <div class="ip-info">
+                                <strong>4. TÜRKPATENT Marka Tescili (Contexta TV)</strong>
+                                <span>9. Sınıf (Yazılım), 35. Sınıf (Reklam & Kupon Pazarlama), 38. Sınıf (Yayıncılık) ve 42. Sınıf (SaaS & Veri Analitiği).</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Tahmini Süreç ve Bütçe / Hibe Tablosu -->
+                <div class="patent-card">
+                    <div class="patent-card-tag cyan">💰 TAHMİNİ PATENT MALİYETİ & HİBE DESTEĞİ</div>
+                    <h3 class="patent-card-title">TÜBİTAK Destekli Bütçe Planı</h3>
+
+                    <div class="budget-table-wrap">
+                        <table class="budget-table">
+                            <thead>
+                                <tr>
+                                    <th>Aşama / Kalem</th>
+                                    <th>Tahmini Tutar</th>
+                                    <th>TÜBİTAK 1601 Desteği</th>
+                                    <th>Net Şirket Maliyeti</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Ön Tarama & Vekil İstem Yazımı</strong></td>
+                                    <td>35.000 ₺</td>
+                                    <td>%80 Hibe (28.000 ₺)</td>
+                                    <td><strong>7.000 ₺</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>TÜRKPATENT Resmi Başvuru Harcı</strong></td>
+                                    <td>4.500 ₺</td>
+                                    <td>%100 Hibe (4.500 ₺)</td>
+                                    <td><strong>0 ₺</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Resmi Araştırma Raporu Harcı</strong></td>
+                                    <td>12.000 ₺</td>
+                                    <td>%100 Hibe (12.000 ₺)</td>
+                                    <td><strong>0 ₺</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Marka Tescili (4 Sınıf)</strong></td>
+                                    <td>18.000 ₺</td>
+                                    <td>KOSGEB %60 Destek</td>
+                                    <td><strong>7.200 ₺</strong></td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td><strong>TOPLAM TÜRKİYE TESCİL MALİYETİ</strong></td>
+                                    <td><strong>69.500 ₺</strong></td>
+                                    <td><strong>51.700 ₺ Hibe</strong></td>
+                                    <td><strong>~14.200 ₺ (~$400)</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </main>
 
     </div>
 
-    <!-- SIMPLE ONBOARDING & LOGIN MODAL -->
+    <!-- AUTHENTICATION / LOGIN MODAL -->
     <div class="modal-overlay" id="loginModal" style="display: none;">
         <div class="modal-card">
             <div class="modal-header">
-                <div class="modal-icon">📺</div>
-                <h3>Contexta TV'ye Hoş Geldiniz!</h3>
-                <p>Arkadaşlarınızla canlı TV izlerken anketlere katılın, kupon toplayın ve puan yarışına başlayın!</p>
+                <div class="modal-icon">🔐</div>
+                <h3 id="loginModalTitle">Yetkili Kullanıcı Girişi</h3>
+                <p id="loginModalDesc">Contexta TV kapalı devre test ortamı. Özel bölümlere (Cüzdan, Sıralama, Sohbet, Sunum, İstatistik, Patent) erişmek için giriş yapınız.</p>
             </div>
 
             <form id="loginForm" class="login-form">
                 <div class="form-group">
-                    <label for="loginNameInput">Rumuzunuz veya Adınız:</label>
-                    <input type="text" id="loginNameInput" placeholder="Örn: Mustafa, Can, Ece..." maxlength="18" required autocomplete="nickname">
+                    <label for="loginUsername">Kullanıcı Adı:</label>
+                    <input type="text" id="loginUsername" placeholder="alim veya mustafa" required autocomplete="username">
                 </div>
 
                 <div class="form-group">
-                    <label>Profil Avatarınızı Seçin:</label>
-                    <div class="avatar-picker" id="avatarPicker">
-                        <button type="button" class="avatar-opt active" data-avatar="🦁">🦁</button>
-                        <button type="button" class="avatar-opt" data-avatar="🦊">🦊</button>
-                        <button type="button" class="avatar-opt" data-avatar="🚀">🚀</button>
-                        <button type="button" class="avatar-opt" data-avatar="👑">👑</button>
-                        <button type="button" class="avatar-opt" data-avatar="🎯">🎯</button>
-                        <button type="button" class="avatar-opt" data-avatar="📺">📺</button>
-                        <button type="button" class="avatar-opt" data-avatar="🌟">🌟</button>
-                        <button type="button" class="avatar-opt" data-avatar="🐱">🐱</button>
-                    </div>
+                    <label for="loginPassword">Şifre:</label>
+                    <input type="password" id="loginPassword" placeholder="Şifrenizi girin (ms123)" required autocomplete="current-password">
                 </div>
 
+                <!-- Quick user autofill chips -->
+                <div class="quick-user-select">
+                    <span class="quick-label">Hızlı Seç:</span>
+                    <button type="button" class="btn-quick-user" data-user="mustafa">🦁 mustafa</button>
+                    <button type="button" class="btn-quick-user" data-user="alim">🦊 alim</button>
+                </div>
+
+                <!-- Error feedback -->
+                <div class="login-error-msg" id="loginErrorMsg" style="display: none;"></div>
+
                 <div class="bonus-notice">
-                    🎁 İlk girişte <strong>+50 Hoş Geldin Puanı</strong> anında hesabınıza eklenecek!
+                    🔑 Yetkili kullanıcılar: <strong>mustafa</strong> ve <strong>alim</strong> (Şifre: <strong>ms123</strong>)
                 </div>
 
                 <button type="submit" class="btn-primary-login" id="btnSubmitLogin">
-                    🚀 Giriş Yap & Yarışmaya Başla
+                    🔐 Şifre ile Doğrula & Giriş Yap
                 </button>
                 
-                <button type="button" class="btn-close-modal" id="btnCloseLoginModal" style="display: none;">
-                    Kapat
+                <button type="button" class="btn-close-modal" id="btnCloseLoginModal">
+                    📺 Misafir Olarak Ana Ekrana Dön
                 </button>
             </form>
         </div>
