@@ -42,6 +42,7 @@ body {
     width: 100%;
     max-width: 440px;
     height: 100vh;
+    height: 100dvh;
     max-height: 920px;
     background-color: var(--bg-dark);
     display: flex;
@@ -175,7 +176,7 @@ body {
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 16px;
+    padding: 16px 16px max(32px, env(safe-area-inset-bottom, 32px)) 16px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -1094,18 +1095,21 @@ body {
     font-size: 0.85rem;
 }
 
-/* Bottom Navigation */
+/* Top Navigation Bar (Yukarı Taşınan Ana Sekmeler) */
+.app-nav-bar,
+.top-nav-bar,
 .bottom-nav {
-    height: 64px;
-    background: rgba(19, 23, 34, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid var(--card-border);
+    height: 56px;
+    background: rgba(15, 18, 28, 0.98);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--card-border);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-bottom: env(safe-area-inset-bottom, 0);
+    padding: 0 4px;
     flex-shrink: 0;
+    z-index: 25;
 }
 
 .nav-btn {
@@ -1114,14 +1118,26 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    justify-content: center;
+    gap: 3px;
     color: var(--text-muted);
     cursor: pointer;
     padding: 6px 4px;
     flex: 1;
     min-width: 0;
-    transition: all 0.2s;
+    height: 46px;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
     position: relative;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-btn.active {
+    color: var(--purple);
+    background: rgba(139, 92, 246, 0.14);
 }
 
 .nav-btn.pitch-nav-btn {
@@ -1130,13 +1146,14 @@ body {
 
 .nav-btn.pitch-nav-btn.active {
     color: #facc15;
+    background: rgba(250, 204, 21, 0.14);
     text-shadow: 0 0 10px rgba(250, 204, 21, 0.4);
 }
 
 .nav-badge {
     position: absolute;
-    top: 6px;
-    right: 18px;
+    top: 4px;
+    right: 14px;
     width: 8px;
     height: 8px;
     background: #ef4444;
@@ -1146,22 +1163,20 @@ body {
 }
 
 .nav-btn .nav-icon {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
+    line-height: 1;
 }
 
 .nav-btn .nav-label {
     font-size: 0.68rem;
-    font-weight: 600;
-}
-
-.nav-btn.active {
-    color: var(--purple);
+    font-weight: 700;
+    letter-spacing: -0.2px;
 }
 
 /* Toast Message */
 .toast {
     position: fixed;
-    bottom: 80px;
+    bottom: 24px;
     left: 50%;
     transform: translateX(-50%) translateY(30px);
     background: #1e293b;
@@ -2727,6 +2742,8 @@ body {
     }
 
     .app-header,
+    .app-nav-bar,
+    .top-nav-bar,
     .bottom-nav,
     .pitch-nav-pills,
     .pitch-theme-bar,

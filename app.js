@@ -1227,10 +1227,10 @@ function renderWallet() {
     `).join('');
 }
 
-// 8. Tab Navigation
-document.querySelectorAll(".bottom-nav .nav-btn").forEach(btn => {
+// 8. Tab Navigation (Yukarı Taşınan Sekmeler)
+document.querySelectorAll(".app-nav-bar .nav-btn, .top-nav-bar .nav-btn, .bottom-nav .nav-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-        document.querySelectorAll(".bottom-nav .nav-btn").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".app-nav-bar .nav-btn, .top-nav-bar .nav-btn, .bottom-nav .nav-btn").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         
         const targetTab = btn.dataset.tab;
@@ -1660,7 +1660,7 @@ function initRealtimeChat() {
 function notifyIncomingMessage(msg) {
     const chatTab = document.getElementById("tabChat");
     if (chatTab && !chatTab.classList.contains("active")) {
-        const chatNavBtn = document.querySelector('.bottom-nav .nav-btn[data-tab="tabChat"]');
+        const chatNavBtn = document.querySelector('.nav-btn[data-tab="tabChat"]');
         if (chatNavBtn) {
             let badge = chatNavBtn.querySelector(".nav-badge");
             if (!badge) {
